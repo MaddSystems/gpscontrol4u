@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% if user.language == 'es' %}
+Configuración de Cuenta - Marketplace
+{% else %}
+Account Setup - Marketplace
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+            <div class="card-header text-center bg-primary text-white">
+                <h3 class="mb-0">
+                    {% if user.language == 'es' %}
+                    <i class="fas fa-user-cog"></i> Configuración de Cuenta
+                    {% else %}
+                    <i class="fas fa-user-cog"></i> Account Setup
+                    {% endif %}
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info" style="background-color: #F5F3F6; border-left: 4px solid #917996;">
+                    {% if user.language == 'es' %}
+                    <h5 style="color: #917996;"><i class="fas fa-info-circle"></i> Paso Importante</h5>
+                    <p>Para acceder a los planes gratuitos o premium y utilizar nuestras aplicaciones móviles, necesitas proporcionar tu RFC o TIN (Número de Identificación Tributaria).</p>
+                    <p><strong>¿Por qué necesitamos esta información?</strong></p>
+                    <ul>
+                        <li>Para registrarte en nuestra API externa</li>
+                        <li>Para sincronizar tu cuenta con las aplicaciones iOS y Android</li>
+                        <li>Para generar las credenciales necesarias para usar la aplicación</li>
+                    </ul>
+                    <p class="mb-0"><strong>Tu información está segura y solo se usa para la integración de servicios.</strong></p>
+                    {% else %}
+                    <h5 style="color: #917996;"><i class="fas fa-info-circle"></i> Important Step</h5>
+                    <p>To access free or premium plans and use our mobile applications, you need to provide your RFC or TIN (Tax Identification Number).</p>
+                    <p><strong>Why do we need this information?</strong></p>
+                    <ul>
+                        <li>To register you in our external API</li>
+                        <li>To sync your account with iOS and Android applications</li>
+                        <li>To generate the necessary credentials to use the app</li>
+                    </ul>
+                    <p class="mb-0"><strong>Your information is secure and only used for service integration.</strong></p>
+                    {% endif %}
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.rfc_tin.id_for_label }}" class="form-label">
+                            {% if user.language == 'es' %}
+                            RFC/TIN *
+                            {% else %}
+                            RFC/TIN Number *
+                            {% endif %}
+                        </label>
+                        {{ form.rfc_tin }}
+                        {% if form.rfc_tin.help_text %}
+                        <div class="form-text">
+                            {% if user.language == 'es' %}
+                            Ingresa tu RFC (México) o número TIN para habilitar el acceso a la aplicación
+                            {% else %}
+                            {{ form.rfc_tin.help_text }}
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% if form.rfc_tin.errors %}
+                        <div class="text-danger">
+                            {% for error in form.rfc_tin.errors %}
+                            <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check">
+                            {{ form.accept_terms }}
+                            <label class="form-check-label" for="{{ form.accept_terms.id_for_label }}">
+                                {% if user.language == 'es' %}
+                                Acepto los <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">términos y condiciones</a> *
+                                {% else %}
+                                I accept the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">terms and conditions</a> *
+                                {% endif %}
+                            </label>
+                        </div>
+                        {% if form.accept_terms.errors %}
+                        <div class="text-danger">
+                            {% for error in form.accept_terms.errors %}
+                            <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            {% if user.language == 'es' %}
+                            <i class="fas fa-save"></i> Completar Configuración
+                            {% else %}
+                            <i class="fas fa-save"></i> Complete Setup
+                            {% endif %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!-- Terms and Conditions Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="termsModalLabel">
+                    {% if user.language == 'es' %}
+                    Términos y Condiciones
+                    {% else %}
+                    Terms and Conditions
+                    {% endif %}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="max-height: 500px; overflow-y: auto;">
+                {% if user.language == 'es' %}
+                <h6>Términos y Condiciones de Uso</h6>
+                <p>Los presentes Términos y Condiciones regulan el acceso, navegación y uso de la plataforma <strong>GPSControl4U</strong> y sus aplicaciones móviles, propiedad de <strong>MADD SYSTEMS, S.A. DE C.V.</strong></p>
+                
+                <h6>1. Aceptación de Términos</h6>
+                <p>El uso de cualquiera de las partes de la plataforma implica la aceptación plena de estos Términos y Condiciones por parte del usuario.</p>
+                
+                <h6>2. Descripción del Servicio</h6>
+                <p>GPSControl4U es una plataforma de rastreo GPS que permite monitorear vehículos en tiempo real, configurar geo-cercas, recibir alertas y coordinar con una central de emergencias 24/7.</p>
+                
+                <h6>3. Requisitos de Usuario</h6>
+                <p>Para utilizar GPSControl4U, el usuario debe:</p>
+                <ul>
+                    <li>Ser mayor de 18 años</li>
+                    <li>Ser residente de México o estar autorizado para usar el servicio</li>
+                    <li>Proporcionar información fiscal válida (RFC o TIN)</li>
+                    <li>Proporcionar un teléfono verificable</li>
+                    <li>Aceptar estos Términos y Condiciones</li>
+                </ul>
+                
+                <h6>4. Responsabilidad del Usuario</h6>
+                <p>El usuario es responsable de:</p>
+                <ul>
+                    <li>La veracidad de la información proporcionada</li>
+                    <li>La confidencialidad de sus credenciales de acceso</li>
+                    <li>El cumplimiento de leyes locales en el uso del servicio</li>
+                    <li>Las acciones realizadas con su cuenta</li>
+                </ul>
+                
+                <h6>5. Limitaciones de Responsabilidad</h6>
+                <p>MADD SYSTEMS no se responsabiliza por:</p>
+                <ul>
+                    <li>Pérdida de datos o interrupciones del servicio</li>
+                    <li>Errores causados por terceros o fuerza mayor</li>
+                    <li>Uso indebido del servicio por parte del usuario</li>
+                    <li>Daños resultantes del uso de la plataforma</li>
+                </ul>
+                
+                <h6>6. Privacidad y Datos Personales</h6>
+                <p>Los datos personales se tratan de acuerdo con nuestra Política de Privacidad. La información de rastreo se mantiene confidencial y solo se comparte con usuarios autorizados.</p>
+                
+                <h6>7. Modificaciones del Servicio</h6>
+                <p>Nos reservamos el derecho de modificar, actualizar o descontinuar el servicio en cualquier momento, con notificación previa a los usuarios.</p>
+                
+                <h6>8. Contacto</h6>
+                <p>Para preguntas sobre estos términos, contáctanos a través de nuestras aplicaciones móviles o sitio web.</p>
+                
+                {% else %}
+                <h6>Terms and Conditions of Use</h6>
+                <p>These Terms and Conditions govern access, navigation, and use of the <strong>GPSControl4U</strong> platform and mobile applications, owned by <strong>MADD SYSTEMS, S.A. DE C.V.</strong></p>
+                
+                <h6>1. Acceptance of Terms</h6>
+                <p>Use of any part of the platform implies full acceptance of these Terms and Conditions by the user.</p>
+                
+                <h6>2. Service Description</h6>
+                <p>GPSControl4U is a GPS tracking platform that allows real-time vehicle monitoring, geofencing configuration, alert reception, and coordination with a 24/7 emergency center.</p>
+                
+                <h6>3. User Requirements</h6>
+                <p>To use GPSControl4U, the user must:</p>
+                <ul>
+                    <li>Be 18 years of age or older</li>
+                    <li>Be a resident of Mexico or authorized to use the service</li>
+                    <li>Provide valid tax information (RFC or TIN)</li>
+                    <li>Provide a verifiable phone number</li>
+                    <li>Accept these Terms and Conditions</li>
+                </ul>
+                
+                <h6>4. User Responsibility</h6>
+                <p>The user is responsible for:</p>
+                <ul>
+                    <li>The accuracy of information provided</li>
+                    <li>The confidentiality of access credentials</li>
+                    <li>Compliance with local laws in service use</li>
+                    <li>Actions performed with their account</li>
+                </ul>
+                
+                <h6>5. Limitation of Liability</h6>
+                <p>MADD SYSTEMS is not responsible for:</p>
+                <ul>
+                    <li>Data loss or service interruptions</li>
+                    <li>Errors caused by third parties or force majeure</li>
+                    <li>Misuse of the service by users</li>
+                    <li>Damages resulting from platform use</li>
+                </ul>
+                
+                <h6>6. Privacy and Personal Data</h6>
+                <p>Personal data is processed according to our Privacy Policy. Tracking information is kept confidential and only shared with authorized users.</p>
+                
+                <h6>7. Service Modifications</h6>
+                <p>We reserve the right to modify, update, or discontinue the service at any time, with prior notification to users.</p>
+                
+                <h6>8. Contact</h6>
+                <p>For questions about these terms, contact us through our mobile applications or website.</p>
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    {% if user.language == 'es' %}
+                    Cerrar
+                    {% else %}
+                    Close
+                    {% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Format RFC/TIN input as user types
+    const rfcTinInput = document.getElementById('{{ form.rfc_tin.id_for_label }}');
+    if (rfcTinInput) {
+        rfcTinInput.addEventListener('input', function(e) {
+            // Convert to uppercase and remove non-alphanumeric characters
+            this.value = this.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        });
+    }
+});
+</script>
+{% endblock %}

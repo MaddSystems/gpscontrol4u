@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Registro - gpscontrol4u" %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow border-0">
+            <div class="card-header text-center py-4" style="background: linear-gradient(135deg, #6B7280 0%, #000000 100%) !important; color: white;">
+                <h3 class="mb-1">{% trans "Create your account" %}</h3>
+                <p class="mb-0">{% trans "Únete a miles de usuarios que usan gpscontrol4u" %}</p>
+            </div>
+            <div class="card-body p-5">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}
+                    <div class="alert alert-danger border-0">
+                        <ul class="mb-0">
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.first_name.id_for_label }}" class="form-label">{% trans "Nombre" %}</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.last_name.id_for_label }}" class="form-label">{% trans "Apellido" %}</label>
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.email.id_for_label }}" class="form-label">{% trans "Correo Electrónico" %}</label>
+                        {{ form.email }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.language.id_for_label }}" class="form-label">{% trans "Idioma Preferido" %}</label>
+                        {{ form.language }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.password1.id_for_label }}" class="form-label text-dark">{% trans "Password" %}</label>
+                        {{ form.password1 }}
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="{{ form.password2.id_for_label }}" class="form-label text-dark">{% trans "Confirm Password" %}</label>
+                        {{ form.password2 }}
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="id_accepted_terms" name="accepted_terms" required>
+                            <label class="form-check-label" for="id_accepted_terms">
+                                {% blocktrans %}He leído y acepto los <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Términos y Condiciones</a>{% endblocktrans %}
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-login-gray btn-lg" id="create-account-btn" disabled>{% trans "Create Account" %}</button>
+<style>
+/* Registro igual que login: header y botón gris, sin verdes */
+.btn-login-gray {
+    background-color: #6B7280 !important;
+    border: none !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+.btn-login-gray:hover, .btn-login-gray:focus {
+    background-color: #4B5563 !important;
+    color: #fff !important;
+}
+</style>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p class="text-muted">{% trans "Already have an account?" %} <a href="{% url 'accounts:login' %}" class="text-decoration-none" style="color: #6B7280;">{% trans "Sign in here" %}</a></p>
+                        <p class="text-muted"><small>{% trans "Didn't receive verification email?" %} <a href="{% url 'accounts:resend_verification' %}" class="text-decoration-none" style="color: #6B7280;">{% trans "Reenviar aquí" %}</a></small></p>
+                    </div>
+                </form>
+
+                <!-- Terms and Conditions Modal (inline content) -->
+                <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="termsModalLabel">{% trans "Términos y Condiciones" %}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body" style="max-height:70vh; overflow-y:auto;">
+                        <div class="bg-white py-3 mb-3 rounded-3 border">
+                            <div class="text-center">
+                                <h1 class="display-6 fw-bold">{% trans "Términos y Condiciones de Uso de GPSControl4U" %}</h1>
+                                <p class="lead text-muted">{% trans "Última actualización:" %} 25 de julio de 2025</p>
+                            </div>
+                        </div>
+                        <div class="card shadow-sm p-3">
+                            <p>Los presentes Términos y Condiciones regulan el acceso, navegación y uso de la plataforma <strong>GPSControl4U</strong>, compuesta por una <strong>página web</strong>, una <strong>aplicación web</strong> y una <strong>aplicación móvil gratuita</strong>, propiedad de <strong>MADD SYSTEMS, S.A. DE C.V.</strong> ("nosotros", "la empresa").</p>
+                            <p>El uso de cualquiera de las partes de la plataforma implica la aceptación plena de estos Términos y Condiciones por parte del usuario.</p>
+                            <hr>
+                            <h2>1. Descripción general del servicio</h2>
+                            <p><strong>GPSControl4U</strong> es una plataforma de recolección y gestión de datos a través de formularios digitales. Está compuesta por:</p>
+                            <ul>
+                                <li><strong>Página web:</strong> permite registrarse, visualizar información del producto y adquirir licencias.</li>
+                                <li><strong>Aplicación web:</strong> permite a usuarios administradores configurar formularios, visualizar datos recolectados y administrar licencias.</li>
+                                <li><strong>Aplicación móvil gratuita:</strong> permite a usuarios estándar capturar datos a través de formularios asignados.</li>
+                            </ul>
+                            <hr>
+                            <h2>2. Registro y creación de cuenta</h2>
+                            <p>Para utilizar GPSControl4U, el usuario debe registrarse en la página web proporcionando información personal básica y aceptando estos Términos.</p>
+                            <p>El proceso incluye:</p>
+                            <ul>
+                                <li>Envío de correo de verificación</li>
+                                <li>Proporcionar datos fiscales (RFC o TIN)</li>
+                                <li>Activación de licencias (gratuitas o de pago)</li>
+                            </ul>
+                            <p><strong>El usuario es responsable de la veracidad de los datos proporcionados y de la confidencialidad de sus credenciales de acceso.</strong></p>
+                            <hr>
+                            <h2>3. Licencias</h2>
+                            <p>Al crear una cuenta, el usuario recibe una licencia gratuita de prueba con duración anual. También puede adquirir otras licencias (individuales o paquetes) a través de la página web.</p>
+                            <p>Las licencias permiten:</p>
+                            <ul>
+                                <li>Acceso a la aplicación web</li>
+                                <li>Creación y asignación de usuarios estándar</li>
+                                <li>Sincronización con la aplicación móvil</li>
+                            </ul>
+                            <p><strong>Las licencias son intransferibles y válidas únicamente para el número de usuarios autorizados.</strong></p>
+                            <hr>
+                            <h2>4. Roles de usuario</h2>
+                            <ul>
+                                <li><strong>Usuario administrador:</strong> tiene acceso total a la aplicación web y puede gestionar formularios, licencias, templates y usuarios.</li>
+                                <li><strong>Usuario estándar:</strong> accede únicamente a la aplicación móvil y completa los formularios asignados.</li>
+                            </ul>
+                            <hr>
+                            <h2>5. Uso de la aplicación web</h2>
+                            <p>La aplicación web permite:</p>
+                            <ul>
+                                <li>Crear y editar formularios con distintos tipos de campos</li>
+                                <li>Generar templates en HTML para exportar formularios en PDF</li>
+                                <li>Subir un logotipo personalizado</li>
+                                <li>Administrar licencias y usuarios</li>
+                                <li>Consultar y exportar datos recolectados</li>
+                                <li>Usar formularios y plantillas de ejemplo (muestrario)</li>
+                            </ul>
+                            <p><strong>GPSControl4U se reserva el derecho de reutilizar formularios o templates generados por usuarios, previa modificación, para agregarlos al muestrario general de ejemplos.</strong></p>
+                            <hr>
+                            <h2>6. Uso de la aplicación móvil</h2>
+                            <p>La app móvil permite:</p>
+                            <ul>
+                                <li>Autenticación mediante código enviado por WhatsApp</li>
+                                <li>Descarga automática de formularios</li>
+                                <li>Captura de datos offline y sincronización con el servidor</li>
+                                <li>Visualización del historial de formularios enviados</li>
+                                <li>Recepción de tareas programadas</li>
+                                <li>Reporte continuo de ubicación para fines de trazabilidad (visible solo por administradores)</li>
+                            </ul>
+                            <p><strong>El usuario debe contar con conexión a internet para sincronizar formularios.</strong></p>
+                            <hr>
+                            <h2>7. Obligaciones del usuario</h2>
+                            <ul>
+                                <li>Utilizar la plataforma conforme a la ley y a estos Términos</li>
+                                <li>No utilizar GPSControl4U para actividades ilegales, fraudulentas o que infrinjan derechos de terceros</li>
+                                <li>No compartir credenciales con otros usuarios</li>
+                                <li>Garantizar que los datos ingresados son verídicos, legales y no confidenciales sin consentimiento</li>
+                            </ul>
+                            <hr>
+                            <h2>8. Uso y responsabilidad sobre los datos recolectados</h2>
+                            <p><strong>MADD SYSTEMS, S.A. DE C.V. NO se hace responsable del uso que los clientes o usuarios den a la información recopilada mediante nuestra plataforma.</strong></p>
+                            <p>Nuestro servicio se limita al almacenamiento, visualización y exportación de los datos. El tratamiento, manejo o divulgación de los datos es responsabilidad exclusiva del usuario administrador.</p>
+                            <hr>
+                            <h2>9. Restricciones y suspensión</h2>
+                            <p>Nos reservamos el derecho de suspender temporal o definitivamente una cuenta si:</p>
+                            <ul>
+                                <li>Se detecta mal uso de la plataforma</li>
+                                <li>Se intenta acceder o modificar partes del sistema sin autorización</li>
+                                <li>Se incumplen estos Términos y Condiciones</li>
+                            </ul>
+                            <hr>
+                            <h2>10. Propiedad intelectual</h2>
+                            <p>Todos los derechos de propiedad intelectual sobre la plataforma, su diseño, contenido, código fuente, marca y logotipo son propiedad exclusiva de <strong>MADD SYSTEMS, S.A. DE C.V.</strong> Se prohíbe la copia, distribución, modificación o reproducción parcial o total sin autorización escrita.</p>
+                            <hr>
+                            <h2>11. Servicios de terceros</h2>
+                            <p>GPSControl4U utiliza servicios de terceros como:</p>
+                            <ul>
+                                <li>Proveedores de pago: Stripe (EE. UU.) y Mercado Pago (México)</li>
+                                <li>Firebase (notificaciones push)</li>
+                                <li>Proveedor de envío de mensajes vía WhatsApp</li>
+                                <li>Servidor SMTP (correo de verificación)</li>
+                            </ul>
+                            <p><strong>No somos responsables del uso que dichos terceros puedan hacer de la información transmitida a través de sus plataformas.</strong></p>
+                            <hr>
+                            <h2>12. Disponibilidad del servicio</h2>
+                            <p>Nos esforzamos por mantener la disponibilidad continua del servicio, pero <strong>no garantizamos</strong> que estará libre de errores, interrupciones o accesible en todo momento. El usuario acepta que podrían existir periodos de mantenimiento o fallos técnicos.</p>
+                            <hr>
+                            <h2>13. Modificaciones</h2>
+                            <p>Nos reservamos el derecho de modificar estos Términos en cualquier momento. Cualquier cambio será publicado en nuestra página web. El uso posterior a la modificación implica la aceptación de los nuevos términos.</p>
+                            <hr>
+                            <h2>14. Legislación y jurisdicción</h2>
+                            <p>Este acuerdo se rige por las leyes mexicanas. En caso de controversia, el usuario acepta someterse a la jurisdicción de los tribunales competentes de la Ciudad de México, renunciando a cualquier otro fuero.</p>
+                            <hr>
+                            <h2>15. Contacto</h2>
+                            <p>Si tienes dudas o inquietudes sobre estos Términos, puedes escribirnos a:</p>
+                            <ul>
+                                <li><strong>Correo electrónico de contacto:</strong> <a href="mailto:gpscontrol4u@madd.com.mx">gpscontrol4u@madd.com.mx</a></li>
+                                <li><strong>Dirección fiscal o de atención:</strong> Av. Gustavo Baz Prada 176, 3A y 4A, San Jerónimo Tepetlacalco, 54090 Tlalnepantla de Baz, México</li>
+                            </ul>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Cerrar" %}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <p class="text-muted">
+                <small>{% trans "By creating an account, you agree to our Terms of Service and Privacy Policy." %}</small>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Set focus to the first name field when page loads
+    const firstNameField = document.getElementById('{{ form.first_name.id_for_label }}');
+    if (firstNameField) {
+        firstNameField.focus();
+    }
+    // Enable/disable Create Account button based on terms checkbox
+    const termsCheckbox = document.getElementById('id_accepted_terms');
+    const createBtn = document.getElementById('create-account-btn');
+    if (termsCheckbox && createBtn) {
+        termsCheckbox.addEventListener('change', function() {
+            createBtn.disabled = !this.checked;
+        });
+        // Initial state
+        createBtn.disabled = !termsCheckbox.checked;
+    }
+});
+</script>
+{% endblock %}

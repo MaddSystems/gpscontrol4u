@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Verificar Teléfono" %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow border-0">
+            <div class="card-header text-center py-4" style="background: linear-gradient(135deg, #6B7280 0%, #000000 100%) !important; color: white;">
+                <h3 class="mb-1">{% trans "Verificar tu Teléfono" %}</h3>
+                <p class="mb-0">{% trans "Enviaremos un código de verificación a tu WhatsApp" %}</p>
+            </div>
+            <div class="card-body p-5">
+                <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                        Paso 2 de 2
+                    </div>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}
+                    <div class="alert alert-danger border-0">
+                        <ul class="mb-0">
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="mb-4">
+                        <p class="text-muted">
+                            {% trans "Tu RFC/TIN ha sido verificado. Ahora proporciona tu número de teléfono para recibir un código de verificación por WhatsApp." %}
+                        </p>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label for="{{ form.country_code.id_for_label }}" class="form-label">{% trans "Código País" %}</label>
+                            {{ form.country_code }}
+                        </div>
+                        <div class="col-md-8">
+                            <label for="{{ form.phone_number.id_for_label }}" class="form-label">{% trans "Número de Teléfono (10 dígitos)" %}</label>
+                            {{ form.phone_number }}
+                            {% if form.phone_number.help_text %}
+                                <small class="form-text text-muted d-block mt-2">{{ form.phone_number.help_text }}</small>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-login-gray btn-lg" id="send-code-btn">
+                            {% trans "Enviar Código de Verificación" %}
+                        </button>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p class="text-muted">
+                            <small>
+                                {% trans "¿Necesitas ayuda?" %} 
+                                <a href="mailto:gpscontrol4u@madd.com.mx" class="text-decoration-none" style="color: #6B7280;">
+                                    {% trans "Contacta soporte" %}
+                                </a>
+                            </small>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.btn-login-gray {
+    background-color: #6B7280 !important;
+    border: none !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+.btn-login-gray:hover, .btn-login-gray:focus {
+    background-color: #4B5563 !important;
+    color: #fff !important;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,372 @@
+/* Custom styles for Marketplace with sophisticated dark color scheme */
+
+:root {
+    --primary-color: #6B46C1;    /* Rich purple - vibrant and modern */
+    --primary-dark: #553C9A;     /* Darker purple for depth */
+    --primary-light: #8B5FE8;    /* Lighter purple for accents */
+    --secondary-color: #F59E0B;  /* Vibrant amber/orange */
+    --accent-color: #10B981;     /* Emerald green for contrast */
+    --tertiary-color: #EF4444;   /* Vibrant red for emphasis */
+    --text-light: #FFFFFF;       /* White text on dark backgrounds */
+    --text-dark: #1F2937;        /* Dark gray text */
+    --text-muted: #6B7280;       /* Muted gray text */
+    --bg-light: #F3F4F6;         /* Light gray background */
+    --bg-card: #FFFFFF;          /* Pure white for cards */
+    --border-color: #D1D5DB;     /* Subtle border color */
+    --gradient-start: #6B46C1;   /* Gradient start (purple) */
+    --gradient-end: #EC4899;     /* Gradient end (pink) */
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    box-shadow: 0 4px 15px rgba(107, 70, 193, 0.3);
+}
+
+.hero-logo {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.bg-primary,
+.navbar.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.btn.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-dark);
+    transition: all 0.3s ease;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(107, 70, 193, 0.4);
+}
+
+.btn.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn.btn-outline-primary:hover,
+.btn.btn-outline-primary:focus,
+.btn.btn-outline-primary:active {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.btn.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn.btn-secondary:hover,
+.btn.btn-secondary:focus,
+.btn.btn-secondary:active {
+    background-color: #D97706 !important;
+    border-color: #D97706 !important;
+}
+
+/* Additional vibrant color utilities */
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+.text-accent {
+    color: var(--accent-color) !important;
+}
+
+.text-tertiary {
+    color: var(--tertiary-color) !important;
+}
+
+.btn-tertiary {
+    background-color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+    color: white;
+}
+
+.btn-tertiary:hover {
+    background-color: #DC2626;
+    border-color: #DC2626;
+    color: white;
+}
+
+/* Vibrant gradient backgrounds */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+}
+
+.bg-gradient-secondary {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--tertiary-color) 100%);
+}
+
+.bg-gradient-accent {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+}
+
+/* Enhanced card variants */
+.card-vibrant {
+    background: linear-gradient(135deg, rgba(107, 70, 193, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.card-vibrant:hover {
+    border: 2px solid var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(107, 70, 193, 0.2);
+}
+
+/* Colorful accent borders */
+.border-gradient {
+    border: 3px solid;
+    border-image: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) 1;
+}
+
+/* Modern badge colors */
+.badge-vibrant {
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    color: white;
+}
+
+.badge-secondary-vibrant {
+    background: linear-gradient(135deg, var(--secondary-color), var(--tertiary-color));
+    color: white;
+}
+
+/* Existing styles with updated colors */
+.features-section .card {
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+}
+
+.features-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(107, 70, 193, 0.15);
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.alert {
+    border: none;
+    border-radius: 10px;
+}
+
+.btn {
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.card {
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.hero-section img {
+    border-radius: 20px;
+}
+
+/* Navigation enhancements */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+/* Form styles */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    padding: 12px 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(107, 70, 193, 0.25);
+}
+
+/* Dashboard styles */
+.dashboard-card {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #E5E7EB 100%);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer harmonization */
+footer.footer-custom {
+    margin-top: auto;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%) !important; /* Match header gradient */
+}
+
+footer.footer-custom a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+footer.footer-custom a:hover {
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+footer.footer-custom h5 {
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+footer.footer-custom p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+    }
+    
+    .hero-section .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Additional modern elements */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    border: none;
+    margin: 3rem 0;
+}
+
+/* Hover effects for cards */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(107, 70, 193, 0.15);
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* High-specificity overrides to ensure our styles take precedence */
+body .navbar.navbar-dark.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+body .footer-custom {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%) !important;
+}
+
+body .btn.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-dark) !important;
+}
+
+body .btn.btn-primary:hover,
+body .btn.btn-primary:focus,
+body .btn.btn-primary:active {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+}
+
+body .card-header.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Ensure hero section uses our colors */
+body .hero-section.bg-primary {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%) !important;
+}
+
+/* Enhanced navbar with subtle pattern */
+.navbar-vibrant {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    position: relative;
+}
+
+.navbar-vibrant::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}

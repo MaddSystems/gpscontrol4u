@@ -1,0 +1,8 @@
+{% extends "admin/change_list.html" %}
+{% block content %}
+<div style="margin-bottom:2em;">
+    <strong>Total registered users:</strong> {{ total_users }}<br>
+    <strong>Total buyers (users who paid):</strong> {{ total_buyers }}
+</div>
+{{ block.super }}
+{% endblock %}

@@ -1,0 +1,394 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Marketplace - gpscontrol4u{% endblock %}</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS - Must load after Bootstrap -->
+    <link href="{% static 'css/style.css' %}?v=14.0" rel="stylesheet">
+    <style>
+        /* gpscontrol4u Store inspired modern design theme */
+        :root {
+            --gpscontrol4u-primary: #2EA3F2;
+            --gpscontrol4u-primary-light: #5CBDF9;
+            --gpscontrol4u-primary-dark: #1E7BC7;
+            --gpscontrol4u-gray: #747D88;
+            --gpscontrol4u-gray-light: #F1F3F4;
+            --gpscontrol4u-white: #FFFFFF;
+            --gpscontrol4u-text: #333333;
+            --gpscontrol4u-text-light: #666666;
+            --gpscontrol4u-accent: #29C4A9;
+            --gpscontrol4u-border: #E9ECEF;
+        }
+        
+        /* White theme body */
+        body {
+            background-color: var(--gpscontrol4u-white) !important;
+            color: var(--gpscontrol4u-text) !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* Clean white navbar */
+        .navbar.navbar-expand-lg {
+            background-color: var(--gpscontrol4u-white) !important;
+            border-bottom: 1px solid #E9ECEF !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        }
+        
+        .navbar-brand, .navbar-nav .nav-link {
+            color: var(--gpscontrol4u-text) !important;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--gpscontrol4u-blue) !important;
+        }
+        
+        /* Primary button styling - blue theme */
+        .btn-primary,
+        .btn-primary:focus,
+        .btn-primary:active {
+            background-color: var(--gpscontrol4u-primary) !important;
+            border-color: var(--gpscontrol4u-primary) !important;
+            color: #fff !important;
+            box-shadow: 0 2px 8px rgba(46, 163, 242, 0.3) !important;
+        }
+        .btn-primary:hover {
+            background-color: var(--gpscontrol4u-primary-dark) !important;
+            border-color: var(--gpscontrol4u-primary-dark) !important;
+            color: #fff !important;
+        }
+        .btn-outline-primary,
+        .btn-outline-primary:focus,
+        .btn-outline-primary:active {
+            background-color: #fff !important;
+            border-color: var(--gpscontrol4u-primary) !important;
+            color: var(--gpscontrol4u-primary) !important;
+            box-shadow: none !important;
+        }
+        .btn-outline-primary:hover,
+        .btn-outline-primary:focus:hover,
+        .btn-outline-primary:active:hover,
+        .btn-outline-primary:focus:active {
+            background-color: var(--gpscontrol4u-primary) !important;
+            border-color: var(--gpscontrol4u-primary) !important;
+            color: #fff !important;
+        }
+        
+        /* Hero section with modern styling */
+        .hero-section-special {
+            background: linear-gradient(135deg, var(--gpscontrol4u-primary) 0%, var(--gpscontrol4u-primary-light) 100%) !important;
+            color: white !important;
+        }
+        
+        /* New white hero section with subtle border */
+        .hero-section-white {
+            background-color: var(--gpscontrol4u-white) !important;
+            color: var(--gpscontrol4u-text) !important;
+            border: 1px solid var(--gpscontrol4u-border) !important;
+            border-radius: 8px !important;
+            padding: 3rem 2rem !important;
+            margin: 2rem 0 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+        }
+        
+        /* Subtle divider line */
+        .hero-dash-line {
+            border: none !important;
+            border-top: 1px solid var(--gpscontrol4u-border) !important;
+            margin: 2rem 0 !important;
+            opacity: 1 !important;
+        }
+        
+        /* Cards with modern design */
+        .card {
+            border: 1px solid var(--gpscontrol4u-border) !important;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+            border-radius: 8px !important;
+        }
+        
+        /* Footer styling */
+        .footer-custom {
+            background: var(--gpscontrol4u-gray-light) !important;
+            color: var(--gpscontrol4u-text) !important;
+            border-top: 1px solid var(--gpscontrol4u-border) !important;
+        }
+        
+        /* Dropdown menu styling */
+        .dropdown-menu {
+            z-index: 1050 !important;
+            background-color: var(--gpscontrol4u-white) !important;
+            border: 1px solid #E9ECEF !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        }
+        
+        .dropdown-item {
+            color: var(--gpscontrol4u-text) !important;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--gpscontrol4u-light-gray) !important;
+            color: var(--gpscontrol4u-blue) !important;
+        }
+        
+        /* Text colors for light theme */
+        .text-light {
+            color: var(--gpscontrol4u-text-light) !important;
+        }
+        
+        /* Features section cards */
+        .features-section {
+            background-color: var(--gpscontrol4u-light-gray) !important;
+        }
+        
+        .features-section h2 {
+            color: var(--gpscontrol4u-text) !important;
+        }
+        
+        .features-section .lead {
+            color: var(--gpscontrol4u-text-light) !important;
+        }
+        
+        /* Form controls - ensure visibility */
+        .form-control {
+            background-color: #f1f3f4 !important;
+            border: 2px solid #d1d5db !important;
+            color: #1f2937 !important;
+            border-radius: 8px !important;
+        }
+        
+        .form-control:focus {
+            background-color: #f1f3f4 !important;
+            border-color: var(--gpscontrol4u-blue) !important;
+            color: #1f2937 !important;
+            box-shadow: 0 0 0 0.2rem rgba(36, 126, 55, 0.25) !important;
+        }
+        
+        .form-control::placeholder {
+            color: #9ca3af !important;
+        }
+        
+        /* Specific form field overrides */
+        input.form-control,
+        select.form-control,
+        textarea.form-control {
+            background-color: #f1f3f4 !important;
+            border: 2px solid #d1d5db !important;
+            color: #1f2937 !important;
+        }
+    </style>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="https://gpscontrol4u.mx/" >
+                <img src="{% static 'img/logo_GPScontrol4u.png' %}" alt="Armaddia" height="40" class="d-inline-block align-middle">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://gpscontrol4u.com/">{% trans "Home" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:pricing' %}">{% trans "Pricing" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:privacy_policy' %}">{% trans "Política de Privacidad" %}</a>
+                    </li>
+                    <!--
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:terms_and_conditions' %}">{% trans "Términos y Condiciones" %}</a>
+                    </li>
+                    -->
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:dashboard' %}">{% trans "Dashboard" %}</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                
+                <ul class="navbar-nav">
+                    <!-- Language switcher -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% if LANGUAGE_CODE == 'es' %}🇲🇽 Español{% else %}🇺🇸 English{% endif %}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <form method="post" action="{% url 'accounts:set-language' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="language" value="en">
+                                    <button type="submit" class="dropdown-item">🇺🇸 English</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form method="post" action="{% url 'accounts:set-language' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="language" value="es">
+                                    <button type="submit" class="dropdown-item">🇲🇽 Español</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            {{ user.get_full_name|default:user.email }}
+                            {% if user.is_premium %}
+                            <span class="badge bg-warning text-dark">Premium</span>
+                            {% endif %}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">{% trans "Profile" %}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:login' %}">{% trans "Login" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:register' %}">{% trans "Register" %}</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Messages -->
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Main content -->
+    <main class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer-custom mt-5 py-4">
+        <div class="container">
+
+            <hr>
+            <div class="text-center d-flex align-items-center justify-content-center">
+                
+                <p class="text-muted mb-0">&copy; Tlalnepantla de Baz, Estado de México. 2025 by Madd Systems. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Confirmation Modal Component -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header" style="background: var(--gpscontrol4u-primary);">
+                    <h5 class="modal-title text-white" id="confirmationModalLabel">
+                        <i class="fas fa-question-circle me-2"></i>{% trans "Confirmation" %}
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p id="confirmationMessage" class="mb-0"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>{% trans "Cancel" %}
+                    </button>
+                    <button type="button" class="btn btn-primary" id="confirmationConfirm">
+                        <i class="fas fa-check me-1"></i>{% trans "Confirm" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success/Info Modal Component -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header" style="background: #28a745;">
+                    <h5 class="modal-title text-white" id="messageModalLabel">
+                        <i class="fas fa-info-circle me-2"></i>{% trans "Information" %}
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p id="messageText" class="mb-0" style="white-space: pre-line;"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="fas fa-check me-1"></i>{% trans "OK" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Modal Helper Functions -->
+    <script>
+        // Global modal helper functions
+        function showConfirmModal(message, onConfirm, title = null) {
+            document.getElementById('confirmationMessage').textContent = message;
+            if (title) {
+                document.getElementById('confirmationModalLabel').textContent = title;
+            }
+            
+            const confirmBtn = document.getElementById('confirmationConfirm');
+            // Remove any existing event listeners
+            const newConfirmBtn = confirmBtn.cloneNode(true);
+            confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+            
+            newConfirmBtn.addEventListener('click', function() {
+                const modal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal'));
+                modal.hide();
+                onConfirm();
+            });
+            
+            const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            modal.show();
+        }
+
+        function showMessageModal(message, title = null) {
+            document.getElementById('messageText').textContent = message;
+            if (title) {
+                document.getElementById('messageModalLabel').textContent = title;
+            }
+            
+            const modal = new bootstrap.Modal(document.getElementById('messageModal'));
+            modal.show();
+        }
+    </script>
+    
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html>

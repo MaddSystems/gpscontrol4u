@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Iniciar Sesión - gpscontrol4u" %}{% endblock %}
+
+{% block content %}
+<style>
+/* Only for login page */
+.login-header-gradient {
+    background: linear-gradient(135deg, #6B7280 0%, #000000 100%) !important;
+    color: white !important;
+}
+.btn-login-gray {
+    background-color: #6B7280 !important;
+    border: none !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+.btn-login-gray:hover, .btn-login-gray:focus {
+    background-color: #4B5563 !important;
+    color: #fff !important;
+}
+</style>
+<div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+        <div class="card shadow border-0">
+            <div class="card-header text-center py-4 login-header-gradient">
+                <h3 class="mb-1">{% trans "Bienvenido" %}</h3>
+                <p class="mb-0">{% trans "Sign in to your account" %}</p>
+            </div>
+            <div class="card-body p-5">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}
+                    <div class="alert alert-danger border-0">
+                        <ul class="mb-0">
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.email.id_for_label }}" class="form-label">{% trans "Email Address" %}</label>
+                        {{ form.email }}
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="{{ form.password.id_for_label }}" class="form-label">{% trans "Password" %}</label>
+                        {{ form.password }}
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-3">
+                        <button type="submit" class="btn btn-login-gray btn-lg">{% trans "Sign In" %}</button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="{% url 'password_reset' %}" class="text-decoration-none text-muted">{% trans "Forgot your password?" %}</a>
+                    </div>
+                    
+                    {% if show_resend_link %}
+                    <div class="alert alert-warning mt-3">
+                        <h6>{% trans "Email Not Verified" %}</h6>
+                        <p class="mb-2">{% trans "Please verify your email address to continue." %}</p>
+                        <a href="{% url 'accounts:resend_verification' %}" class="btn btn-sm btn-warning">
+                            <i class="fas fa-envelope"></i> {% trans "Resend Verification Email" %}
+                        </a>
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <p class="text-muted">{% trans "Don't have an account?" %} <a href="{% url 'accounts:register' %}" class="text-decoration-none" style="color:#374151;">{% trans "Create one here" %}</a></p>
+            <p class="text-muted"><small>{% trans "Need to verify your email?" %} <a href="{% url 'accounts:resend_verification' %}" class="text-decoration-none" style="color:#374151;">{% trans "Resend verification" %}</a></small></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

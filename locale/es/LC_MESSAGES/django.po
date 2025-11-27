@@ -1,0 +1,1631 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-27 22:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Email Status"
+msgstr "Estado del Correo"
+
+msgid "Send verification email to selected users"
+msgstr "Enviar correo de verificación a usuarios seleccionados"
+
+msgid "Mark selected users as email verified"
+msgstr "Marcar usuarios seleccionados como verificados"
+
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+msgid "First name"
+msgstr "Nombre"
+
+msgid "Last name"
+msgstr "Apellido"
+
+#, fuzzy
+#| msgid "I accept the terms and conditions"
+msgid "I have read and accept the Terms and Conditions"
+msgstr "Acepto los términos y condiciones"
+
+#, fuzzy
+#| msgid "I accept the terms and conditions"
+msgid "You must accept the Terms and Conditions to register."
+msgstr "Acepto los términos y condiciones"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Confirm password"
+msgstr "Confirmar contraseña"
+
+msgid ""
+"A verified account with this email already exists. Please use the login form."
+msgstr ""
+"Ya existe una cuenta verificada con este correo electrónico. Por favor usa "
+"el formulario de inicio de sesión."
+
+msgid "RFC/TIN Number"
+msgstr "Número RFC/TIN"
+
+msgid "Enter your RFC (Mexico) or TIN number to enable app access"
+msgstr ""
+"Ingresa tu RFC (México) o número TIN para habilitar el acceso a la aplicación"
+
+msgid "RFC/TIN number"
+msgstr "Número RFC/TIN"
+
+msgid "I accept the terms and conditions"
+msgstr "Acepto los términos y condiciones"
+
+msgid "RFC/TIN must contain only letters and numbers"
+msgstr "El RFC/TIN debe contener solo letras y números"
+
+msgid "RFC/TIN must be between 8 and 20 characters"
+msgstr "El RFC/TIN debe tener entre 8 y 20 caracteres"
+
+msgid "Country Code"
+msgstr ""
+
+msgid "Phone number"
+msgstr "Número de teléfono"
+
+msgid "Phone number must contain only digits"
+msgstr ""
+
+msgid "Phone number must be exactly 10 digits"
+msgstr ""
+
+#, fuzzy
+#| msgid "Verification Failed"
+msgid "Verification code"
+msgstr "Verificación Fallida"
+
+msgid "Ingresa el código de 6 dígitos enviado a tu WhatsApp"
+msgstr ""
+
+msgid "000000"
+msgstr ""
+
+msgid "Verification code must be 6 digits"
+msgstr ""
+
+msgid "No se pudo autenticar con la API externa"
+msgstr ""
+
+msgid "El RFC/TIN ya existe en el sistema"
+msgstr ""
+
+msgid "No se pudo validar el RFC/TIN en este momento, intente más tarde"
+msgstr ""
+
+msgid "Account updated! Please check your email to verify your account."
+msgstr ""
+"¡Cuenta actualizada! Por favor revisa tu correo para verificar tu cuenta."
+
+msgid ""
+"Registration successful! Please check your email to verify your account."
+msgstr ""
+"¡Registro exitoso! Por favor revisa tu correo para verificar tu cuenta."
+
+msgid "An error occurred during registration. Please try again."
+msgstr "Ocurrió un error durante el registro. Por favor intenta de nuevo."
+
+msgid ""
+"An unverified account with this email exists. We'll send you a new "
+"verification email."
+msgstr ""
+"Existe una cuenta no verificada con este correo. Te enviaremos un nuevo "
+"correo de verificación."
+
+msgid "Verify your Marketplace account"
+msgstr "Verifica tu cuenta de Marketplace"
+
+msgid ""
+"Account created but verification email could not be sent. You can request a "
+"new verification email from the login page."
+msgstr ""
+"Cuenta creada pero no se pudo enviar el correo de verificación. Puedes "
+"solicitar un nuevo correo de verificación desde la página de inicio de "
+"sesión."
+
+msgid ""
+"Please verify your email address before logging in. Check your inbox or "
+"request a new verification email."
+msgstr ""
+"Por favor verifica tu dirección de correo antes de iniciar sesión. Revisa tu "
+"bandeja de entrada o solicita un nuevo correo de verificación."
+
+msgid "Welcome back!"
+msgstr "¡Bienvenido de vuelta!"
+
+msgid "Invalid email or password."
+msgstr "Correo o contraseña inválidos."
+
+msgid "You have been logged out."
+msgstr "Has cerrado sesión."
+
+msgid "Unable to load current plans from server. Please try again later."
+msgstr ""
+"No se pudieron cargar los planes actuales del servidor. Por favor intenta "
+"más tarde."
+
+msgid "Profile updated successfully."
+msgstr "Perfil actualizado exitosamente."
+
+msgid "Your email has been verified successfully! Welcome to Marketplace."
+msgstr "¡Tu correo ha sido verificado exitosamente! Bienvenido a Marketplace."
+
+msgid "This email address is already verified. You can log in now."
+msgstr ""
+"Esta dirección de correo ya está verificada. Puedes iniciar sesión ahora."
+
+msgid "Verification email sent! Please check your inbox and spam folder."
+msgstr ""
+"¡Correo de verificación enviado! Por favor revisa tu bandeja de entrada y "
+"carpeta de spam."
+
+msgid ""
+"No account found with this email address. Please register a new account."
+msgstr ""
+"No se encontró cuenta con esta dirección de correo. Por favor registra una "
+"nueva cuenta."
+
+msgid "Could not send verification email. Please try again later."
+msgstr ""
+"No se pudo enviar el correo de verificación. Por favor intenta más tarde."
+
+msgid "RFC/TIN saved! Now please verify your phone number."
+msgstr ""
+
+msgid "An error occurred. Please try again."
+msgstr "Ocurrió un error. Por favor intenta de nuevo."
+
+msgid "Payment successful! Your plan has been activated."
+msgstr "¡Pago exitoso! Tu plan ha sido activado."
+
+msgid ""
+"Payment received but there was an error activating your plan. Please contact "
+"support."
+msgstr ""
+"Pago recibido pero hubo un error al activar tu plan. Por favor contacta al "
+"soporte."
+
+msgid ""
+"Payment is being processed. You will receive an email confirmation once "
+"completed."
+msgstr ""
+"El pago está siendo procesado. Recibirás una confirmación por correo una vez "
+"completado."
+
+msgid ""
+"Payment received but please contact support to ensure your plan is activated."
+msgstr ""
+"Pago recibido pero por favor contacta al soporte para asegurar que tu plan "
+"esté activado."
+
+msgid "Payment was cancelled or failed. Please try again."
+msgstr "El pago fue cancelado o falló. Por favor intenta de nuevo."
+
+msgid ""
+"Your payment is being processed. You will receive an email confirmation once "
+"completed."
+msgstr ""
+"Tu pago está siendo procesado. Recibirás una confirmación por correo una vez "
+"completado."
+
+msgid "No credentials found. Please activate a plan first."
+msgstr "No se encontraron credenciales. Por favor activa un plan primero."
+
+#, fuzzy
+#| msgid "Could not send verification email. Please try again later."
+msgid "Could not send verification code. "
+msgstr ""
+"No se pudo enviar el correo de verificación. Por favor intenta más tarde."
+
+msgid "Verification code sent to your WhatsApp. Please enter it below."
+msgstr ""
+
+msgid "Please request a verification code first."
+msgstr ""
+
+msgid "Verification code expired. Please request a new one."
+msgstr ""
+
+msgid ""
+"El código de verificación que ingresaste es incorrecto. Por favor verifica e "
+"intenta de nuevo."
+msgstr ""
+
+msgid "Error al verificar el código. Por favor intenta más tarde."
+msgstr ""
+
+msgid "¡Teléfono verificado! Ahora puedes acceder a tu dashboard."
+msgstr ""
+
+msgid "Verificar Teléfono"
+msgstr ""
+
+msgid "Verificar tu Teléfono"
+msgstr ""
+
+msgid "Enviaremos un código de verificación a tu WhatsApp"
+msgstr ""
+
+msgid ""
+"Tu RFC/TIN ha sido verificado. Ahora proporciona tu número de teléfono para "
+"recibir un código de verificación por WhatsApp."
+msgstr ""
+
+msgid "Código País"
+msgstr ""
+
+msgid "Número de Teléfono (10 dígitos)"
+msgstr ""
+
+msgid "Enviar Código de Verificación"
+msgstr ""
+
+msgid "¿Necesitas ayuda?"
+msgstr ""
+
+msgid "Contacta soporte"
+msgstr ""
+
+msgid "Verificar Código"
+msgstr ""
+
+msgid "Ingresa el Código de Verificación"
+msgstr ""
+
+msgid "Enviamos un código a tu WhatsApp"
+msgstr ""
+
+#, python-format
+msgid ""
+"\n"
+"                            Enviamos un código de 6 dígitos a tu WhatsApp en "
+"%(phone)s. \n"
+"                            Por favor ingresalo abajo para completar tu "
+"registro.\n"
+"                            "
+msgstr ""
+
+msgid "Código de Verificación"
+msgstr ""
+
+msgid "¿No recibiste el código?"
+msgstr ""
+
+msgid "Solicitar nuevo código"
+msgstr ""
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Pricing"
+msgstr "Precios"
+
+msgid "Política de Privacidad"
+msgstr ""
+
+msgid "Términos y Condiciones"
+msgstr ""
+
+msgid "Dashboard"
+msgstr "Panel de Control"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid "Logout"
+msgstr "Cerrar Sesión"
+
+msgid "Login"
+msgstr "Inicio de sesión"
+
+msgid "Register"
+msgstr "Registro"
+
+msgid "Confirmation"
+msgstr "Confirmación"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Information"
+msgstr "Información"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Panel de Control - gpscontrol4u"
+msgstr "Panel de Control - gpscontrol4u"
+
+msgid "Configuración de cuenta requerida"
+msgstr "Configuración de cuenta requerida"
+
+msgid ""
+"Para acceder a los planes y usar nuestras aplicaciones móviles, necesitas "
+"completar la configuración de tu cuenta proporcionando tu RFC o TIN."
+msgstr ""
+"Para acceder a los planes y usar nuestras aplicaciones móviles, necesitas "
+"completar la configuración de tu cuenta proporcionando tu RFC o TIN."
+
+msgid "Completar configuración"
+msgstr "Completar configuración"
+
+#, python-format
+msgid "¡Bienvenido de nuevo, %(name)s!"
+msgstr "¡Bienvenido de nuevo, %(name)s!"
+
+msgid "Elegir Plan"
+msgstr "Elegir Plan"
+
+msgid "Sandbox Testing Mode"
+msgstr "Modo de Prueba Sandbox"
+
+msgid "Payment system is currently in sandbox mode for testing."
+msgstr "El sistema de pagos está actualmente en modo sandbox para pruebas."
+
+msgid "For Premium Plan Testing:"
+msgstr "Para Pruebas del Plan Premium:"
+
+msgid "When redirected to Mercado Pago, use these test cards:"
+msgstr "Cuando seas redirigido a Mercado Pago, usa estas tarjetas de prueba:"
+
+msgid "Test Card:"
+msgstr "Tarjeta de Prueba:"
+
+msgid "Nombre del titular:"
+msgstr "Nombre del titular:"
+
+msgid "Vencimiento:"
+msgstr "Vencimiento:"
+
+msgid "(any superior date)"
+msgstr "(cualquier fecha superior)"
+
+msgid "Codigo seguridad:"
+msgstr "Código seguridad:"
+
+msgid "(any 3 digits number)"
+msgstr "(cualquier número de 3 dígitos)"
+
+msgid "No real money will be charged during testing."
+msgstr "No se cobrará dinero real durante las pruebas."
+
+msgid "Registered RFC/TIN"
+msgstr "RFC/TIN Registrado"
+
+msgid "Plan Active"
+msgstr "Plan Activo"
+
+msgid "View Credentials"
+msgstr "Ver Credenciales"
+
+msgid "Purchase History"
+msgstr "Historial de Compras"
+
+msgid "Choose Your Plan"
+msgstr "Elige Tu Plan"
+
+msgid "FREE"
+msgstr "GRATIS"
+
+msgid "PREMIUM"
+msgstr "PREMIUM"
+
+msgid "year"
+msgstr "año"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Users"
+msgstr "Usuarios"
+
+msgid "Active Plan"
+msgstr "Plan Activo"
+
+msgid "Activate Free"
+msgstr "Activar Gratis"
+
+msgid "Buy More Licenses"
+msgstr "Comprar Más Licencias"
+
+msgid "Buy"
+msgstr "Comprar"
+
+msgid "Free Plan"
+msgstr "Plan Gratuito"
+
+msgid "Predefined forms, 100 records, mobile app access"
+msgstr "Formularios predefinidos, 100 registros, acceso a app móvil"
+
+msgid "Premium Plan"
+msgstr "Plan Premium"
+
+msgid "Custom forms, unlimited records, advanced features"
+msgstr "Formularios personalizados, registros ilimitados, funciones avanzadas"
+
+msgid "Available Plans"
+msgstr "Planes Disponibles"
+
+msgid "Activate Free Plan? You can upgrade to Premium anytime."
+msgstr ""
+"¿Activar Plan Gratuito? Puedes actualizar a Premium en cualquier momento."
+
+msgid "Free plan activated successfully!"
+msgstr "¡Plan gratuito activado exitosamente!"
+
+msgid "Login credentials:"
+msgstr "Credenciales de acceso:"
+
+msgid "Username:"
+msgstr "Usuario:"
+
+msgid "Password:"
+msgstr "Contraseña:"
+
+msgid "Web portal access:"
+msgstr "Acceso al portal web:"
+
+msgid "Save these credentials to access the mobile app and web portal!"
+msgstr "¡Guarda estas credenciales para acceder a la app móvil y portal web!"
+
+msgid "Error activating plan."
+msgstr "Error al activar plan."
+
+msgid "Connection error."
+msgstr "Error de conexión."
+
+msgid "Premium plan selected. Payment processing will be enabled soon."
+msgstr ""
+"Plan premium seleccionado. El procesamiento de pagos será habilitado pronto."
+
+msgid "API Credentials"
+msgstr "Credenciales API"
+
+msgid "Your API Credentials"
+msgstr "Tus Credenciales API"
+
+msgid "Plan Type:"
+msgstr "Tipo de Plan:"
+
+msgid "Client ID:"
+msgstr "ID Cliente:"
+
+msgid "User ID:"
+msgstr "ID Usuario:"
+
+msgid "Licenses:"
+msgstr "Licencias:"
+
+msgid "Are you sure you want to activate"
+msgstr "¿Estás seguro de que quieres activar"
+
+msgid "This will cost"
+msgstr "Esto costará"
+
+msgid "per year."
+msgstr "por año."
+
+msgid "activated successfully!"
+msgstr "activado exitosamente!"
+
+msgid "Stripe payment processing will be available soon."
+msgstr "El procesamiento de pagos con Stripe estará disponible pronto."
+
+msgid "Payment processing error."
+msgstr "Error en el procesamiento de pago."
+
+msgid "Success"
+msgstr "Éxito"
+
+msgid "Payment"
+msgstr "Pago"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Activate"
+msgstr "Activar"
+
+#, fuzzy
+#| msgid "Activate"
+msgid "Activated"
+msgstr "Activar"
+
+msgid "Creating payment preference..."
+msgstr "Creando preferencia de pago..."
+
+msgid "Processing Payment"
+msgstr "Procesando Pago"
+
+msgid "Error creating payment preference"
+msgstr "Error al crear preferencia de pago"
+
+msgid "Payment Error"
+msgstr "Error de Pago"
+
+msgid "Connection error while creating payment"
+msgstr "Error de conexión al crear pago"
+
+msgid "Complete Purchase History"
+msgstr "Historial Completo de Compras"
+
+msgid "Total Purchases"
+msgstr "Total de Compras"
+
+msgid "Active Plans"
+msgstr "Planes Activos"
+
+msgid "Total Spent"
+msgstr "Total Gastado"
+
+msgid "Total Users"
+msgstr "Total de Usuarios"
+
+msgid "Admin Users"
+msgstr "Usuarios Admin"
+
+msgid "Free Plan Used"
+msgstr "Plan Gratuito Usado"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "No"
+
+msgid "Plan Name"
+msgstr "Nombre del Plan"
+
+msgid "Price"
+msgstr "Precio"
+
+msgid "Purchase Date"
+msgstr "Fecha de Compra"
+
+msgid "Expiration Date"
+msgstr "Fecha de Expiración"
+
+msgid "Days Left"
+msgstr "Días Restantes"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Free"
+msgstr "Gratis"
+
+msgid "Team"
+msgstr "Equipo"
+
+msgid "License"
+msgstr "Licencia"
+
+msgid "No users"
+msgstr "Sin usuarios"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "days"
+msgstr "días"
+
+msgid "Expired"
+msgstr "Expirado"
+
+msgid "Lifetime"
+msgstr "De por vida"
+
+msgid "Active"
+msgstr "Activo"
+
+msgid "Cancelled"
+msgstr "Cancelado"
+
+msgid "Pending"
+msgstr "Pendiente"
+
+msgid "No purchase history found"
+msgstr "No se encontró historial de compras"
+
+msgid "GPSControl4U - Rastreo Inteligente para tu Familia"
+msgstr ""
+
+msgid "Rastreo Inteligente"
+msgstr ""
+
+msgid "para cuidar de tu familia."
+msgstr ""
+
+msgid ""
+"Es un servicio que integra un dispositivo GPS en tu vehículo con una app "
+"móvil, permitiéndote monitorear en tiempo real la seguridad y los trayectos "
+"de tu familia, así como proteger tu auto o motocicleta contra robos."
+msgstr ""
+
+msgid "Comprar GPSControl4U"
+msgstr ""
+
+#, fuzzy
+#| msgid "Elegir Plan"
+msgid "Ver Planes"
+msgstr "Elegir Plan"
+
+msgid "App Store"
+msgstr "App Store"
+
+#, fuzzy
+#| msgid "App Store"
+msgid "Play Store"
+msgstr "App Store"
+
+msgid "GPS Tracking App"
+msgstr ""
+
+msgid "Beneficios de GPSControl4U:"
+msgstr ""
+
+msgid "Ubicación en tiempo real"
+msgstr ""
+
+msgid "Monitorea la ubicación exacta de tu vehículo en cualquier momento."
+msgstr ""
+
+msgid "Historial de trayectos y alertas"
+msgstr ""
+
+msgid "Revisa todos los trayectos realizados y recibe alertas personalizadas."
+msgstr ""
+
+msgid "Añadir personas para seguimiento"
+msgstr ""
+
+msgid "Invite a miembros de tu familia para monitorear juntos."
+msgstr ""
+
+msgid "Geo-cercas y zonas seguras"
+msgstr ""
+
+msgid "Configura zonas seguras y recibe alertas cuando salgan de ellas."
+msgstr ""
+
+msgid "Botón de pánico para emergencias"
+msgstr ""
+
+msgid "Acceso rápido a botón de emergencia desde la app."
+msgstr ""
+
+msgid "Soporte técnico 24/7"
+msgstr ""
+
+msgid "Equipo disponible para resolver cualquier duda."
+msgstr ""
+
+msgid "¿Cómo funciona GPSControl4U?"
+msgstr ""
+
+msgid "Adquiere tu GPSControl4U"
+msgstr ""
+
+msgid "Cómpralo fácilmente en línea."
+msgstr ""
+
+msgid "Agenda tu cita"
+msgstr ""
+
+msgid "Recibe una llamada de uno de nuestros agentes."
+msgstr ""
+
+msgid "Instalación a domicilio"
+msgstr ""
+
+msgid "Elige entre horarios matutino o vespertino."
+msgstr ""
+
+msgid "Activa y configura"
+msgstr ""
+
+msgid "Personaliza auto, geo-cercas y alertas."
+msgstr ""
+
+msgid "Agrega tu familia"
+msgstr ""
+
+msgid "Manténganse seguros y siempre alertas."
+msgstr ""
+
+msgid "Central de Emergencias"
+msgstr ""
+
+msgid "Respuesta inmediata a alertas 24/7."
+msgstr ""
+
+msgid "Cómo luce tu app"
+msgstr ""
+
+msgid ""
+"Configura de forma sencilla e intuitiva el auto de cada integrante de tu "
+"familia."
+msgstr ""
+
+#, fuzzy
+#| msgid "App Store"
+msgid "App Screenshot"
+msgstr "App Store"
+
+msgid "Lo que dicen nuestros usuarios"
+msgstr ""
+
+msgid "La mejor forma de mantenerse seguro cuando salen de casa en su auto"
+msgstr ""
+
+msgid ""
+"No sabía que mi tranquilidad podía ser una app tan sencilla para mi familia"
+msgstr ""
+
+msgid "La app que me ha dado la seguridad que necesitamos mi esposo y yo"
+msgstr ""
+
+msgid "Planes de rastreo GPS flexibles"
+msgstr ""
+
+#, fuzzy
+#| msgid "Comienza gratis, actualiza cuando necesites más funciones"
+msgid "Comienza gratis, actualiza cuando necesites más vehículos"
+msgstr "Comienza gratis, actualiza cuando necesites más funciones"
+
+#, fuzzy
+#| msgid "Ver todas las opciones de precios →"
+msgid "Ver todos los planes de GPS"
+msgstr "Ver todas las opciones de precios →"
+
+msgid "¡Protege tu vehículo y familia hoy!"
+msgstr ""
+
+#, fuzzy
+#| msgid ""
+#| "Únete a miles de usuarios que confían en gpscontrol4u para sus "
+#| "necesidades de recopilación de datos"
+msgid ""
+"Únete a miles de usuarios que confían en GPSControl4U para la seguridad de "
+"su familia"
+msgstr ""
+"Únete a miles de usuarios que confían en gpscontrol4u para sus necesidades "
+"de recopilación de datos"
+
+msgid "Comenzar Prueba Gratuita"
+msgstr ""
+
+#, fuzzy
+#| msgid "Dashboard"
+msgid "Ir a Mi Dashboard"
+msgstr "Panel de Control"
+
+msgid "Síguenos"
+msgstr ""
+
+msgid "Pricing - gpscontrol4u Marketplace"
+msgstr "Precios - gpscontrol4u Marketplace"
+
+msgid "Planes simples y transparentes"
+msgstr "Planes simples y transparentes"
+
+msgid "Comienza gratis y actualiza cuando necesites más funciones"
+msgstr "Comienza gratis y actualiza cuando necesites más funciones"
+
+msgid "Plan"
+msgstr "Plan"
+
+msgid "month"
+msgstr "mes"
+
+msgid "Complete Setup First"
+msgstr "Completa la Configuración Primero"
+
+msgid "Previously Purchased"
+msgstr "Comprado Previamente"
+
+msgid "Free Plan Already Used"
+msgstr "Plan Gratuito Ya Usado"
+
+msgid "Activate Plan"
+msgstr "Activar Plan"
+
+msgid "Get Started"
+msgstr "Comenzar"
+
+msgid "Access to predefined forms"
+msgstr "Acceso a formularios predefinidos"
+
+msgid "Basic data collection"
+msgstr "Recopilación básica de datos"
+
+msgid "100 records limit"
+msgstr "Límite de 100 registros"
+
+msgid "Mobile app access"
+msgstr "Acceso a aplicación móvil"
+
+msgid "English & Spanish support"
+msgstr "Soporte en inglés y español"
+
+msgid "Custom form creation"
+msgstr "Creación de formularios personalizados"
+
+msgid "Advanced analytics"
+msgstr "Análisis avanzados"
+
+msgid "Data export"
+msgstr "Exportación de datos"
+
+msgid "Current Plan"
+msgstr "Plan Actual"
+
+msgid "Premium"
+msgstr "Premium"
+
+msgid "Unlimited custom forms"
+msgstr "Formularios personalizados ilimitados"
+
+msgid "10,000 records limit"
+msgstr "Límite de 10,000 registros"
+
+msgid "Advanced data analytics"
+msgstr "Análisis avanzado de datos"
+
+msgid "Data export (CSV, JSON)"
+msgstr "Exportación de datos (CSV, JSON)"
+
+msgid "Priority support"
+msgstr "Soporte prioritario"
+
+msgid "Form templates library"
+msgstr "Biblioteca de plantillas de formularios"
+
+msgid "Team collaboration"
+msgstr "Colaboración en equipo"
+
+msgid "Frequently Asked Questions"
+msgstr "Preguntas Frecuentes"
+
+msgid "¿Qué es GPScontrol4U?"
+msgstr "¿Qué es GPScontrol4U?"
+
+msgid ""
+"GPScontrol4U es un servicio que combina un dispositivo GPS instalado en el "
+"automóvil con una aplicación móvil, diseñado específicamente para padres de "
+"familia que desean monitorear la ubicación, seguridad y trayectos de sus "
+"hijos o cónyuge. Pensado también para personas que quieren proteger su "
+"automóvil o motocicleta ante robos."
+msgstr ""
+"GPScontrol4U es un servicio que combina un dispositivo GPS instalado en el "
+"automóvil con una aplicación móvil, diseñado específicamente para padres de "
+"familia que desean monitorear la ubicación, seguridad y trayectos de sus "
+"hijos o cónyuge. Pensado también para personas que quieren proteger su "
+"automóvil o motocicleta ante robos."
+
+msgid "¿Qué incluye el servicio GPScontrol4U?"
+msgstr "¿Qué incluye el servicio GPScontrol4U?"
+
+msgid ""
+"Incluye dispositivo GPS instalado, aplicación móvil para Android e iOS, "
+"servicio de datos incluido, central de emergencias 24/7 los 365 días del "
+"año, y levantamiento de protocolo de emergencia."
+msgstr ""
+"Incluye dispositivo GPS instalado, aplicación móvil para Android e iOS, "
+"servicio de datos incluido, central de emergencias 24/7 los 365 días del "
+"año, y levantamiento de protocolo de emergencia."
+
+msgid "¿En qué se diferencia GPScontrol4U de otros rastreadores GPS?"
+msgstr "¿En qué se diferencia GPScontrol4U de otros rastreadores GPS?"
+
+msgid ""
+"Nos especializamos en seguridad familiar y protección vehicular, con "
+"integración completa entre dispositivo, app y central de emergencias 24/7, "
+"además de funciones únicas como administración de pólizas de seguro y "
+"licencias."
+msgstr ""
+"Nos especializamos en seguridad familiar y protección vehicular, con "
+"integración completa entre dispositivo, app y central de emergencias 24/7, "
+"además de funciones únicas como administración de pólizas de seguro y "
+"licencias."
+
+msgid "¿Qué permite hacer la aplicación móvil?"
+msgstr "¿Qué permite hacer la aplicación móvil?"
+
+msgid ""
+"La app permite: ver ubicación en tiempo real, consultar historial de "
+"trayectos, subir información de pólizas de seguro y licencias, personalizar "
+"vehículos familiares, configurar geo-cercas, recibir alertas, botón de "
+"pánico, y función «¿Cómo llegar a mi vehículo?»."
+msgstr ""
+"La app permite: ver ubicación en tiempo real, consultar historial de "
+"trayectos, subir información de pólizas de seguro y licencias, personalizar "
+"vehículos familiares, configurar geo-cercas, recibir alertas, botón de "
+"pánico, y función «¿Cómo llegar a mi vehículo?»."
+
+msgid "¿Necesito tener conocimientos técnicos para usar el servicio?"
+msgstr "¿Necesito tener conocimientos técnicos para usar el servicio?"
+
+msgid ""
+"No, la aplicación como el dispositivo están diseñados para ser intuitivos y "
+"fáciles de usar, sin requerir conocimientos técnicos especializados."
+msgstr ""
+"No, la aplicación como el dispositivo están diseñados para ser intuitivos y "
+"fáciles de usar, sin requerir conocimientos técnicos especializados."
+
+msgid "¿Puedo configurar múltiples geo-cercas?"
+msgstr "¿Puedo configurar múltiples geo-cercas?"
+
+msgid ""
+"Sí, puedes configurar todas las geo-cercas que necesites para cubrir "
+"escuelas, casas de amigos, trabajos, etc."
+msgstr ""
+"Sí, puedes configurar todas las geo-cercas que necesites para cubrir "
+"escuelas, casas de amigos, trabajos, etc."
+
+msgid "¿Puedo agregar personas para seguir ciertas unidades?"
+msgstr "¿Puedo agregar personas para seguir ciertas unidades?"
+
+msgid ""
+"Sí, puedes adicionar personas autorizadas para monitorear unidades "
+"específicas."
+msgstr ""
+"Sí, puedes adicionar personas autorizadas para monitorear unidades "
+"específicas apps se desbloquean cuando tienes una suscripción Premium."
+
+msgid "Ready to Get Started?"
+msgstr "¿Listo para Comenzar?"
+
+msgid ""
+"Join thousands of users who trust GPSControl4U for their family's safety"
+msgstr ""
+"Únete a miles de usuarios que confían en GPSControl4U para la seguridad de "
+"su familia"
+
+msgid "Start Free Trial"
+msgstr "Iniciar Prueba Gratuita"
+
+msgid "Download App"
+msgstr "Descargar App"
+
+msgid "Google Play"
+msgstr "Google Play"
+
+msgid ""
+"Please verify your phone number to complete your registration before "
+"purchasing."
+msgstr ""
+
+#, fuzzy
+#| msgid "Verification Failed"
+msgid "Verification Required"
+msgstr "Verificación Fallida"
+
+msgid "Activate Free Plan"
+msgstr "Activar Plan Gratuito"
+
+msgid "¿Comprar Plan? Esto te redirigirá al procesamiento de pago."
+msgstr ""
+
+msgid "Processing..."
+msgstr "Procesando..."
+
+#, fuzzy
+#| msgid "Error creating payment preference"
+msgid "Error creating payment preference. Please try again."
+msgstr "Error al crear preferencia de pago"
+
+msgid "Política de Privacidad | GPSControl4U"
+msgstr "Política de Privacidad | GPSControl4U"
+
+msgid "Política de Privacidad de GPSControl4U"
+msgstr "Política de Privacidad de GPSControl4U"
+
+msgid "Última actualización:"
+msgstr "Última actualización:"
+
+msgid "Profile Settings"
+msgstr "Configuración de Perfil"
+
+msgid "Personal Information"
+msgstr "Información Personal"
+
+#| msgid "First name"
+msgid "First Name"
+msgstr "Nombre"
+
+#| msgid "Last name"
+msgid "Last Name"
+msgstr "Apellido"
+
+msgid "Email Address"
+msgstr "Dirección de Correo"
+
+msgid "Email cannot be changed."
+msgstr "El correo no puede ser cambiado."
+
+msgid "Preferred Language"
+msgstr "Idioma Preferido"
+
+#| msgid "Phone number"
+msgid "Phone Number"
+msgstr "Número de teléfono"
+
+msgid "Phone number verified through setup process"
+msgstr "Número de teléfono verificado durante el proceso de configuración"
+
+#, fuzzy
+#| msgid "RFC/TIN Number"
+msgid "RFC/TIN"
+msgstr "Número RFC/TIN"
+
+msgid "RFC/TIN provided during setup"
+msgstr "RFC/TIN proporcionado durante la configuración"
+
+msgid "Receive marketing emails and product updates"
+msgstr "Recibir correos de marketing y actualizaciones de productos"
+
+msgid "Save Changes"
+msgstr "Guardar Cambios"
+
+msgid "Account Information"
+msgstr "Información de Cuenta"
+
+msgid "Account Type:"
+msgstr "Tipo de Cuenta:"
+
+msgid "Paid Plan"
+msgstr "Plan Pagado"
+
+msgid "Member Since:"
+msgstr "Miembro Desde:"
+
+msgid "Email Verified:"
+msgstr "Correo Verificado:"
+
+msgid "Phone Verified:"
+msgstr "Teléfono Verificado:"
+
+msgid "Language:"
+msgstr "Idioma:"
+
+msgid "Quick Actions"
+msgstr "Acciones Rápidas"
+
+msgid "Go to Dashboard"
+msgstr "Ir al Panel"
+
+msgid "Download iOS App"
+msgstr "Descargar App iOS"
+
+msgid "Export My Data"
+msgstr "Exportar Mis Datos"
+
+msgid "Data export feature coming soon!"
+msgstr "¡La función de exportación de datos estará disponible pronto!"
+
+msgid "Email Verification"
+msgstr "Verificación de Correo"
+
+msgid "Welcome to Marketplace!"
+msgstr "¡Bienvenido a Marketplace!"
+
+#, python-format
+msgid ""
+"\n"
+"        <p>Dear %(user_name)s,</p>\n"
+"        "
+msgstr ""
+"\n"
+"        <p>Estimado %(user_name)s,</p>\n"
+"        "
+
+msgid ""
+"Thank you for registering your account with Marketplace! We're excited to "
+"have you join our community."
+msgstr ""
+"¡Gracias por registrar tu cuenta en Marketplace! Estamos emocionados de "
+"tenerte en nuestra comunidad."
+
+msgid ""
+"To complete your registration and start using all our features, please "
+"verify your email address by clicking the button below:"
+msgstr ""
+"Para completar tu registro y comenzar a usar todas nuestras funciones, por "
+"favor verifica tu dirección de correo haciendo clic en el botón de abajo:"
+
+msgid "Verify Email Address"
+msgstr "Verificar Dirección de Correo"
+
+msgid "Alternatively, you can copy and paste this link into your browser:"
+msgstr "Alternativamente, puedes copiar y pegar este enlace en tu navegador:"
+
+msgid "Important:"
+msgstr "Importante:"
+
+msgid "This verification link will expire in 24 hours for security reasons."
+msgstr ""
+"Este enlace de verificación expirará en 24 horas por razones de seguridad."
+
+msgid "If you didn't create this account, please ignore this email."
+msgstr "Si no creaste esta cuenta, por favor ignora este correo."
+
+msgid "Once verified, you'll be able to:"
+msgstr "Una vez verificado, podrás:"
+
+msgid "Access your personal dashboard"
+msgstr "Acceder a tu panel personal"
+
+msgid "Create and manage forms"
+msgstr "Crear y administrar formularios"
+
+msgid "Collect and analyze data"
+msgstr "Recopilar y analizar datos"
+
+msgid "Upgrade to premium features"
+msgstr "Actualizar a funciones premium"
+
+msgid ""
+"If you have any questions or need assistance, please don't hesitate to "
+"contact our support team."
+msgstr ""
+"Si tienes alguna pregunta o necesitas asistencia, no dudes en contactar a "
+"nuestro equipo de soporte."
+
+msgid "Best regards,"
+msgstr "Saludos cordiales,"
+
+msgid "The Marketplace Team"
+msgstr "El Equipo de Marketplace"
+
+msgid "This is an automated message, please do not reply to this email."
+msgstr "Este es un mensaje automatizado, por favor no respondas a este correo."
+
+msgid "Marketplace - gpscontrol4u Web Platform"
+msgstr "Marketplace - Plataforma Web gpscontrol4u"
+
+#, python-format
+msgid ""
+"\n"
+"Dear %(user_name)s,\n"
+"\n"
+"Welcome to %(site_name)s! Thank you for registering your account.\n"
+"\n"
+"To complete your registration and activate your account, please click the "
+"link below:\n"
+"\n"
+"%(protocol)s://%(domain)s%(verification_link)s\n"
+"\n"
+"This link will expire in 24 hours for security reasons.\n"
+"\n"
+"If you didn't create this account, please ignore this email.\n"
+"\n"
+"Best regards,\n"
+"The %(site_name)s Team\n"
+"\n"
+"---\n"
+"This is an automated message, please do not reply to this email.\n"
+msgstr ""
+"\n"
+"Estimado %(user_name)s,\n"
+"\n"
+"¡Bienvenido a %(site_name)s! Gracias por registrar tu cuenta.\n"
+"\n"
+"Para completar tu registro y activar tu cuenta, por favor haz clic en el "
+"enlace de abajo:\n"
+"\n"
+"%(protocol)s://%(domain)s%(verification_link)s\n"
+"\n"
+"Este enlace expirará en 24 horas por razones de seguridad.\n"
+"\n"
+"Si no creaste esta cuenta, por favor ignora este correo.\n"
+"\n"
+"Saludos cordiales,\n"
+"El Equipo de %(site_name)s\n"
+"\n"
+"---\n"
+"Este es un mensaje automatizado, por favor no respondas a este correo.\n"
+
+msgid "Email Verified!"
+msgstr "¡Correo Verificado!"
+
+msgid "Verification Failed"
+msgstr "Verificación Fallida"
+
+msgid "Your email has been successfully verified!"
+msgstr "¡Tu correo ha sido verificado exitosamente!"
+
+msgid "You can now access all features of your Marketplace account."
+msgstr ""
+"Ahora puedes acceder a todas las funciones de tu cuenta de Marketplace."
+
+msgid "Login Now"
+msgstr "Iniciar Sesión Ahora"
+
+msgid "Your account is now fully activated and ready to use."
+msgstr "Tu cuenta está ahora completamente activada y lista para usar."
+
+msgid "Sorry, we couldn't verify your email address."
+msgstr "Lo sentimos, no pudimos verificar tu dirección de correo."
+
+msgid "The verification link is invalid or has already been used."
+msgstr "El enlace de verificación es inválido o ya ha sido usado."
+
+msgid ""
+"The verification link has expired. Verification links are valid for 24 hours."
+msgstr ""
+"El enlace de verificación ha expirado. Los enlaces de verificación son "
+"válidos por 24 horas."
+
+msgid "No user found for this verification token."
+msgstr "No se encontró usuario para este token de verificación."
+
+msgid "An unknown error occurred during verification."
+msgstr "Ocurrió un error desconocido durante la verificación."
+
+msgid "Resend Verification Email"
+msgstr "Reenviar Correo de Verificación"
+
+msgid "Back to Login"
+msgstr "Volver a Inicio de Sesión"
+
+msgid "What's Next?"
+msgstr "¿Qué Sigue?"
+
+msgid "Complete your profile"
+msgstr "Completa tu perfil"
+
+msgid "Create your first form"
+msgstr "Crea tu primer formulario"
+
+msgid "Explore premium features"
+msgstr "Explora las funciones premium"
+
+msgid "Connect with gpscontrol4u mobile app"
+msgstr "Conéctate con la app móvil gpscontrol4u"
+
+msgid "Iniciar Sesión - gpscontrol4u"
+msgstr "Iniciar Sesión - gpscontrol4u"
+
+msgid "Bienvenido"
+msgstr ""
+
+msgid "Sign in to your account"
+msgstr "Inicia sesión en tu cuenta"
+
+msgid "Sign In"
+msgstr "Iniciar Sesión"
+
+msgid "Forgot your password?"
+msgstr "¿Olvidaste tu contraseña?"
+
+msgid "Email Not Verified"
+msgstr "Correo No Verificado"
+
+msgid "Please verify your email address to continue."
+msgstr "Por favor verifica tu dirección de correo para continuar."
+
+msgid "Don't have an account?"
+msgstr "¿No tienes una cuenta?"
+
+msgid "Create one here"
+msgstr "Crea una aquí"
+
+msgid "Need to verify your email?"
+msgstr "¿Necesitas verificar tu correo?"
+
+msgid "Resend verification"
+msgstr "Reenviar verificación"
+
+#, python-format
+msgid ""
+"\n"
+"Dear %(user_name)s,\n"
+"\n"
+"You have requested a password reset for your %(site_name)s account.\n"
+"\n"
+"Please click the link below to reset your password:\n"
+"\n"
+"%(protocol)s://%(domain)s%(reset_link)s\n"
+"\n"
+"This link will expire in a few hours for security reasons.\n"
+"\n"
+"If you didn't request this password reset, please ignore this email.\n"
+"\n"
+"Best regards,\n"
+"The %(site_name)s Team\n"
+"\n"
+"---\n"
+"This is an automated message, please do not reply to this email.\n"
+msgstr ""
+"\n"
+"Estimado %(user_name)s,\n"
+"\n"
+"Has solicitado un restablecimiento de contraseña para tu cuenta de "
+"%(site_name)s.\n"
+"\n"
+"Por favor haz clic en el enlace de abajo para restablecer tu contraseña:\n"
+"\n"
+"%(protocol)s://%(domain)s%(reset_link)s\n"
+"\n"
+"Este enlace expirará en unas pocas horas por razones de seguridad.\n"
+"\n"
+"Si no solicitaste este restablecimiento de contraseña, por favor ignora este "
+"correo.\n"
+"\n"
+"Saludos cordiales,\n"
+"El Equipo de %(site_name)s\n"
+"\n"
+"---\n"
+"Este es un mensaje automatizado, por favor no respondas a este correo.\n"
+
+msgid "Password Reset"
+msgstr "Restablecimiento de Contraseña"
+
+msgid "Reset Password"
+msgstr "Restablecer Contraseña"
+
+msgid ""
+"Enter your email address and we'll send you a link to reset your password."
+msgstr ""
+"Ingresa tu dirección de correo y te enviaremos un enlace para restablecer tu "
+"contraseña."
+
+msgid "Send Reset Link"
+msgstr "Enviar Enlace de Restablecimiento"
+
+msgid "Password reset for your Marketplace account"
+msgstr "Restablecimiento de contraseña para tu cuenta de Marketplace"
+
+msgid "Registro - gpscontrol4u"
+msgstr "Registro - gpscontrol4u"
+
+msgid "Create your account"
+msgstr "Crea tu cuenta"
+
+msgid "Únete a miles de usuarios que usan gpscontrol4u"
+msgstr "Únete a miles de usuarios que usan gpscontrol4u"
+
+msgid "Nombre"
+msgstr "Nombre"
+
+msgid "Apellido"
+msgstr "Apellido"
+
+msgid "Correo Electrónico"
+msgstr "Correo Electrónico"
+
+msgid "Idioma Preferido"
+msgstr "Idioma Preferido"
+
+msgid "Confirm Password"
+msgstr "Confirmar Contraseña"
+
+msgid ""
+"He leído y acepto los <a href=\"#\" data-bs-toggle=\"modal\" data-bs-"
+"target=\"#termsModal\">Términos y Condiciones</a>"
+msgstr ""
+
+msgid "Create Account"
+msgstr "Crear Cuenta"
+
+msgid "Already have an account?"
+msgstr "¿Ya tienes una cuenta?"
+
+msgid "Sign in here"
+msgstr "Inicia sesión aquí"
+
+msgid "Didn't receive verification email?"
+msgstr "¿No recibiste el correo de verificación?"
+
+msgid "Reenviar aquí"
+msgstr "Reenviar aquí"
+
+msgid "Términos y Condiciones de Uso de GPSControl4U"
+msgstr "Términos y Condiciones de Uso de GPSControl4U"
+
+msgid "Cerrar"
+msgstr "Cerrar"
+
+msgid ""
+"By creating an account, you agree to our Terms of Service and Privacy Policy."
+msgstr ""
+"Al crear una cuenta, aceptas nuestros Términos de Servicio y Política de "
+"Privacidad."
+
+msgid "Enter your email address and we'll send you a new verification link."
+msgstr ""
+"Ingresa tu dirección de correo y te enviaremos un nuevo enlace de "
+"verificación."
+
+msgid "Send Verification Email"
+msgstr "Enviar Correo de Verificación"
+
+msgid "Why verify your email?"
+msgstr "¿Por qué verificar tu correo?"
+
+msgid "Secure your account"
+msgstr "Asegurar tu cuenta"
+
+msgid "Receive important notifications"
+msgstr "Recibir notificaciones importantes"
+
+msgid "Password recovery"
+msgstr "Recuperación de contraseña"
+
+msgid "Account security alerts"
+msgstr "Alertas de seguridad de cuenta"
+
+msgid "Términos y Condiciones de Uso | GPSControl4U"
+msgstr "Términos y Condiciones de Uso | GPSControl4U"
+
+#~ msgid "Buy Plan? This will redirect to payment processing."
+#~ msgstr "¿Comprar Plan? Esto te redirigirá al procesamiento de pago."
+
+#~ msgid "Account setup completed! You can now choose your subscription plan."
+#~ msgstr ""
+#~ "¡Configuración de cuenta completada! Ahora puedes elegir tu plan de "
+#~ "suscripción."
+
+#~ msgid "Armaddia - gpscontrol4u Marketplace"
+#~ msgstr "Armaddia - gpscontrol4u Marketplace"
+
+#~ msgid ""
+#~ "Es una aplicación para creada para todos con el objetivo de digitalizar "
+#~ "todo tipo de formatos en papel a digital."
+#~ msgstr ""
+#~ "Es una aplicación para creada para todos con el objetivo de digitalizar "
+#~ "todo tipo de formatos en papel a digital."
+
+#~ msgid ""
+#~ "Con Data collect puedes digitalizar todo tipo de documentos y formularios:"
+#~ msgstr ""
+#~ "Con Data collect puedes digitalizar todo tipo de documentos y formularios:"
+
+#~ msgid "App móvil fácil de utilizar lista para descargar."
+#~ msgstr "App móvil fácil de utilizar lista para descargar."
+
+#~ msgid "Construye:"
+#~ msgstr "Construye:"
+
+#~ msgid "Formularos precargados listos para utilizar."
+#~ msgstr "Formularios precargados listos para utilizar."
+
+#~ msgid "Diseño intuitivo y fácil de construir."
+#~ msgstr "Diseño intuitivo y fácil de construir."
+
+#~ msgid "Edita nuestros formularios y utilizalos como los necesites."
+#~ msgstr "Edita nuestros formularios y utilízalos como los necesites."
+
+#~ msgid "Utiliza tu app:"
+#~ msgstr "Utiliza tu app:"
+
+#~ msgid "Instala (Android / iOS)"
+#~ msgstr "Instala (Android / iOS)"
+
+#~ msgid "Ingresa tu número de teléfono asignado."
+#~ msgstr "Ingresa tu número de teléfono asignado."
+
+#~ msgid "Comienza a trabajar en tus documentos."
+#~ msgstr "Comienza a trabajar en tus documentos."
+
+#~ msgid "Comparte información:"
+#~ msgstr "Comparte información:"
+
+#~ msgid "PDF"
+#~ msgstr "PDF"
+
+#~ msgid "Excel"
+#~ msgstr "Excel"
+
+#~ msgid "Carga y descarga en la nube"
+#~ msgstr "Carga y descarga en la nube"
+
+#~ msgid "Precios simples y transparentes"
+#~ msgstr "Precios simples y transparentes"
+
+#~ msgid "¡Digitaliza tu servicio hoy!"
+#~ msgstr "¡Digitaliza tu servicio hoy!"
+
+#~ msgid "Crear cuenta gratis"
+#~ msgstr "Crear cuenta gratis"
+
+#~ msgid "Is the iOS app included in all plans?"
+#~ msgstr "¿La aplicación iOS está incluida en todos los planes?"
+
+#~ msgid ""
+#~ "Yes! The gpscontrol4u iOS app is free to download and works with all "
+#~ "plans. Premium features in the app are unlocked when you have a Premium "
+#~ "subscription."
+#~ msgstr ""
+#~ "¡Sí! La aplicación iOS de gpscontrol4u es gratuita para descargar y "
+#~ "funciona con todos los planes. Las funciones premium en la aplicación se "
+#~ "desbloquean cuando tienes una suscripción Premium."
+
+#~ msgid "Account registration is in progress. Please wait for completion."
+#~ msgstr ""
+#~ "El registro de cuenta está en progreso. Por favor espera a que se "
+#~ "complete."
+
+#~ msgid "Welcome back"
+#~ msgstr "Bienvenido de vuelta"
+
+#, fuzzy
+#~| msgid "Processing Payment"
+#~ msgid "Missing argument"
+#~ msgstr "Procesando Pago"
+
+#, fuzzy
+#~| msgid "Connection error."
+#~ msgid "unknown error"
+#~ msgstr "Error de conexión."
+
+#, fuzzy
+#~| msgid "Confirmation"
+#~ msgid "Repeat for confirmation"
+#~ msgstr "Confirmación"
+
+#, fuzzy
+#~| msgid "Profile"
+#~ msgid "file"
+#~ msgstr "Perfil"
+
+#, fuzzy
+#~| msgid "Confirmation"
+#~ msgid "Syndication"
+#~ msgstr "Confirmación"
+
+#, fuzzy
+#~| msgid "Email address"
+#~ msgid "Enter a valid email address."
+#~ msgstr "Dirección de correo electrónico"
+
+#, fuzzy
+#~| msgid "Information"
+#~ msgid "Duration"
+#~ msgstr "Información"
+
+#, fuzzy
+#~| msgid "Email address"
+#~ msgid "IPv4 address"
+#~ msgstr "Dirección de correo electrónico"
+
+#, fuzzy
+#~| msgid "Email address"
+#~ msgid "IP address"
+#~ msgstr "Dirección de correo electrónico"
+
+#, fuzzy
+#~| msgid "Current Plan"
+#~ msgid "Currently"
+#~ msgstr "Plan Actual"
+
+#, fuzzy
+#~| msgid "Status"
+#~ msgid "Sat"
+#~ msgstr "Estado"

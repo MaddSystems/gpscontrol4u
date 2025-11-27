@@ -1,0 +1,109 @@
+{% load i18n %}
+{% url 'accounts:verify_email' token as verification_url %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Email Verification" %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border: 1px solid #ddd;
+        }
+        .button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .footer {
+            background-color: #f1f1f1;
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-radius: 0 0 5px 5px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{% trans "Welcome to Marketplace!" %}</h1>
+    </div>
+    
+    <div class="content">
+        {% blocktrans with user_name=user.get_full_name %}
+        <p>Dear {{ user_name }},</p>
+        {% endblocktrans %}
+        
+        <p>{% trans "Thank you for registering your account with Marketplace! We're excited to have you join our community." %}</p>
+        
+        <p>{% trans "To complete your registration and start using all our features, please verify your email address by clicking the button below:" %}</p>
+        
+        <div style="text-align: center;">
+            <a href="{{ protocol }}://{{ domain }}{{ verification_url }}" class="button">
+                {% trans "Verify Email Address" %}
+            </a>
+        </div>
+        
+        <p>{% trans "Alternatively, you can copy and paste this link into your browser:" %}</p>
+        <p style="word-break: break-all; background-color: #e9ecef; padding: 10px; border-radius: 3px;">
+            {{ protocol }}://{{ domain }}{{ verification_url }}
+        </p>
+        
+        <div class="warning">
+            <strong>{% trans "Important:" %}</strong>
+            <ul>
+                <li>{% trans "This verification link will expire in 24 hours for security reasons." %}</li>
+                <li>{% trans "If you didn't create this account, please ignore this email." %}</li>
+            </ul>
+        </div>
+        
+        <p>{% trans "Once verified, you'll be able to:" %}</p>
+        <ul>
+            <li>{% trans "Access your personal dashboard" %}</li>
+            <li>{% trans "Create and manage forms" %}</li>
+            <li>{% trans "Collect and analyze data" %}</li>
+            <li>{% trans "Upgrade to premium features" %}</li>
+        </ul>
+        
+        <p>{% trans "If you have any questions or need assistance, please don't hesitate to contact our support team." %}</p>
+        
+        <p>{% trans "Best regards," %}<br>
+        {% trans "The Marketplace Team" %}</p>
+    </div>
+    
+    <div class="footer">
+        <p>{% trans "This is an automated message, please do not reply to this email." %}</p>
+        <p>{% trans "Marketplace - gpscontrol4u Web Platform" %}</p>
+    </div>
+</body>
+</html>

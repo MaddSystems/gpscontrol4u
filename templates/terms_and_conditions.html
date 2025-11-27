@@ -1,0 +1,129 @@
+
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Términos y Condiciones de Uso | GPSControl4U" %}{% endblock %}
+
+{% block content %}
+<div class="bg-white py-5 mb-5 rounded-3 border">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">{% trans "Términos y Condiciones de Uso de GPSControl4U" %}</h1>
+        <p class="lead text-muted">{% trans "Última actualización:" %} 25 de julio de 2025</p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-10 col-md-12 mb-4">
+        <div class="card shadow-sm p-4">
+            <p>Los presentes Términos y Condiciones regulan el acceso, navegación y uso de la plataforma <strong>GPSControl4U</strong>, compuesta por una <strong>página web</strong>, una <strong>aplicación web</strong> y una <strong>aplicación móvil gratuita</strong>, propiedad de <strong>MADD SYSTEMS, S.A. DE C.V.</strong> ("nosotros", "la empresa").</p>
+            <p>El uso de cualquiera de las partes de la plataforma implica la aceptación plena de estos Términos y Condiciones por parte del usuario.</p>
+            <hr>
+            <h2>1. Descripción general del servicio</h2>
+            <p><strong>GPSControl4U</strong> es una plataforma de recolección y gestión de datos a través de formularios digitales. Está compuesta por:</p>
+            <ul>
+                <li><strong>Página web:</strong> permite registrarse, visualizar información del producto y adquirir licencias.</li>
+                <li><strong>Aplicación web:</strong> permite a usuarios administradores configurar formularios, visualizar datos recolectados y administrar licencias.</li>
+                <li><strong>Aplicación móvil gratuita:</strong> permite a usuarios estándar capturar datos a través de formularios asignados.</li>
+            </ul>
+            <hr>
+            <h2>2. Registro y creación de cuenta</h2>
+            <p>Para utilizar GPSControl4U, el usuario debe registrarse en la página web proporcionando información personal básica y aceptando estos Términos.</p>
+            <p>El proceso incluye:</p>
+            <ul>
+                <li>Envío de correo de verificación</li>
+                <li>Proporcionar datos fiscales (RFC o TIN)</li>
+                <li>Activación de licencias (gratuitas o de pago)</li>
+            </ul>
+            <p><strong>El usuario es responsable de la veracidad de los datos proporcionados y de la confidencialidad de sus credenciales de acceso.</strong></p>
+            <hr>
+            <h2>3. Licencias</h2>
+            <p>Al crear una cuenta, el usuario recibe una licencia gratuita de prueba con duración anual. También puede adquirir otras licencias (individuales o paquetes) a través de la página web.</p>
+            <p>Las licencias permiten:</p>
+            <ul>
+                <li>Acceso a la aplicación web</li>
+                <li>Creación y asignación de usuarios estándar</li>
+                <li>Sincronización con la aplicación móvil</li>
+            </ul>
+            <p><strong>Las licencias son intransferibles y válidas únicamente para el número de usuarios autorizados.</strong></p>
+            <hr>
+            <h2>4. Roles de usuario</h2>
+            <ul>
+                <li><strong>Usuario administrador:</strong> tiene acceso total a la aplicación web y puede gestionar formularios, licencias, templates y usuarios.</li>
+                <li><strong>Usuario estándar:</strong> accede únicamente a la aplicación móvil y completa los formularios asignados.</li>
+            </ul>
+            <hr>
+            <h2>5. Uso de la aplicación web</h2>
+            <p>La aplicación web permite:</p>
+            <ul>
+                <li>Crear y editar formularios con distintos tipos de campos</li>
+                <li>Generar templates en HTML para exportar formularios en PDF</li>
+                <li>Subir un logotipo personalizado</li>
+                <li>Administrar licencias y usuarios</li>
+                <li>Consultar y exportar datos recolectados</li>
+                <li>Usar formularios y plantillas de ejemplo (muestrario)</li>
+            </ul>
+<p><strong>GPSControl4U se reserva el derecho de reutilizar formularios o templates generados por usuarios, previa modificación, para agregarlos al muestrario general de ejemplos.</strong></p>
+            <hr>
+            <h2>6. Uso de la aplicación móvil</h2>
+            <p>La app móvil permite:</p>
+            <ul>
+                <li>Autenticación mediante código enviado por WhatsApp</li>
+                <li>Descarga automática de formularios</li>
+                <li>Captura de datos offline y sincronización con el servidor</li>
+                <li>Visualización del historial de formularios enviados</li>
+                <li>Recepción de tareas programadas</li>
+                <li>Reporte continuo de ubicación para fines de trazabilidad (visible solo por administradores)</li>
+            </ul>
+            <p><strong>El usuario debe contar con conexión a internet para sincronizar formularios.</strong></p>
+            <hr>
+            <h2>7. Obligaciones del usuario</h2>
+            <ul>
+                <li>Utilizar la plataforma conforme a la ley y a estos Términos</li>
+                <li>No utilizar GPSControl4U para actividades ilegales, fraudulentas o que infrinjan derechos de terceros</li>
+                <li>No compartir credenciales con otros usuarios</li>
+                <li>Garantizar que los datos ingresados son verídicos, legales y no confidenciales sin consentimiento</li>
+            </ul>
+            <hr>
+            <h2>8. Uso y responsabilidad sobre los datos recolectados</h2>
+            <p><strong>MADD SYSTEMS, S.A. DE C.V. NO se hace responsable del uso que los clientes o usuarios den a la información recopilada mediante nuestra plataforma.</strong></p>
+            <p>Nuestro servicio se limita al almacenamiento, visualización y exportación de los datos. El tratamiento, manejo o divulgación de los datos es responsabilidad exclusiva del usuario administrador.</p>
+            <hr>
+            <h2>9. Restricciones y suspensión</h2>
+            <p>Nos reservamos el derecho de suspender temporal o definitivamente una cuenta si:</p>
+            <ul>
+                <li>Se detecta mal uso de la plataforma</li>
+                <li>Se intenta acceder o modificar partes del sistema sin autorización</li>
+                <li>Se incumplen estos Términos y Condiciones</li>
+            </ul>
+            <hr>
+            <h2>10. Propiedad intelectual</h2>
+            <p>Todos los derechos de propiedad intelectual sobre la plataforma, su diseño, contenido, código fuente, marca y logotipo son propiedad exclusiva de <strong>MADD SYSTEMS, S.A. DE C.V.</strong> Se prohíbe la copia, distribución, modificación o reproducción parcial o total sin autorización escrita.</p>
+            <hr>
+            <h2>11. Servicios de terceros</h2>
+            <p>GPSControl4U utiliza servicios de terceros como:</p>
+            <ul>
+                <li>Proveedores de pago: Stripe (EE. UU.) y Mercado Pago (México)</li>
+                <li>Firebase (notificaciones push)</li>
+                <li>Proveedor de envío de mensajes vía WhatsApp</li>
+                <li>Servidor SMTP (correo de verificación)</li>
+            </ul>
+            <p><strong>No somos responsables del uso que dichos terceros puedan hacer de la información transmitida a través de sus plataformas.</strong></p>
+            <hr>
+            <h2>12. Disponibilidad del servicio</h2>
+            <p>Nos esforzamos por mantener la disponibilidad continua del servicio, pero <strong>no garantizamos</strong> que estará libre de errores, interrupciones o accesible en todo momento. El usuario acepta que podrían existir periodos de mantenimiento o fallos técnicos.</p>
+            <hr>
+            <h2>13. Modificaciones</h2>
+            <p>Nos reservamos el derecho de modificar estos Términos en cualquier momento. Cualquier cambio será publicado en nuestra página web. El uso posterior a la modificación implica la aceptación de los nuevos términos.</p>
+            <hr>
+            <h2>14. Legislación y jurisdicción</h2>
+            <p>Este acuerdo se rige por las leyes mexicanas. En caso de controversia, el usuario acepta someterse a la jurisdicción de los tribunales competentes de la Ciudad de México, renunciando a cualquier otro fuero.</p>
+            <hr>
+            <h2>15. Contacto</h2>
+            <p>Si tienes dudas o inquietudes sobre estos Términos, puedes escribirnos a:</p>
+            <ul>
+                <li><strong>Correo electrónico de contacto:</strong> <a href="mailto:gpscontrol4u@madd.com.mx">gpscontrol4u@madd.com.mx</a></li>
+                <li><strong>Dirección fiscal o de atención:</strong> Av. Gustavo Baz Prada 176, 3A y 4A, San Jerónimo Tepetlacalco, 54090 Tlalnepantla de Baz, México</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

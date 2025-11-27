@@ -1,0 +1,804 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Panel de Control - gpscontrol4u" %}{% endblock %}
+
+{% block content %}
+<!-- Account Setup Required Notice -->
+{% if not user.rfc_tin %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="alert alert-info alert-dismissible fade show border-0 shadow-sm" role="alert" style="background-color: #F5F3F6; border-left: 4px solid #917996 !important;">
+            <h5 class="alert-heading" style="color: #917996;">
+                <i class="fas fa-info-circle"></i> 
+                {% trans "Configuración de cuenta requerida" %}
+            </h5>
+            <p class="mb-3" style="color: var(--gpscontrol4u-text);">
+                {% trans "Para acceder a los planes y usar nuestras aplicaciones móviles, necesitas completar la configuración de tu cuenta proporcionando tu RFC o TIN." %}
+            </p>
+            <a href="{% url 'accounts:setup_account' %}" class="btn btn-primary">
+                <i class="fas fa-user-cog me-2"></i>
+                {% trans "Completar configuración" %}
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Welcome Message -->
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h2">
+                {% blocktrans with name=user.get_full_name|default:user.email %}¡Bienvenido de nuevo, {{ name }}!{% endblocktrans %}
+            </h1>
+            {% if user.rfc_tin %}
+                {% if not subscription %}
+                <a href="{% url 'accounts:pricing' %}" class="btn btn-primary">
+                    <i class="fas fa-rocket me-2"></i>
+                    {% trans "Elegir Plan" %}
+                </a>
+                {% elif subscription.status != 'active' %}
+                <a href="{% url 'accounts:pricing' %}" class="btn btn-primary">
+                    <i class="fas fa-rocket me-2"></i>
+                    {% trans "Elegir Plan" %}
+                </a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Sandbox Mode Notice (Django will conditionally show this) -->
+{% if settings.MERCADO_PAGO_SANDBOX and false%}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="alert alert-info alert-dismissible fade show" role="alert" style="background-color: #F5F3F6; border-left: 4px solid #917996;">
+            <h5 class="alert-heading" style="color: #917996;">
+                <i class="fas fa-flask"></i> 
+                {% trans "Sandbox Testing Mode" %}
+            </h5>
+            <p class="mb-2">
+                {% trans "Payment system is currently in sandbox mode for testing." %}
+            </p>
+            <p class="mb-3">
+                <strong>{% trans "For Premium Plan Testing:" %}</strong><br>
+                {% trans "When redirected to Mercado Pago, use these test cards:" %}<br><br>
+                <strong>{% trans "Test Card:" %}</strong> <code>4509 9535 6623 3704</code><br>
+                <strong>{% trans "Nombre del titular:" %}</strong> <code>APRO</code><br>
+                <strong>{% trans "Vencimiento:" %}</strong> {% trans "(any superior date)" %}<br>
+                <strong>{% trans "Codigo seguridad:" %}</strong> {% trans "(any 3 digits number)" %}<br>
+                <small class="text-muted">{% trans "No real money will be charged during testing." %}</small>
+            </p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- RFC/TIN Information Row -->
+{% if user.rfc_tin %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card" style="border-color: #917996;">
+            <div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="mb-1" style="color: #917996;">
+                            <i class="fas fa-id-card"></i> 
+                            {% trans "Registered RFC/TIN" %}
+                        </h6>
+                        <span class="h5 mb-0 text-dark">{{ user.rfc_tin }}</span>
+                    </div>
+                    <div class="text-end">
+                        {% if subscription and subscription.status == 'active' and user.rfc_tin and user.external_api_registered %}
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check"></i> 
+                                    {% trans "Plan Active" %}
+                                </span>
+                                <button class="btn btn-outline-primary btn-sm" onclick="viewCredentials()">
+                                    <i class="fas fa-key"></i> 
+                                    {% trans "View Credentials" %}
+                                </button>
+                                {% if user_purchases %}
+                                <button class="btn btn-outline-secondary btn-sm" onclick="showPurchaseHistoryModal()">
+                                    <i class="fas fa-history"></i> 
+                                    {% trans "Purchase History" %}
+                                </button>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Plan Selection Required -->
+{% if show_plan_selection %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h4 class="mb-3">
+            <i class="fas fa-clipboard-list text-primary"></i>
+            {% trans "Choose Your Plan" %}
+        </h4>
+        
+        {% if external_plans %}
+        <div class="row">
+            {% for plan in external_plans %}
+            <div class="col-md-6 mb-3">
+                <div class="card {% if plan.is_free %}border-success{% else %}border-primary{% endif %} h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h6 class="card-title {% if plan.is_free %}text-success{% else %}text-primary{% endif %} mb-0">
+                                {{ plan.name }}
+                            </h6>
+                            {% if plan.is_free %}
+                            <span class="badge bg-success">{% trans "FREE" %}</span>
+                            {% else %}
+                            <span class="badge bg-primary">{% trans "PREMIUM" %}</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-2">
+                            {% if plan.price == 0 %}
+                            <span class="h5 text-success mb-0">$0 MXN</span>
+                            <small class="text-muted">/ {% trans "year" %}</small>
+                            {% else %}
+                            <span class="h5 {% if plan.is_free %}text-success{% else %}text-primary{% endif %} mb-0">${{ plan.price|floatformat:0 }} MXN</span>
+                            <small class="text-muted">/ {{ plan.billing_cycle|lower }}</small>
+                            {% endif %}
+                        </div>
+                        
+                        <p class="card-text text-muted mb-3 flex-grow-1">
+                            {{ plan.description }}
+                        </p>
+                        
+                        <div class="row text-center small mb-3">
+                            {% if plan.admin_users_quantity > 0 %}
+                            <div class="col-6">
+                                <i class="fas fa-user-tie text-primary"></i><br>
+                                <strong>{{ plan.admin_users_quantity }}</strong><br>
+                                <small>{% trans "Admin" %}</small>
+                            </div>
+                            {% endif %}
+                            {% if plan.subscribed_users_quantity > 0 %}
+                            <div class="col-6">
+                                <i class="fas fa-users" style="color: #917996;"></i><br>
+                                <strong>{{ plan.subscribed_users_quantity }}</strong><br>
+                                <small>{% trans "Users" %}</small>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        {% if plan.price == 0 %}
+                            {% if plan.id|stringformat:"s" in user_purchased_plans or plan.id in user_purchased_plans %}
+                            <button class="btn btn-success btn-sm w-100" onclick="viewCredentials()">
+                                <i class="fas fa-key"></i> 
+                                {% trans "Active Plan" %}
+                            </button>
+                            {% else %}
+                            <button class="btn btn-success btn-sm w-100" onclick="activatePlan('free', '{{ plan.id|escapejs }}')">
+                                <i class="fas fa-check"></i> 
+                                {% trans "Activate Free" %}
+                            </button>
+                            {% endif %}
+                        {% else %}
+                            <!-- For paid plans, always allow buying more licenses -->
+                            <button class="btn btn-primary btn-sm w-100" onclick="activatePlan('premium', '{{ plan.id|escapejs }}')">
+                                {% if plan.id|stringformat:"s" in user_purchased_plans or plan.id in user_purchased_plans %}
+                                <i class="fas fa-plus"></i> 
+                                {% trans "Buy More Licenses" %}
+                                {% else %}
+                                <i class="fas fa-star"></i> 
+                                {% trans "Buy" %}
+                                {% endif %}
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <!-- Fallback to static plans if API fails -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card border-success">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-success">
+                            {% trans "Free Plan" %}
+                        </h6>
+                        <p class="card-text small">
+                            {% trans "Predefined forms, 100 records, mobile app access" %}
+                        </p>
+                        <button class="btn btn-success btn-sm" onclick="activatePlan('free', 1)">
+                            <i class="fas fa-check"></i> 
+                            {% trans "Activate Free" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card border-primary">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-primary">
+                            {% trans "Premium Plan" %}
+                        </h6>
+                        <p class="card-text small">
+                            {% trans "Custom forms, unlimited records, advanced features" %}
+                        </p>
+                        <button class="btn btn-primary btn-sm" onclick="activatePlan('premium', 2)">
+                            <i class="fas fa-star"></i> 
+                            {% trans "Buy" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+
+
+<!-- Plan Information Section (for users with active subscriptions) -->
+{% if show_plan_info %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-chart-bar"></i> 
+                    {% trans "Available Plans" %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for plan in external_plans %}
+                    <div class="col-md-6 mb-3">
+                        <div class="card {% if plan.is_free %}border-success{% else %}border-primary{% endif %} h-100">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="card-title {% if plan.is_free %}text-success{% else %}text-primary{% endif %} mb-0">
+                                        {{ plan.name }}
+                                    </h6>
+                                    {% if plan.is_free %}
+                                    <span class="badge bg-success">{% trans "FREE" %}</span>
+                                    {% else %}
+                                    <span class="badge bg-primary">{% trans "PREMIUM" %}</span>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="mb-2">
+                                    {% if plan.price == 0 %}
+                                    <span class="h5 text-success mb-0">$0 MXN</span>
+                                    <small class="text-muted">/ {% trans "year" %}</small>
+                                    {% else %}
+                                    <span class="h5 {% if plan.is_free %}text-success{% else %}text-primary{% endif %} mb-0">${{ plan.price|floatformat:0 }} MXN</span>
+                                    <small class="text-muted">/ {{ plan.billing_cycle|lower }}</small>
+                                    {% endif %}
+                                </div>
+                                
+                                <p class="card-text text-muted mb-3 flex-grow-1">
+                                    {{ plan.description }}
+                                </p>
+                                
+                                <div class="row text-center small mb-3">
+                                    {% if plan.admin_users_quantity > 0 %}
+                                    <div class="col-6">
+                                        <i class="fas fa-user-tie text-primary"></i><br>
+                                        <strong>{{ plan.admin_users_quantity }}</strong><br>
+                                        <small>{% trans "Admin" %}</small>
+                                    </div>
+                                    {% endif %}
+                                    {% if plan.subscribed_users_quantity > 0 %}
+                                    <div class="col-6">
+                                        <i class="fas fa-users" style="color: #917996;"></i><br>
+                                        <strong>{{ plan.subscribed_users_quantity }}</strong><br>
+                                        <small>{% trans "Users" %}</small>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                {% if plan.price == 0 %}
+                                    {% if plan.id|stringformat:"s" in user_purchased_plans or plan.id in user_purchased_plans %}
+                                    <button class="btn btn-success btn-sm w-100" onclick="viewCredentials()">
+                                        <i class="fas fa-key"></i> 
+                                        {% trans "Active Plan" %}
+                                    </button>
+                                    {% else %}
+                                    <button class="btn btn-success btn-sm w-100" onclick="activatePlan('free', '{{ plan.id|escapejs }}')">
+                                        <i class="fas fa-check"></i> 
+                                        {% trans "Activate Free" %}
+                                    </button>
+                                    {% endif %}
+                                {% else %}
+                                    <!-- For paid plans, always allow buying more licenses -->
+                                    <button class="btn btn-primary btn-sm w-100" onclick="activatePlan('premium', '{{ plan.id|escapejs }}')">
+                                        {% if plan.id|stringformat:"s" in user_purchased_plans or plan.id in user_purchased_plans %}
+                                        <i class="fas fa-plus"></i> 
+                                        {% trans "Buy More Licenses" %}
+                                        {% else %}
+                                        <i class="fas fa-star"></i> 
+                                        {% trans "Buy" %}
+                                        {% endif %}
+                                    </button>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Translatable strings for JavaScript
+const translations = {
+    'confirmActivateFree': '{% trans "Activate Free Plan? You can upgrade to Premium anytime." %}',
+    'freeActivatedSuccess': '{% trans "Free plan activated successfully!" %}',
+    'credentialsHeader': '{% trans "Login credentials:" %}',
+    'usernameLabel': '{% trans "Username:" %}',
+    'passwordLabel': '{% trans "Password:" %}',
+    'portalAccessLabel': '{% trans "Web portal access:" %}',
+    'credentialsNote': '{% trans "Save these credentials to access the mobile app and web portal!" %}',
+    'errorActivatingPlan': '{% trans "Error activating plan." %}',
+    'connectionError': '{% trans "Connection error." %}',
+    'premiumSelected': '{% trans "Premium plan selected. Payment processing will be enabled soon." %}',
+    'credentialsTitle': '{% trans "API Credentials" %}',
+    'credentialsNotFound': '{% trans "No credentials found. Please activate a plan first." %}',
+    'credentialsRetrieved': '{% trans "Your API Credentials" %}',
+    'planTypeLabel': '{% trans "Plan Type:" %}',
+    'clientIdLabel': '{% trans "Client ID:" %}',
+    'userIdLabel': '{% trans "User ID:" %}',
+    'licensesLabel': '{% trans "Licenses:" %}',
+    'activePlan': '{% trans "Active Plan" %}',
+    'confirmActivatePaid': '{% trans "Are you sure you want to activate" %}',
+    'thisWillCost': '{% trans "This will cost" %}',
+    'perYear': '{% trans "per year." %}',
+    'planActivatedSuccess': '{% trans "activated successfully!" %}',
+    'stripePaymentSoon': '{% trans "Stripe payment processing will be available soon." %}',
+    'paymentProcessingError': '{% trans "Payment processing error." %}',
+    'success': '{% trans "Success" %}',
+    'payment': '{% trans "Payment" %}',
+    'error': '{% trans "Error" %}',
+    'activate': '{% trans "Activate" %}',
+    'planActivatedSuccessfully': '{% trans "activated successfully!" %}',
+    'activated': '{% trans "Activated" %}'
+};
+
+function activatePlan(planType, planId) {
+    // planType is now just for legacy compatibility
+    // We determine behavior based on plan details from the external API
+    
+    // For backward compatibility, if no planId provided, use legacy defaults
+    if (!planId) {
+        planId = (planType === 'free' ? 1 : 2);
+    }
+    
+    // First, check if this is a free plan by price
+    // We'll make a quick API call to check plan details
+    fetch('{% url "accounts:get_plan_details" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({
+            'plan_id': planId
+        })
+    })
+    .then(response => response.json())
+    .then(planData => {
+        const isFree = planData.success && planData.price === 0;
+        
+        if (isFree) {
+            handleFreePlanActivation(planId, planData.name);
+        } else {
+            handlePaidPlanActivation(planId, planData.name, planData.price);
+        }
+    })
+    .catch(error => {
+        console.error('Error getting plan details:', error);
+        // Fallback to legacy behavior
+        if (planType === 'free') {
+            handleFreePlanActivation(planId, 'Free Plan');
+        } else {
+            handlePaidPlanActivation(planId, 'Premium Plan', 60);
+        }
+    });
+}
+
+function handleFreePlanActivation(planId, planName) {
+    showConfirmModal(translations.confirmActivateFree, function() {
+        // Make AJAX call to activate free plan
+        fetch('{% url "accounts:activate_plan" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({
+                'plan_type': 'free',
+                'external_plan_id': planId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Show success message with credentials
+                let message = `${planName} ${translations.planActivatedSuccessfully}\n\n`;
+                
+                if (data.credentials) {
+                    message += translations.credentialsHeader + '\n';
+                    message += translations.usernameLabel + ' ' + data.credentials.username + '\n';
+                    message += translations.passwordLabel + ' ' + data.credentials.password + '\n\n';
+                    message += translations.portalAccessLabel + '\n';
+                    message += data.credentials.portal_url + '\n\n';
+                    message += translations.credentialsNote;
+                }
+                
+                showMessageModal(message, `${planName} ${translations.activated}`);
+                
+                // Reload page after user closes the modal to update button states
+                const messageModal = document.getElementById('messageModal');
+                const modalInstance = bootstrap.Modal.getOrCreateInstance(messageModal);
+                
+                // Add event listener for when modal is hidden
+                const handleModalHidden = () => {
+                    location.reload();
+                    messageModal.removeEventListener('hidden.bs.modal', handleModalHidden);
+                };
+                messageModal.addEventListener('hidden.bs.modal', handleModalHidden);
+            } else {
+                showMessageModal(data.message || translations.errorActivatingPlan, '{% trans "Error" %}');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showMessageModal(translations.connectionError, '{% trans "Error" %}');
+        });
+    }, `{% trans "Activate" %} ${planName}`);
+}
+
+function handlePaidPlanActivation(planId, planName, planPrice) {
+    const message = `${translations.confirmActivatePaid} ${planName}? ${translations.thisWillCost} $${planPrice} MXN ${translations.perYear}`;
+    showConfirmModal(message, function() {
+        // First, try to activate plan to check payment requirements
+        fetch('{% url "accounts:activate_plan" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({
+                'plan_type': 'paid',
+                'external_plan_id': planId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && data.payment_required) {
+                // Payment is required - redirect to payment processor
+                if (data.payment_provider === 'mercado_pago') {
+                    // Create Mercado Pago preference and redirect
+                    createMercadoPagoPayment(planId);  // Pass the plan ID
+                } else if (data.payment_provider === 'stripe') {
+                    // Handle Stripe payment (future implementation)
+                    showMessageModal(translations.stripePaymentSoon, translations.payment);
+                } else {
+                    showMessageModal(data.message || translations.paymentProcessingError, translations.error);
+                }
+            } else if (data.success) {
+                // Plan activated without payment (shouldn't happen for paid plans)
+                showMessageModal(data.message || `${planName} ${translations.planActivatedSuccess}`, translations.success);
+                setTimeout(() => location.reload(), 2000);
+            } else {
+                showMessageModal(data.message || translations.errorActivatingPlan, translations.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showMessageModal(translations.connectionError, translations.error);
+        });
+    }, `${translations.activate} ${planName}`);
+}
+
+function viewCredentials() {
+    // Fetch stored credentials from the server
+    fetch('{% url "accounts:get_credentials" %}', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Format credentials message
+            let message = translations.credentialsHeader + '\n\n';
+            message += translations.usernameLabel + ' ' + data.data.credentials.username + '\n';
+            message += translations.passwordLabel + ' ' + data.data.credentials.password + '\n\n';
+            message += translations.portalAccessLabel + '\n';
+            message += data.data.credentials.portal_url + '\n\n';
+            message += translations.planTypeLabel + ' ' + data.data.plan_type.toUpperCase() + '\n';
+            message += translations.clientIdLabel + ' ' + data.data.client_id + '\n';
+            message += translations.userIdLabel + ' ' + data.data.user_id + '\n';
+            message += translations.licensesLabel + ' ' + data.data.licenses + '\n\n';
+            message += translations.credentialsNote;
+            
+            showMessageModal(message, translations.credentialsRetrieved);
+        } else {
+            showMessageModal(data.message || translations.credentialsNotFound, '{% trans "Error" %}');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showMessageModal(translations.connectionError, '{% trans "Error" %}');
+    });
+}
+
+function createMercadoPagoPayment(planId) {
+    // Show loading message
+    showMessageModal('{% trans "Creating payment preference..." %}', '{% trans "Processing Payment" %}');
+    
+    // Create Mercado Pago payment preference
+    fetch('{% url "accounts:create_mercado_pago_preference" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({
+            'plan_id': planId
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.checkout_url) {
+            // Hide the modal and redirect to Mercado Pago
+            const modal = bootstrap.Modal.getInstance(document.getElementById('messageModal'));
+            if (modal) modal.hide();
+            
+            // Redirect to Mercado Pago checkout
+            window.location.href = data.checkout_url;
+        } else {
+            showMessageModal(data.message || '{% trans "Error creating payment preference" %}', '{% trans "Payment Error" %}');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showMessageModal('{% trans "Connection error while creating payment" %}', '{% trans "Error" %}');
+    });
+}
+
+// Function to show purchase history modal
+function showPurchaseHistoryModal() {
+    const modal = new bootstrap.Modal(document.getElementById('purchaseHistoryModal'));
+    modal.show();
+}
+</script>
+
+<!-- Purchase History Modal -->
+<div class="modal fade" id="purchaseHistoryModal" tabindex="-1" aria-labelledby="purchaseHistoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="purchaseHistoryModalLabel">
+                    <i class="fas fa-history me-2"></i>
+                    {% trans "Complete Purchase History" %}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Purchase Statistics -->
+                <div class="row mb-4">
+                    <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                        <div class="card bg-light text-center">
+                            <div class="card-body py-3">
+                                <h6 class="card-title text-muted mb-1">{% trans "Total Purchases" %}</h6>
+                                <h4 class="text-primary mb-0">{{ user_purchases.count }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                        <div class="card bg-light text-center">
+                            <div class="card-body py-3">
+                                <h6 class="card-title text-muted mb-1">{% trans "Active Plans" %}</h6>
+                                <h4 class="text-success mb-0">{{ active_purchases.count }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                        <div class="card bg-light text-center">
+                            <div class="card-body py-3">
+                                <h6 class="card-title text-muted mb-1">{% trans "Total Spent" %}</h6>
+                                <h4 class="text-info mb-0">
+                                    ${{ total_spent|floatformat:0 }} MXN
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                        <div class="card bg-light text-center">
+                            <div class="card-body py-3">
+                                <h6 class="card-title text-muted mb-1">{% trans "Total Users" %}</h6>
+                                <h4 class="text-warning mb-0">
+                                    <i class="fas fa-users"></i> {{ total_users|default:0 }}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                        <div class="card bg-light text-center">
+                            <div class="card-body py-3">
+                                <h6 class="card-title text-muted mb-1">{% trans "Admin Users" %}</h6>
+                                <h4 class="text-purple mb-0" style="color: #917996;">
+                                    <i class="fas fa-user-tie"></i> {{ total_admin_users|default:0 }}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                        <div class="card bg-light text-center">
+                            <div class="card-body py-3">
+                                <h6 class="card-title text-muted mb-1">{% trans "Free Plan Used" %}</h6>
+                                <h4 class="{% if has_free_plan %}text-success{% else %}text-muted{% endif %} mb-0">
+                                    {% if has_free_plan %}
+                                        <i class="fas fa-check"></i> {% trans "Yes" %}
+                                    {% else %}
+                                        <i class="fas fa-times"></i> {% trans "No" %}
+                                    {% endif %}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>{% trans "Plan Name" %}</th>
+                                <th>{% trans "Users" %}</th>
+                                <th>{% trans "Price" %}</th>
+                                <th>{% trans "Purchase Date" %}</th>
+                                <th>{% trans "Expiration Date" %}</th>
+                                <th>{% trans "Days Left" %}</th>
+                                <th>{% trans "Status" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for purchase in user_purchases %}
+                            <tr>
+                                <td>
+                                    <strong>{{ purchase.plan_name }}</strong>
+                                    {% if purchase.plan_category == 'free' %}
+                                        <span class="badge bg-success ms-2">{% trans "Free" %}</span>
+                                    {% elif purchase.plan_category == 'team' %}
+                                        <span class="badge bg-primary ms-2">{% trans "Team" %}</span>
+                                    {% elif purchase.plan_category == 'license' %}
+                                        <span class="badge bg-info ms-2">{% trans "License" %}</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="d-flex flex-column">
+                                        {% if purchase.admin_users_quantity and purchase.admin_users_quantity > 0 %}
+                                        <div class="small">
+                                            <i class="fas fa-user-tie text-primary"></i>
+                                            <strong>{{ purchase.admin_users_quantity }}</strong> {% trans "Admin" %}
+                                        </div>
+                                        {% endif %}
+                                        {% if purchase.subscribed_users_quantity and purchase.subscribed_users_quantity > 0 %}
+                                        <div class="small">
+                                            <i class="fas fa-users" style="color: #917996;"></i>
+                                            <strong>{{ purchase.subscribed_users_quantity }}</strong> {% trans "Users" %}
+                                        </div>
+                                        {% endif %}
+                                        {% if not purchase.admin_users_quantity and not purchase.subscribed_users_quantity %}
+                                        <div class="small text-muted">
+                                            <i class="fas fa-minus"></i> {% trans "No users" %}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                                <td>
+                                    {% if purchase.amount > 0 %}
+                                        <strong>${{ purchase.amount|floatformat:0 }} {{ purchase.currency }}</strong>
+                                    {% else %}
+                                        <span class="text-success"><strong>{% trans "Free" %}</strong></span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{ purchase.purchase_date|date:"M d, Y" }}
+                                    <br><small class="text-muted">{{ purchase.purchase_date|date:"g:i A" }}</small>
+                                </td>
+                                <td>
+                                    {% if purchase.expiration_date %}
+                                        {{ purchase.expiration_date|date:"M d, Y" }}
+                                        <br><small class="text-muted">{{ purchase.expiration_date|date:"g:i A" }}</small>
+                                    {% else %}
+                                        <span class="text-success">
+                                            <i class="fas fa-infinity"></i> {% trans "Never" %}
+                                        </span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if purchase.expiration_date %}
+                                        {% with days=purchase.days_until_expiration %}
+                                        {% if days is not None %}
+                                            {% if days > 30 %}
+                                                <span class="badge bg-success">{{ days }} {% trans "days" %}</span>
+                                            {% elif days > 7 %}
+                                                <span class="badge bg-warning">{{ days }} {% trans "days" %}</span>
+                                            {% elif days > 0 %}
+                                                <span class="badge bg-danger">{{ days }} {% trans "days" %}</span>
+                                            {% else %}
+                                                <span class="badge bg-dark">{% trans "Expired" %}</span>
+                                            {% endif %}
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                        {% endwith %}
+                                    {% else %}
+                                        <span class="text-success">
+                                            <i class="fas fa-infinity"></i> {% trans "Lifetime" %}
+                                        </span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if purchase.status == 'active' %}
+                                        <span class="badge bg-success">
+                                            <i class="fas fa-check"></i> {% trans "Active" %}
+                                        </span>
+                                    {% elif purchase.status == 'expired' %}
+                                        <span class="badge bg-danger">
+                                            <i class="fas fa-clock"></i> {% trans "Expired" %}
+                                        </span>
+                                    {% elif purchase.status == 'cancelled' %}
+                                        <span class="badge bg-secondary">
+                                            <i class="fas fa-times"></i> {% trans "Cancelled" %}
+                                        </span>
+                                    {% else %}
+                                        <span class="badge bg-warning">
+                                            <i class="fas fa-hourglass-half"></i> {% trans "Pending" %}
+                                        </span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="7" class="text-center text-muted py-4">
+                                    <i class="fas fa-inbox fa-2x mb-2"></i><br>
+                                    {% trans "No purchase history found" %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    {% trans "Close" %}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

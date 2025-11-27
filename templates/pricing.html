@@ -1,0 +1,464 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Pricing - gpscontrol4u Marketplace" %}{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div class="bg-white py-5 mb-5 rounded-3">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold" style="color: #333333;">{% trans "Planes simples y transparentes" %}</h1>
+        <p class="lead" style="color: #747D88;">{% trans "Comienza gratis y actualiza cuando necesites más funciones" %}</p>
+    </div>
+</div>
+
+<!-- Pricing Cards -->
+<div class="row justify-content-center">
+    {% if external_plans %}
+        {% for plan in external_plans %}
+        <div class="col-lg-5 col-md-6 mb-4">
+            <div class="card h-100 {% if plan.is_free %}shadow-sm{% else %}shadow-lg border-primary{% endif %} d-flex flex-column">
+                {% if not plan.is_free %}
+                <div class="card-header bg-primary text-white text-center">
+                    <span class="text-muted fs-6">{% trans "Plan" %}</span>
+                </div>
+                {% endif %}
+                <div class="card-body text-center p-4 d-flex flex-column">
+                    <h3 class="card-title" style="color: #333333;">{{ plan.name }}</h3>
+                    <div class="display-4 mb-3" style="color: #333333;">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if plan.price == 0 %}
+                            $0<small class="fs-6 text-muted">/{% trans "month" %}</small>
+                        {% else %}
+                            {% if LANGUAGE_CODE == 'es' %}
+                                ${{ plan.price|floatformat:0 }}<small class="fs-6 text-muted"> MXN / anualmente</small>
+                            {% else %}
+                                ${{ plan.price|floatformat:0 }}<small class="fs-6 text-muted"> MXN / {% trans "year" %}</small>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-4 text-start flex-grow-1">
+                        <p style="color: #6B7280;">{{ plan.description }}</p>
+                        {% if plan.admin_users_quantity > 0 %}
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-user-tie text-primary me-2"></i>
+                            <span style="color: #6B7280;"><strong>{{ plan.admin_users_quantity }}</strong> {% trans "Admin" %}</span>
+                        </div>
+                        {% endif %}
+                        {% if plan.subscribed_users_quantity > 0 %}
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-users me-2" style="color: #917996;"></i>
+                            <span style="color: #6B7280;"><strong>{{ plan.subscribed_users_quantity }}</strong> {% trans "Users" %}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mt-auto">
+                    {% if user.is_authenticated %}
+                        {% if not user_has_rfc_tin %}
+                            <a href="{% url 'accounts:setup_account' %}" class="btn btn-warning btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">
+                                {% trans "Complete Setup First" %}
+                            </a>
+                        {% elif plan.id|stringformat:"s" in active_plan_ids or plan.id in active_plan_ids %}
+                            <button class="btn btn-primary btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;" disabled>
+                                {% trans "Active Plan" %}
+                            </button>
+                        {% elif plan.id|stringformat:"s" in user_purchased_plans or plan.id in user_purchased_plans %}
+                            <button class="btn btn-outline-secondary btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;" disabled>
+                                {% trans "Previously Purchased" %}
+                            </button>
+                        {% elif plan.price == 0 and has_free_plan %}
+                            <button class="btn btn-outline-warning btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;" disabled>
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                {% trans "Free Plan Already Used" %}
+                            </button>
+                            {% else %}
+                            {% if plan.price == 0 %}
+                                <button type="button" onclick="activatePlan({{ plan.id }})" class="btn btn-primary btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">
+                                    {% trans "Activate Plan" %}
+                                </button>
+                            {% else %}
+                                <button type="button" onclick="activatePlan({{ plan.id }})" class="btn btn-primary btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">
+                                    {% trans "Buy" %}
+                                </button>
+                            {% endif %}
+                            {% endif %}
+                    {% else %}
+                    <a href="{% url 'accounts:register' %}" class="btn btn-outline-primary btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;">{% trans "Get Started" %}</a>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+    <!-- Fallback to static plans if API fails -->
+    <!-- Free Plan -->
+    <div class="col-lg-5 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm d-flex flex-column">
+            <div class="card-body text-center p-4 d-flex flex-column">
+                <h3 class="card-title" style="color: #000000;">{% trans "Free" %}</h3>
+                <div class="display-4 mb-3" style="color: #000000;">$0<small class="fs-6" style="color: #6B7280;">/{% trans "month" %}</small></div>
+                
+                <div class="flex-grow-1">
+                <ul class="list-unstyled mb-4">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Access to predefined forms" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Basic data collection" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "100 records limit" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Mobile app access" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "English & Spanish support" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-times text-muted me-2"></i><span style="color: #6B7280;">{% trans "Custom form creation" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-times text-muted me-2"></i><span style="color: #6B7280;">{% trans "Advanced analytics" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-times text-muted me-2"></i><span style="color: #6B7280;">{% trans "Data export" %}</span></li>
+                </ul>
+                </div>
+                
+                <div class="mt-auto">
+                {% if user.is_authenticated %}
+                    {% if not user_has_rfc_tin %}
+                        <a href="{% url 'accounts:setup_account' %}" class="btn btn-warning btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">
+                            {% trans "Complete Setup First" %}
+                        </a>
+                    {% elif current_subscription and current_subscription.status == 'active' and current_subscription.plan_type == 'free' and user_has_rfc_tin and user_api_registered %}
+                        <button class="btn btn-outline-secondary btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;" disabled>{% trans "Current Plan" %}</button>
+                    {% else %}
+                        <a href="{% url 'accounts:dashboard' %}" class="btn btn-primary btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">
+                            {% trans "Activate Plan" %}
+                        </a>
+                    {% endif %}
+                {% else %}
+                <a href="{% url 'accounts:register' %}" class="btn btn-outline-primary btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;">{% trans "Get Started" %}</a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Premium Plan -->
+    <div class="col-lg-5 col-md-6 mb-4">
+        <div class="card h-100 shadow-lg border-primary d-flex flex-column">
+            <div class="card-header bg-primary text-white text-center">
+                <span class="text-muted fs-6">{% trans "Plan" %}</span>
+            </div>
+            <div class="card-body text-center p-4 d-flex flex-column">
+                <h3 class="card-title" style="color: #000000;">{% trans "Premium" %}</h3>
+                <div class="display-4 mb-3" style="color: #000000;">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% if LANGUAGE_CODE == 'es' %}
+                        $60<small class="fs-6 text-muted"> MXN / anualmente</small>
+                    {% else %}
+                        $60<small class="fs-6 text-muted"> MXN / {% trans "year" %}</small>
+                    {% endif %}
+                </div>
+                
+                <div class="flex-grow-1">
+                <ul class="list-unstyled mb-4">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Unlimited custom forms" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "10,000 records limit" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Advanced data analytics" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Data export (CSV, JSON)" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Priority support" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Form templates library" %}</span></li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i><span style="color: #6B7280;">{% trans "Team collaboration" %}</span></li>
+                </ul>
+                </div>
+                
+                <div class="mt-auto">
+                {% if user.is_authenticated %}
+                    {% if not user_has_rfc_tin %}
+                        <a href="{% url 'accounts:setup_account' %}" class="btn btn-warning btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">
+                            {% trans "Complete Setup First" %}
+                        </a>
+                    {% elif current_subscription and current_subscription.plan_type == 'premium' and current_subscription.status == 'active' and user_has_rfc_tin and user_api_registered %}
+                        <button class="btn btn-primary btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;" disabled>{% trans "Current Plan" %}</button>
+                    {% else %}
+                        <button type="button" onclick="activatePlan({{ plan.id }})" class="btn btn-primary btn-lg w-100" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">
+                            {% trans "Buy" %}
+                        </button>
+                    {% endif %}
+                {% else %}
+                <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;">{% trans "Get Started" %}</a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- FAQ Section -->
+<div class="row mt-5">
+    <div class="col-12">
+            <h2 class="text-center mb-4" style="color: #333333;">{% trans "Frequently Asked Questions" %}</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1Collapse">
+                        {% trans "¿Qué es GPScontrol4U?" %}
+                    </button>
+                </h2>
+                <div id="faq1Collapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {% trans "GPScontrol4U es un servicio que combina un dispositivo GPS instalado en el automóvil con una aplicación móvil, diseñado específicamente para padres de familia que desean monitorear la ubicación, seguridad y trayectos de sus hijos o cónyuge. Pensado también para personas que quieren proteger su automóvil o motocicleta ante robos." %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2Collapse">
+                        {% trans "¿Qué incluye el servicio GPScontrol4U?" %}
+                    </button>
+                </h2>
+                <div id="faq2Collapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {% trans "Incluye dispositivo GPS instalado, aplicación móvil para Android e iOS, servicio de datos incluido, central de emergencias 24/7 los 365 días del año, y levantamiento de protocolo de emergencia." %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3Collapse">
+                        {% trans "¿En qué se diferencia GPScontrol4U de otros rastreadores GPS?" %}
+                    </button>
+                </h2>
+                <div id="faq3Collapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {% trans "Nos especializamos en seguridad familiar y protección vehicular, con integración completa entre dispositivo, app y central de emergencias 24/7, además de funciones únicas como administración de pólizas de seguro y licencias." %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4Collapse">
+                        {% trans "¿Qué permite hacer la aplicación móvil?" %}
+                    </button>
+                </h2>
+                <div id="faq4Collapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {% trans "La app permite: ver ubicación en tiempo real, consultar historial de trayectos, subir información de pólizas de seguro y licencias, personalizar vehículos familiares, configurar geo-cercas, recibir alertas, botón de pánico, y función «¿Cómo llegar a mi vehículo?»." %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5Collapse">
+                        {% trans "¿Necesito tener conocimientos técnicos para usar el servicio?" %}
+                    </button>
+                </h2>
+                <div id="faq5Collapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {% trans "No, la aplicación como el dispositivo están diseñados para ser intuitivos y fáciles de usar, sin requerir conocimientos técnicos especializados." %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq6">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6Collapse">
+                        {% trans "¿Puedo configurar múltiples geo-cercas?" %}
+                    </button>
+                </h2>
+                <div id="faq6Collapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {% trans "Sí, puedes configurar todas las geo-cercas que necesites para cubrir escuelas, casas de amigos, trabajos, etc." %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq7">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7Collapse">
+                        {% trans "¿Puedo agregar personas para seguir ciertas unidades?" %}
+                    </button>
+                </h2>
+                <div id="faq7Collapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {% trans "Sí, puedes adicionar personas autorizadas para monitorear unidades específicas." %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="text-center mt-5 mb-4">
+        <div class="card bg-light">
+            <div class="card-body py-5">
+                <h3 class="mb-3" style="color: #333333;">{% trans "Ready to Get Started?" %}</h3>
+                <p class="lead mb-4" style="color: #747D88;">{% trans "Join thousands of users who trust GPSControl4U for their family's safety" %}</p>
+                <div class="d-flex justify-content-center gap-3">
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'accounts:register' %}" class="btn btn-lg" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">{% trans "Start Free Trial" %}</a>
+                    {% endif %}
+                    <a href="https://apps.apple.com/mx/app/gpscontrol4ue/id6744655250" target="_blank" class="btn btn-lg" style="background-color: #747D88; border-color: #747D88; color: #fff;">
+                        <i class="fab fa-apple"></i> {% trans "Download App" %}
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=mx.com.madd.gpscontrol4uego" target="_blank" class="btn btn-lg" style="background-color: #747D88; border-color: #747D88; color: #fff;">
+                        <i class="fab fa-google-play"></i> {% trans "Google Play" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+<style>
+/* Botones hover azul */
+.btn-primary[style*='#2EA3F2']:hover,
+.btn-success[style*='#2EA3F2']:hover,
+.btn-warning[style*='#2EA3F2']:hover {
+    background-color: #1E7BC7 !important;
+    border-color: #1E7BC7 !important;
+    color: #fff !important;
+}
+/* Botón de prueba gratuita hover azul más claro */
+.btn[style*='#2EA3F2']:hover {
+    background-color: #5CBDF9 !important;
+    border-color: #5CBDF9 !important;
+    color: #fff !important;
+}
+/* Botones de descarga hover gris más claro */
+.btn[style*='#747D88']:hover {
+    background-color: #9A9FB0 !important;
+    border-color: #9A9FB0 !important;
+    color: #fff !important;
+}
+</style>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function activatePlan(externalPlanId) {
+    // Variables generadas por Django
+    var isAuthenticated = ("{% if user.is_authenticated %}true{% else %}false{% endif %}" === "true");
+    var hasRfcTin = ("{% if user_has_rfc_tin %}true{% else %}false{% endif %}" === "true");
+    var isApiRegistered = ("{% if user_api_registered %}true{% else %}false{% endif %}" === "true");
+
+    if (!isAuthenticated) {
+        window.location.href = "{% url 'accounts:register' %}";
+        return;
+    }
+    if (!hasRfcTin) {
+        window.location.href = "{% url 'accounts:setup_account' %}";
+        return;
+    }
+    if (!isApiRegistered) {
+        showMessageModal('{% trans "Please verify your phone number to complete your registration before purchasing." %}', '{% trans "Verification Required" %}');
+        return;
+    }
+    
+    // Show confirmation dialog
+    let confirmMessage = '';
+    let modalTitle = '';
+    
+    if (externalPlanId === 0 || externalPlanId === 7) {
+        confirmMessage = '{% trans "Activate Free Plan? You can upgrade to Premium anytime." %}';
+        modalTitle = '{% trans "Activate Free Plan" %}';
+    } else {
+        confirmMessage = '{% trans "¿Comprar Plan? Esto te redirigirá al procesamiento de pago." %}';
+        modalTitle = '{% trans "Buy" %}';
+    }
+    
+    showConfirmModal(confirmMessage, function() {
+        // Disable the button to prevent double-clicks
+        const button = event.target;
+        button.disabled = true;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {% trans "Processing..." %}';
+        
+        // Make API call to activate plan
+        fetch('{% url "accounts:activate_plan" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            },
+            body: JSON.stringify({
+                external_plan_id: externalPlanId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Activate plan response:', data);
+            
+            if (data.success) {
+                // Check if payment is required
+                if (data.payment_required && data.payment_provider === 'mercado_pago') {
+                    console.log('Payment required - creating Mercado Pago preference');
+                    
+                    // Create Mercado Pago preference to get checkout URL
+                    fetch('{% url "accounts:create_mercado_pago_preference" %}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                        },
+                        body: JSON.stringify({
+                            plan_id: externalPlanId
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(mpData => {
+                        console.log('Mercado Pago preference response:', mpData);
+                        
+                        if (mpData.success && mpData.checkout_url) {
+                            console.log('Redirecting to Mercado Pago:', mpData.checkout_url);
+                            // Redirect to Mercado Pago checkout
+                            window.location.href = mpData.checkout_url;
+                        } else {
+                            console.error('Failed to create payment preference:', mpData.message);
+                            showMessageModal(
+                                'Error al crear la preferencia de pago: ' + (mpData.message || 'Desconocido'),
+                                '{% trans "Error" %}'
+                            );
+                            // Re-enable button
+                            button.disabled = false;
+                            button.innerHTML = '{% trans "Buy" %}';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error creating preference:', error);
+                        showMessageModal(
+                            '{% trans "Error creating payment preference. Please try again." %}',
+                            '{% trans "Error" %}'
+                        );
+                        // Re-enable button
+                        button.disabled = false;
+                        button.innerHTML = '{% trans "Buy" %}';
+                    });
+                } else {
+                    // Free plan - show success and redirect to dashboard
+                    showMessageModal(data.message, '{% trans "Success" %}');
+                    setTimeout(() => {
+                        window.location.href = "{% url 'accounts:dashboard' %}";
+                    }, 2000);
+                }
+            } else {
+                showMessageModal(data.message, '{% trans "Error" %}');
+                // Re-enable button
+                button.disabled = false;
+                if (externalPlanId === 0 || externalPlanId === 7) {
+                    button.innerHTML = '{% trans "Activate Plan" %}';
+                } else {
+                    button.innerHTML = '{% trans "Buy" %}';
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showMessageModal('{% trans "An error occurred. Please try again." %}', '{% trans "Error" %}');
+            // Re-enable button
+            button.disabled = false;
+            if (externalPlanId === 0 || externalPlanId === 7) {
+                button.innerHTML = '{% trans "Activate Plan" %}';
+            } else {
+                button.innerHTML = '{% trans "Buy" %}';
+            }
+        });
+    }, modalTitle);
+}
+</script>
+{% endblock %}

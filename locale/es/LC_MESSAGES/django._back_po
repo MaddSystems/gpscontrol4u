@@ -1,0 +1,1293 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-09 16:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/admin.py:57
+msgid "Email Status"
+msgstr ""
+
+#: accounts/admin.py:80
+msgid "Send verification email to selected users"
+msgstr ""
+
+#: accounts/admin.py:96
+msgid "Mark selected users as email verified"
+msgstr ""
+
+#: accounts/forms.py:14 accounts/forms.py:111
+msgid "Email address"
+msgstr ""
+
+#: accounts/forms.py:22
+msgid "First name"
+msgstr ""
+
+#: accounts/forms.py:31
+msgid "Last name"
+msgstr ""
+
+#: accounts/forms.py:48 accounts/forms.py:118
+#: templates/registration/login.html:36 templates/registration/register.html:52
+msgid "Password"
+msgstr ""
+
+#: accounts/forms.py:52
+msgid "Confirm password"
+msgstr ""
+
+#: accounts/forms.py:65
+msgid ""
+"A verified account with this email already exists. Please use the login form."
+msgstr ""
+
+#: accounts/forms.py:156
+msgid "RFC/TIN Number"
+msgstr ""
+
+#: accounts/forms.py:157
+msgid "Enter your RFC (Mexico) or TIN number to enable app access"
+msgstr ""
+
+#: accounts/forms.py:160
+msgid "RFC/TIN number"
+msgstr ""
+
+#: accounts/forms.py:167
+msgid "I accept the terms and conditions"
+msgstr ""
+
+#: accounts/forms.py:176
+msgid "RFC/TIN must contain only letters and numbers"
+msgstr ""
+
+#: accounts/forms.py:180
+msgid "RFC/TIN must be between 8 and 20 characters"
+msgstr ""
+
+#: accounts/views.py:85
+msgid "Account updated! Please check your email to verify your account."
+msgstr ""
+
+#: accounts/views.py:100
+msgid ""
+"Registration successful! Please check your email to verify your account."
+msgstr ""
+
+#: accounts/views.py:109
+msgid "An error occurred during registration. Please try again."
+msgstr ""
+
+#: accounts/views.py:126
+msgid ""
+"An unverified account with this email exists. We'll send you a new "
+"verification email."
+msgstr ""
+
+#: accounts/views.py:165 accounts/views.py:618 tests/test_email_language.py:50
+#: tests/test_email_language.py:61 tests/test_email_language.py:84
+msgid "Verify your Marketplace account"
+msgstr ""
+
+#: accounts/views.py:207
+msgid ""
+"Account created but verification email could not be sent. You can request a "
+"new verification email from the login page."
+msgstr ""
+
+#: accounts/views.py:226
+msgid ""
+"Please verify your email address before logging in. Check your inbox or "
+"request a new verification email."
+msgstr ""
+
+#: accounts/views.py:238
+msgid "Welcome back!"
+msgstr ""
+
+#: accounts/views.py:242
+msgid "Invalid email or password."
+msgstr ""
+
+#: accounts/views.py:252
+msgid "You have been logged out."
+msgstr ""
+
+#: accounts/views.py:277 accounts/views.py:430
+msgid "Unable to load current plans from server. Please try again later."
+msgstr ""
+
+#: accounts/views.py:418
+msgid "Profile updated successfully."
+msgstr ""
+
+#: accounts/views.py:541
+msgid "Your email has been verified successfully! Welcome to Marketplace."
+msgstr ""
+
+#: accounts/views.py:570
+msgid "This email address is already verified. You can log in now."
+msgstr ""
+
+#: accounts/views.py:575
+msgid "Verification email sent! Please check your inbox and spam folder."
+msgstr ""
+
+#: accounts/views.py:579
+msgid ""
+"No account found with this email address. Please register a new account."
+msgstr ""
+
+#: accounts/views.py:647
+msgid "Could not send verification email. Please try again later."
+msgstr ""
+
+#: accounts/views.py:675
+msgid "Account setup completed! You can now choose your subscription plan."
+msgstr ""
+
+#: accounts/views.py:683 templates/pricing.html:349
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: accounts/views.py:1090 accounts/views.py:1129 accounts/views.py:1168
+msgid "Payment successful! Your plan has been activated."
+msgstr ""
+
+#: accounts/views.py:1092 accounts/views.py:1131
+msgid ""
+"Payment received but there was an error activating your plan. Please contact "
+"support."
+msgstr ""
+
+#: accounts/views.py:1094
+msgid ""
+"Payment is being processed. You will receive an email confirmation once "
+"completed."
+msgstr ""
+
+#: accounts/views.py:1170
+msgid ""
+"Payment received but please contact support to ensure your plan is activated."
+msgstr ""
+
+#: accounts/views.py:1178
+msgid "Payment was cancelled or failed. Please try again."
+msgstr ""
+
+#: accounts/views.py:1185
+msgid ""
+"Your payment is being processed. You will receive an email confirmation once "
+"completed."
+msgstr ""
+
+#: accounts/views.py:1413 templates/dashboard.html:362
+msgid "No credentials found. Please activate a plan first."
+msgstr ""
+
+#: templates/base.html:182
+msgid "Home"
+msgstr ""
+
+#: templates/base.html:185
+msgid "Pricing"
+msgstr "Precios"
+
+#: templates/base.html:189
+msgid "Dashboard"
+msgstr ""
+
+#: templates/base.html:228
+msgid "Profile"
+msgstr ""
+
+#: templates/base.html:230
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:235
+msgid "Login"
+msgstr "Inicio de sesión"
+
+#: templates/base.html:238
+msgid "Register"
+msgstr "Registro"
+
+#: templates/base.html:282 tests/test_modal_implementation.py:25
+#: tests/test_modal_implementation.py:40
+msgid "Confirmation"
+msgstr ""
+
+#: templates/base.html:284 templates/base.html:309 templates/dashboard.html:785
+msgid "Close"
+msgstr "Cerrar"
+
+#: templates/base.html:291 tests/test_modal_implementation.py:26
+#: tests/test_modal_implementation.py:41
+msgid "Cancel"
+msgstr ""
+
+#: templates/base.html:294 tests/test_modal_implementation.py:27
+#: tests/test_modal_implementation.py:42
+msgid "Confirm"
+msgstr ""
+
+#: templates/base.html:307 templates/pricing.html:296
+msgid "Information"
+msgstr ""
+
+#: templates/base.html:316
+msgid "OK"
+msgstr ""
+
+#: templates/dashboard.html:4
+msgid "Panel de Control - DataCollect"
+msgstr ""
+
+#: templates/dashboard.html:14
+msgid "Configuración de cuenta requerida"
+msgstr ""
+
+#: templates/dashboard.html:17
+msgid ""
+"Para acceder a los planes y usar nuestras aplicaciones móviles, necesitas "
+"completar la configuración de tu cuenta proporcionando tu RFC o TIN."
+msgstr ""
+
+#: templates/dashboard.html:21
+msgid "Completar configuración"
+msgstr ""
+
+#: templates/dashboard.html:34
+#, python-format
+msgid "¡Bienvenido de nuevo, %(name)s!"
+msgstr ""
+
+#: templates/dashboard.html:40 templates/dashboard.html:45
+msgid "Elegir Plan"
+msgstr ""
+
+#: templates/dashboard.html:60
+msgid "Sandbox Testing Mode"
+msgstr ""
+
+#: templates/dashboard.html:63
+msgid "Payment system is currently in sandbox mode for testing."
+msgstr ""
+
+#: templates/dashboard.html:66
+msgid "For Premium Plan Testing:"
+msgstr ""
+
+#: templates/dashboard.html:67
+msgid "When redirected to Mercado Pago, use these test cards:"
+msgstr ""
+
+#: templates/dashboard.html:68
+msgid "Test Card:"
+msgstr ""
+
+#: templates/dashboard.html:69
+msgid "Nombre del titular:"
+msgstr ""
+
+#: templates/dashboard.html:70
+msgid "Vencimiento:"
+msgstr ""
+
+#: templates/dashboard.html:70
+msgid "(any superior date)"
+msgstr ""
+
+#: templates/dashboard.html:71
+msgid "Codigo seguridad:"
+msgstr ""
+
+#: templates/dashboard.html:71
+msgid "(any 3 digits number)"
+msgstr ""
+
+#: templates/dashboard.html:72
+msgid "No real money will be charged during testing."
+msgstr ""
+
+#: templates/dashboard.html:90
+msgid "Registered RFC/TIN"
+msgstr ""
+
+#: templates/dashboard.html:99
+msgid "Plan Active"
+msgstr ""
+
+#: templates/dashboard.html:103
+msgid "View Credentials"
+msgstr "Ver Credenciales"
+
+#: templates/dashboard.html:108
+msgid "Purchase History"
+msgstr "Historial de Compras"
+
+#: templates/dashboard.html:127
+msgid "Choose Your Plan"
+msgstr ""
+
+#: templates/dashboard.html:141 templates/dashboard.html:272
+msgid "FREE"
+msgstr ""
+
+#: templates/dashboard.html:143 templates/dashboard.html:274
+msgid "PREMIUM"
+msgstr ""
+
+#: templates/dashboard.html:150 templates/dashboard.html:281
+#: templates/pricing.html:36 templates/pricing.html:151
+msgid "year"
+msgstr ""
+
+#: templates/dashboard.html:166 templates/dashboard.html:297
+#: templates/dashboard.html:691 templates/pricing.html:46
+msgid "Admin"
+msgstr ""
+
+#: templates/dashboard.html:173 templates/dashboard.html:304
+#: templates/dashboard.html:665 templates/dashboard.html:697
+#: templates/pricing.html:52
+msgid "Users"
+msgstr ""
+
+#: templates/dashboard.html:182 templates/dashboard.html:313
+#: templates/dashboard.html:368 templates/pricing.html:65
+msgid "Active Plan"
+msgstr ""
+
+#: templates/dashboard.html:187 templates/dashboard.html:221
+#: templates/dashboard.html:318
+msgid "Activate Free"
+msgstr ""
+
+#: templates/dashboard.html:195 templates/dashboard.html:326
+msgid "Buy More Licenses"
+msgstr "Comprar Más Licencias"
+
+#: templates/dashboard.html:198 templates/dashboard.html:237
+#: templates/dashboard.html:329 templates/pricing.html:83
+#: templates/pricing.html:177 templates/pricing.html:308
+#: templates/pricing.html:343 templates/pricing.html:355
+msgid "Buy"
+msgstr "Comprar"
+
+#: templates/dashboard.html:214
+msgid "Free Plan"
+msgstr ""
+
+#: templates/dashboard.html:217
+msgid "Predefined forms, 100 records, mobile app access"
+msgstr ""
+
+#: templates/dashboard.html:230
+msgid "Premium Plan"
+msgstr ""
+
+#: templates/dashboard.html:233
+msgid "Custom forms, unlimited records, advanced features"
+msgstr ""
+
+#: templates/dashboard.html:258
+msgid "Available Plans"
+msgstr ""
+
+#: templates/dashboard.html:351 templates/pricing.html:304
+#: tests/test_modal_implementation.py:29 tests/test_modal_implementation.py:44
+#: tests/test_modal_implementation.py:74
+msgid "Activate Free Plan? You can upgrade to Premium anytime."
+msgstr ""
+
+#: templates/dashboard.html:352
+msgid "Free plan activated successfully!"
+msgstr ""
+
+#: templates/dashboard.html:353
+msgid "Login credentials:"
+msgstr ""
+
+#: templates/dashboard.html:354
+msgid "Username:"
+msgstr ""
+
+#: templates/dashboard.html:355
+msgid "Password:"
+msgstr ""
+
+#: templates/dashboard.html:356
+msgid "Web portal access:"
+msgstr ""
+
+#: templates/dashboard.html:357
+msgid "Save these credentials to access the mobile app and web portal!"
+msgstr ""
+
+#: templates/dashboard.html:358
+msgid "Error activating plan."
+msgstr ""
+
+#: templates/dashboard.html:359
+msgid "Connection error."
+msgstr ""
+
+#: templates/dashboard.html:360
+msgid "Premium plan selected. Payment processing will be enabled soon."
+msgstr ""
+
+#: templates/dashboard.html:361
+msgid "API Credentials"
+msgstr ""
+
+#: templates/dashboard.html:363
+msgid "Your API Credentials"
+msgstr ""
+
+#: templates/dashboard.html:364
+msgid "Plan Type:"
+msgstr ""
+
+#: templates/dashboard.html:365
+msgid "Client ID:"
+msgstr ""
+
+#: templates/dashboard.html:366
+msgid "User ID:"
+msgstr ""
+
+#: templates/dashboard.html:367
+msgid "Licenses:"
+msgstr ""
+
+#: templates/dashboard.html:455 templates/dashboard.html:460
+#: templates/dashboard.html:491 templates/dashboard.html:498
+#: templates/dashboard.html:503 templates/dashboard.html:534
+#: templates/dashboard.html:539 templates/dashboard.html:573
+#: templates/pricing.html:337 templates/pricing.html:349
+msgid "Error"
+msgstr ""
+
+#: templates/dashboard.html:462 templates/dashboard.html:505
+msgid "Activate"
+msgstr ""
+
+#: templates/dashboard.html:489
+msgid "Payment"
+msgstr ""
+
+#: templates/dashboard.html:495 templates/pricing.html:331
+msgid "Success"
+msgstr ""
+
+#: templates/dashboard.html:545
+msgid "Creating payment preference..."
+msgstr ""
+
+#: templates/dashboard.html:545
+msgid "Processing Payment"
+msgstr ""
+
+#: templates/dashboard.html:568
+msgid "Error creating payment preference"
+msgstr ""
+
+#: templates/dashboard.html:568
+msgid "Payment Error"
+msgstr ""
+
+#: templates/dashboard.html:573
+msgid "Connection error while creating payment"
+msgstr ""
+
+#: templates/dashboard.html:591
+msgid "Complete Purchase History"
+msgstr "Historial Completo de Compras"
+
+#: templates/dashboard.html:601
+msgid "Total Purchases"
+msgstr "Total de Compras"
+
+#: templates/dashboard.html:609
+msgid "Active Plans"
+msgstr "Planes Activos"
+
+#: templates/dashboard.html:617
+msgid "Total Spent"
+msgstr "Total Gastado"
+
+#: templates/dashboard.html:627
+msgid "Total Users"
+msgstr "Total de Usuarios"
+
+#: templates/dashboard.html:637
+msgid "Admin Users"
+msgstr "Usuarios Admin"
+
+#: templates/dashboard.html:647
+msgid "Free Plan Used"
+msgstr "Plan Gratuito Usado"
+
+#: templates/dashboard.html:650
+msgid "Yes"
+msgstr "Sí"
+
+#: templates/dashboard.html:652
+msgid "No"
+msgstr "No"
+
+#: templates/dashboard.html:664
+msgid "Plan Name"
+msgstr "Nombre del Plan"
+
+#: templates/dashboard.html:666
+msgid "Price"
+msgstr "Precio"
+
+#: templates/dashboard.html:667
+msgid "Purchase Date"
+msgstr "Fecha de Compra"
+
+#: templates/dashboard.html:668
+msgid "Expiration Date"
+msgstr "Fecha de Expiración"
+
+#: templates/dashboard.html:669
+msgid "Days Left"
+msgstr "Días Restantes"
+
+#: templates/dashboard.html:670
+msgid "Status"
+msgstr "Estado"
+
+#: templates/dashboard.html:679 templates/dashboard.html:711
+#: templates/pricing.html:101
+msgid "Free"
+msgstr ""
+
+#: templates/dashboard.html:681
+msgid "Team"
+msgstr "Equipo"
+
+#: templates/dashboard.html:683
+msgid "License"
+msgstr "Licencia"
+
+#: templates/dashboard.html:702
+msgid "No users"
+msgstr "Sin usuarios"
+
+#: templates/dashboard.html:724
+msgid "Never"
+msgstr "Nunca"
+
+#: templates/dashboard.html:733 templates/dashboard.html:735
+#: templates/dashboard.html:737
+msgid "days"
+msgstr "días"
+
+#: templates/dashboard.html:739 templates/dashboard.html:758
+msgid "Expired"
+msgstr "Expirado"
+
+#: templates/dashboard.html:747
+msgid "Lifetime"
+msgstr "De por vida"
+
+#: templates/dashboard.html:754
+msgid "Active"
+msgstr "Activo"
+
+#: templates/dashboard.html:762
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#: templates/dashboard.html:766
+msgid "Pending"
+msgstr "Pendiente"
+
+#: templates/dashboard.html:775
+msgid "No purchase history found"
+msgstr "No se encontró historial de compras"
+
+#: templates/home.html:5
+msgid "Armaddia - DataCollect Marketplace"
+msgstr ""
+
+#: templates/home.html:21
+msgid ""
+"Es una aplicación para creada para todos con el objetivo de digitalizar todo "
+"tipo de formatos en papel a digital."
+msgstr ""
+
+#: templates/home.html:25
+msgid ""
+"Con Data collect puedes digitalizar todo tipo de documentos y formularios:"
+msgstr ""
+
+#: templates/home.html:30
+msgid "App móvil fácil de utilizar lista para descargar."
+msgstr ""
+
+#: templates/home.html:54
+msgid "Construye:"
+msgstr ""
+
+#: templates/home.html:58
+msgid "Formularos precargados listos para utilizar."
+msgstr ""
+
+#: templates/home.html:62
+msgid "Diseño intuitivo y fácil de construir."
+msgstr ""
+
+#: templates/home.html:66
+msgid "Edita nuestros formularios y utilizalos como los necesites."
+msgstr ""
+
+#: templates/home.html:76
+msgid "Utiliza tu app:"
+msgstr ""
+
+#: templates/home.html:80
+msgid "Instala (Android / iOS)"
+msgstr ""
+
+#: templates/home.html:84
+msgid "Ingresa tu número de teléfono asignado."
+msgstr ""
+
+#: templates/home.html:88
+msgid "Comienza a trabajar en tus documentos."
+msgstr ""
+
+#: templates/home.html:98
+msgid "Comparte información:"
+msgstr ""
+
+#: templates/home.html:102
+msgid "PDF"
+msgstr ""
+
+#: templates/home.html:106
+msgid "Excel"
+msgstr ""
+
+#: templates/home.html:110
+msgid "Carga y descarga en la nube"
+msgstr ""
+
+#: templates/home.html:124
+msgid "Precios simples y transparentes"
+msgstr ""
+
+#: templates/home.html:125
+msgid "Comienza gratis, actualiza cuando necesites más funciones"
+msgstr ""
+
+#: templates/home.html:130
+msgid "Ver todas las opciones de precios →"
+msgstr ""
+
+#: templates/home.html:140
+msgid "¡Digitaliza tu servicio hoy!"
+msgstr ""
+
+#: templates/home.html:142
+msgid ""
+"Únete a miles de usuarios que confían en DataCollect para sus necesidades de "
+"recopilación de datos"
+msgstr ""
+
+#: templates/home.html:145
+msgid "Crear cuenta gratis"
+msgstr ""
+
+#: templates/home.html:148
+msgid "App Store"
+msgstr ""
+
+#: templates/home.html:151 templates/pricing.html:264
+msgid "Google Play"
+msgstr ""
+
+#: templates/pricing.html:4
+msgid "Pricing - DataCollect Marketplace"
+msgstr ""
+
+#: templates/pricing.html:10
+msgid "Planes simples y transparentes"
+msgstr ""
+
+#: templates/pricing.html:11
+msgid "Comienza gratis y actualiza cuando necesites más funciones"
+msgstr ""
+
+#: templates/pricing.html:23 templates/pricing.html:142
+msgid "Plan"
+msgstr ""
+
+#: templates/pricing.html:31 templates/pricing.html:102
+msgid "month"
+msgstr ""
+
+#: templates/pricing.html:61 templates/pricing.html:121
+#: templates/pricing.html:171
+msgid "Complete Setup First"
+msgstr ""
+
+#: templates/pricing.html:69
+msgid "Previously Purchased"
+msgstr ""
+
+#: templates/pricing.html:74
+msgid "Free Plan Already Used"
+msgstr ""
+
+#: templates/pricing.html:79 templates/pricing.html:127
+msgid "Activate Plan"
+msgstr ""
+
+#: templates/pricing.html:88 templates/pricing.html:131
+#: templates/pricing.html:181
+msgid "Get Started"
+msgstr ""
+
+#: templates/pricing.html:106
+msgid "Access to predefined forms"
+msgstr ""
+
+#: templates/pricing.html:107
+msgid "Basic data collection"
+msgstr ""
+
+#: templates/pricing.html:108
+msgid "100 records limit"
+msgstr ""
+
+#: templates/pricing.html:109
+msgid "Mobile app access"
+msgstr ""
+
+#: templates/pricing.html:110
+msgid "English & Spanish support"
+msgstr ""
+
+#: templates/pricing.html:111
+msgid "Custom form creation"
+msgstr ""
+
+#: templates/pricing.html:112
+msgid "Advanced analytics"
+msgstr ""
+
+#: templates/pricing.html:113
+msgid "Data export"
+msgstr ""
+
+#: templates/pricing.html:124 templates/pricing.html:174
+msgid "Current Plan"
+msgstr ""
+
+#: templates/pricing.html:145
+msgid "Premium"
+msgstr ""
+
+#: templates/pricing.html:157
+msgid "Unlimited custom forms"
+msgstr ""
+
+#: templates/pricing.html:158
+msgid "10,000 records limit"
+msgstr ""
+
+#: templates/pricing.html:159
+msgid "Advanced data analytics"
+msgstr ""
+
+#: templates/pricing.html:160
+msgid "Data export (CSV, JSON)"
+msgstr ""
+
+#: templates/pricing.html:161
+msgid "Priority support"
+msgstr ""
+
+#: templates/pricing.html:162
+msgid "Form templates library"
+msgstr ""
+
+#: templates/pricing.html:163
+msgid "Team collaboration"
+msgstr ""
+
+#: templates/pricing.html:193
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: templates/pricing.html:198
+msgid "Can I switch between plans anytime?"
+msgstr ""
+
+#: templates/pricing.html:203
+msgid ""
+"Yes! You can upgrade or downgrade your plan at any time. Changes take effect "
+"immediately for upgrades, or at the end of your current billing cycle for "
+"downgrades."
+msgstr ""
+
+#: templates/pricing.html:211
+msgid "What happens to my data if I downgrade?"
+msgstr ""
+
+#: templates/pricing.html:216
+msgid ""
+"Your data is always safe. If you downgrade from Premium to Free, you'll "
+"still have access to all your data, but you'll be limited to the free plan "
+"features for new forms and data collection."
+msgstr ""
+
+#: templates/pricing.html:224
+msgid "Do you offer refunds?"
+msgstr ""
+
+#: templates/pricing.html:229
+msgid ""
+"We offer a 30-day money-back guarantee for all premium subscriptions. If "
+"you're not satisfied, contact our support team for a full refund."
+msgstr ""
+
+#: templates/pricing.html:237
+msgid "Is the iOS app included in all plans?"
+msgstr ""
+
+#: templates/pricing.html:242
+msgid ""
+"Yes! The DataCollect iOS app is free to download and works with all plans. "
+"Premium features in the app are unlocked when you have a Premium "
+"subscription."
+msgstr ""
+
+#: templates/pricing.html:254
+msgid "Ready to Get Started?"
+msgstr ""
+
+#: templates/pricing.html:255
+msgid ""
+"Join thousands of users who trust DataCollect for their data collection needs"
+msgstr ""
+
+#: templates/pricing.html:258
+msgid "Start Free Trial"
+msgstr ""
+
+#: templates/pricing.html:261
+msgid "Download App"
+msgstr ""
+
+#: templates/pricing.html:296
+msgid "Account registration is in progress. Please wait for completion."
+msgstr ""
+
+#: templates/pricing.html:305 templates/pricing.html:341
+#: templates/pricing.html:353 tests/test_modal_implementation.py:28
+#: tests/test_modal_implementation.py:43
+msgid "Activate Free Plan"
+msgstr ""
+
+#: templates/pricing.html:307
+msgid "Buy Premium Plan? This will redirect to payment processing."
+msgstr ""
+
+#: templates/pricing.html:315
+msgid "Processing..."
+msgstr ""
+
+#: templates/registration/activation_email.html:9
+#: templates/registration/email_verification.html:4
+msgid "Email Verification"
+msgstr ""
+
+#: templates/registration/activation_email.html:59
+msgid "Welcome to Marketplace!"
+msgstr ""
+
+#: templates/registration/activation_email.html:63
+#, python-format
+msgid ""
+"\n"
+"        <p>Dear %(user_name)s,</p>\n"
+"        "
+msgstr ""
+
+#: templates/registration/activation_email.html:67
+msgid ""
+"Thank you for registering your account with Marketplace! We're excited to "
+"have you join our community."
+msgstr ""
+
+#: templates/registration/activation_email.html:69
+msgid ""
+"To complete your registration and start using all our features, please "
+"verify your email address by clicking the button below:"
+msgstr ""
+
+#: templates/registration/activation_email.html:73
+msgid "Verify Email Address"
+msgstr ""
+
+#: templates/registration/activation_email.html:77
+msgid "Alternatively, you can copy and paste this link into your browser:"
+msgstr ""
+
+#: templates/registration/activation_email.html:83
+msgid "Important:"
+msgstr ""
+
+#: templates/registration/activation_email.html:85
+msgid "This verification link will expire in 24 hours for security reasons."
+msgstr ""
+
+#: templates/registration/activation_email.html:86
+msgid "If you didn't create this account, please ignore this email."
+msgstr ""
+
+#: templates/registration/activation_email.html:90
+msgid "Once verified, you'll be able to:"
+msgstr ""
+
+#: templates/registration/activation_email.html:92
+msgid "Access your personal dashboard"
+msgstr ""
+
+#: templates/registration/activation_email.html:93
+msgid "Create and manage forms"
+msgstr ""
+
+#: templates/registration/activation_email.html:94
+msgid "Collect and analyze data"
+msgstr ""
+
+#: templates/registration/activation_email.html:95
+msgid "Upgrade to premium features"
+msgstr ""
+
+#: templates/registration/activation_email.html:98
+msgid ""
+"If you have any questions or need assistance, please don't hesitate to "
+"contact our support team."
+msgstr ""
+
+#: templates/registration/activation_email.html:100
+msgid "Best regards,"
+msgstr ""
+
+#: templates/registration/activation_email.html:101
+msgid "The Marketplace Team"
+msgstr ""
+
+#: templates/registration/activation_email.html:105
+msgid "This is an automated message, please do not reply to this email."
+msgstr ""
+
+#: templates/registration/activation_email.html:106
+msgid "Marketplace - DataCollect Web Platform"
+msgstr ""
+
+#: templates/registration/activation_email.txt:3
+#, python-format
+msgid ""
+"\n"
+"Dear %(user_name)s,\n"
+"\n"
+"Welcome to %(site_name)s! Thank you for registering your account.\n"
+"\n"
+"To complete your registration and activate your account, please click the "
+"link below:\n"
+"\n"
+"%(protocol)s://%(domain)s%(verification_link)s\n"
+"\n"
+"This link will expire in 24 hours for security reasons.\n"
+"\n"
+"If you didn't create this account, please ignore this email.\n"
+"\n"
+"Best regards,\n"
+"The %(site_name)s Team\n"
+"\n"
+"---\n"
+"This is an automated message, please do not reply to this email.\n"
+msgstr ""
+
+#: templates/registration/email_verification.html:15
+msgid "Email Verified!"
+msgstr ""
+
+#: templates/registration/email_verification.html:20
+msgid "Verification Failed"
+msgstr ""
+
+#: templates/registration/email_verification.html:27
+msgid "Your email has been successfully verified!"
+msgstr ""
+
+#: templates/registration/email_verification.html:28
+msgid "You can now access all features of your Marketplace account."
+msgstr ""
+
+#: templates/registration/email_verification.html:33
+msgid "Login Now"
+msgstr ""
+
+#: templates/registration/email_verification.html:39
+msgid "Your account is now fully activated and ready to use."
+msgstr ""
+
+#: templates/registration/email_verification.html:43
+msgid "Sorry, we couldn't verify your email address."
+msgstr ""
+
+#: templates/registration/email_verification.html:46
+msgid "The verification link is invalid or has already been used."
+msgstr ""
+
+#: templates/registration/email_verification.html:48
+msgid ""
+"The verification link has expired. Verification links are valid for 24 hours."
+msgstr ""
+
+#: templates/registration/email_verification.html:50
+msgid "No user found for this verification token."
+msgstr ""
+
+#: templates/registration/email_verification.html:52
+msgid "An unknown error occurred during verification."
+msgstr ""
+
+#: templates/registration/email_verification.html:58
+#: templates/registration/login.html:53
+#: templates/registration/resend_verification.html:4
+#: templates/registration/resend_verification.html:12
+msgid "Resend Verification Email"
+msgstr ""
+
+#: templates/registration/email_verification.html:64
+#: templates/registration/password_reset_form.html:35
+#: templates/registration/resend_verification.html:40
+msgid "Back to Login"
+msgstr ""
+
+#: templates/registration/email_verification.html:74
+msgid "What's Next?"
+msgstr ""
+
+#: templates/registration/email_verification.html:76
+msgid "Complete your profile"
+msgstr ""
+
+#: templates/registration/email_verification.html:77
+msgid "Create your first form"
+msgstr ""
+
+#: templates/registration/email_verification.html:78
+msgid "Explore premium features"
+msgstr ""
+
+#: templates/registration/email_verification.html:79
+msgid "Connect with DataCollect mobile app"
+msgstr ""
+
+#: templates/registration/login.html:4
+msgid "Iniciar Sesión - DataCollect"
+msgstr ""
+
+#: templates/registration/login.html:11
+msgid "Welcome back"
+msgstr ""
+
+#: templates/registration/login.html:12
+msgid "Sign in to your account"
+msgstr ""
+
+#: templates/registration/login.html:31
+#: templates/registration/password_reset_form.html:21
+#: templates/registration/resend_verification.html:21
+msgid "Email Address"
+msgstr ""
+
+#: templates/registration/login.html:41
+msgid "Sign In"
+msgstr ""
+
+#: templates/registration/login.html:45
+msgid "Forgot your password?"
+msgstr ""
+
+#: templates/registration/login.html:50
+msgid "Email Not Verified"
+msgstr ""
+
+#: templates/registration/login.html:51
+msgid "Please verify your email address to continue."
+msgstr ""
+
+#: templates/registration/login.html:62
+msgid "Don't have an account?"
+msgstr ""
+
+#: templates/registration/login.html:62
+msgid "Create one here"
+msgstr ""
+
+#: templates/registration/login.html:63
+msgid "Need to verify your email?"
+msgstr ""
+
+#: templates/registration/login.html:63
+msgid "Resend verification"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:3
+#, python-format
+msgid ""
+"\n"
+"Dear %(user_name)s,\n"
+"\n"
+"You have requested a password reset for your %(site_name)s account.\n"
+"\n"
+"Please click the link below to reset your password:\n"
+"\n"
+"%(protocol)s://%(domain)s%(reset_link)s\n"
+"\n"
+"This link will expire in a few hours for security reasons.\n"
+"\n"
+"If you didn't request this password reset, please ignore this email.\n"
+"\n"
+"Best regards,\n"
+"The %(site_name)s Team\n"
+"\n"
+"---\n"
+"This is an automated message, please do not reply to this email.\n"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:4
+msgid "Password Reset"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:12
+msgid "Reset Password"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:16
+msgid ""
+"Enter your email address and we'll send you a link to reset your password."
+msgstr ""
+
+#: templates/registration/password_reset_form.html:28
+msgid "Send Reset Link"
+msgstr ""
+
+#: templates/registration/password_reset_subject.txt:1
+msgid "Password reset for your Marketplace account"
+msgstr ""
+
+#: templates/registration/register.html:4
+msgid "Registro - DataCollect"
+msgstr ""
+
+#: templates/registration/register.html:11
+msgid "Create your account"
+msgstr ""
+
+#: templates/registration/register.html:12
+msgid "Únete a miles de usuarios que usan DataCollect"
+msgstr ""
+
+#: templates/registration/register.html:32
+msgid "Nombre"
+msgstr ""
+
+#: templates/registration/register.html:36
+msgid "Apellido"
+msgstr ""
+
+#: templates/registration/register.html:42
+msgid "Correo Electrónico"
+msgstr ""
+
+#: templates/registration/register.html:47
+msgid "Idioma Preferido"
+msgstr ""
+
+#: templates/registration/register.html:57
+msgid "Confirm Password"
+msgstr ""
+
+#: templates/registration/register.html:62
+msgid "Create Account"
+msgstr ""
+
+#: templates/registration/register.html:66
+msgid "Already have an account?"
+msgstr ""
+
+#: templates/registration/register.html:66
+msgid "Sign in here"
+msgstr ""
+
+#: templates/registration/register.html:67
+msgid "Didn't receive verification email?"
+msgstr ""
+
+#: templates/registration/register.html:67
+msgid "Reenviar aquí"
+msgstr ""
+
+#: templates/registration/register.html:75
+msgid ""
+"By creating an account, you agree to our Terms of Service and Privacy Policy."
+msgstr ""
+
+#: templates/registration/resend_verification.html:16
+msgid "Enter your email address and we'll send you a new verification link."
+msgstr ""
+
+#: templates/registration/resend_verification.html:33
+msgid "Send Verification Email"
+msgstr ""
+
+#: templates/registration/resend_verification.html:48
+msgid "Why verify your email?"
+msgstr ""
+
+#: templates/registration/resend_verification.html:50
+msgid "Secure your account"
+msgstr ""
+
+#: templates/registration/resend_verification.html:51
+msgid "Receive important notifications"
+msgstr ""
+
+#: templates/registration/resend_verification.html:52
+msgid "Password recovery"
+msgstr ""
+
+#: templates/registration/resend_verification.html:53
+msgid "Account security alerts"
+msgstr ""

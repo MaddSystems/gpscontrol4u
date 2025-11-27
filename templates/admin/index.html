@@ -1,0 +1,7 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+  {{ block.super }}
+  <div style="margin-top:2em;">
+    <a href="{% url 'marketplace_admin:dashboard-summary' %}" class="btn btn-dark">Admin Dashboard Summary</a>
+  </div>
+{% endblock %}

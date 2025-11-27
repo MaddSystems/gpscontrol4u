@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "GPSControl4U - Rastreo Inteligente para tu Familia" %}{% endblock %}
+
+{% block content %}
+<!-- Hero Section - Main -->
+<div class="py-5 mb-5" style="background: linear-gradient(135deg, #2EA3F2 0%, #5CBDF9 100%); color: white;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h1 class="display-3 fw-bold mb-3">{% trans "Rastreo Inteligente" %}</h1>
+                <h2 class="display-6 fw-normal mb-4" style="color: rgba(255,255,255,0.9);">{% trans "para cuidar de tu familia." %}</h2>
+                
+                <p class="lead mb-4" style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.95);">
+                    {% trans "Es un servicio que integra un dispositivo GPS en tu vehículo con una app móvil, permitiéndote monitorear en tiempo real la seguridad y los trayectos de tu familia, así como proteger tu auto o motocicleta contra robos." %}
+                </p>
+                
+                <div class="d-flex gap-3 flex-wrap">
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg fw-600" style="color: #2EA3F2;">
+                        {% trans "Comprar GPSControl4U" %} →
+                    </a>
+                    {% else %}
+                    <a href="{% url 'accounts:pricing' %}" class="btn btn-light btn-lg fw-600" style="color: #2EA3F2;">
+                        {% trans "Ver Planes" %} →
+                    </a>
+                    {% endif %}
+                    <a href="https://apps.apple.com/mx/app/gpscontrol4ue/id6744655250" target="_blank" class="btn btn-outline-light btn-lg fw-600">
+                        <i class="fab fa-apple me-2"></i>{% trans "App Store" %}
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=mx.com.madd.gpscontrol4uego" target="_blank" class="btn btn-outline-light btn-lg fw-600">
+                        <i class="fab fa-google-play me-2"></i>{% trans "Play Store" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="{% static 'img/Telefono-movil-GPScontrol4U-c.png' %}" alt="{% trans 'GPS Tracking App' %}" class="img-fluid" style="max-height: 450px; height: auto; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2));">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="py-5 mb-5 bg-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-center mb-5" style="color: #333333; font-size: 2.5rem; font-weight: 700;">
+                    {% trans "Beneficios de GPSControl4U:" %}
+                </h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex mb-3">
+                            <div style="color: #2EA3F2; font-size: 1.5rem; margin-right: 1rem;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: #333333; font-weight: 600;">{% trans "Ubicación en tiempo real" %}</h5>
+                                <p style="color: #747D88; margin: 0;">{% trans "Monitorea la ubicación exacta de tu vehículo en cualquier momento." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex mb-3">
+                            <div style="color: #2EA3F2; font-size: 1.5rem; margin-right: 1rem;">
+                                <i class="fas fa-road"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: #333333; font-weight: 600;">{% trans "Historial de trayectos y alertas" %}</h5>
+                                <p style="color: #747D88; margin: 0;">{% trans "Revisa todos los trayectos realizados y recibe alertas personalizadas." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex mb-3">
+                            <div style="color: #2EA3F2; font-size: 1.5rem; margin-right: 1rem;">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: #333333; font-weight: 600;">{% trans "Añadir personas para seguimiento" %}</h5>
+                                <p style="color: #747D88; margin: 0;">{% trans "Invite a miembros de tu familia para monitorear juntos." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex mb-3">
+                            <div style="color: #2EA3F2; font-size: 1.5rem; margin-right: 1rem;">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: #333333; font-weight: 600;">{% trans "Geo-cercas y zonas seguras" %}</h5>
+                                <p style="color: #747D88; margin: 0;">{% trans "Configura zonas seguras y recibe alertas cuando salgan de ellas." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex mb-3">
+                            <div style="color: #2EA3F2; font-size: 1.5rem; margin-right: 1rem;">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: #333333; font-weight: 600;">{% trans "Botón de pánico para emergencias" %}</h5>
+                                <p style="color: #747D88; margin: 0;">{% trans "Acceso rápido a botón de emergencia desde la app." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex mb-3">
+                            <div style="color: #2EA3F2; font-size: 1.5rem; margin-right: 1rem;">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: #333333; font-weight: 600;">{% trans "Soporte técnico 24/7" %}</h5>
+                                <p style="color: #747D88; margin: 0;">{% trans "Equipo disponible para resolver cualquier duda." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How it Works Section -->
+<div class="py-5 mb-5" style="background-color: #F8F9FA;">
+    <div class="container">
+        <h2 class="text-center mb-5" style="color: #333333; font-size: 2.5rem; font-weight: 700;">
+            {% trans "¿Cómo funciona GPSControl4U?" %}
+        </h2>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body text-center p-4">
+                        <div style="background: linear-gradient(135deg, #2EA3F2 0%, #5CBDF9 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.8rem; font-weight: bold;">1</div>
+                        <h5 class="card-title" style="color: #333333; font-weight: 600;">{% trans "Adquiere tu GPSControl4U" %}</h5>
+                        <p class="card-text" style="color: #747D88;">{% trans "Cómpralo fácilmente en línea." %}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body text-center p-4">
+                        <div style="background: linear-gradient(135deg, #2EA3F2 0%, #5CBDF9 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.8rem; font-weight: bold;">2</div>
+                        <h5 class="card-title" style="color: #333333; font-weight: 600;">{% trans "Agenda tu cita" %}</h5>
+                        <p class="card-text" style="color: #747D88;">{% trans "Recibe una llamada de uno de nuestros agentes." %}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body text-center p-4">
+                        <div style="background: linear-gradient(135deg, #2EA3F2 0%, #5CBDF9 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.8rem; font-weight: bold;">3</div>
+                        <h5 class="card-title" style="color: #333333; font-weight: 600;">{% trans "Instalación a domicilio" %}</h5>
+                        <p class="card-text" style="color: #747D88;">{% trans "Elige entre horarios matutino o vespertino." %}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body text-center p-4">
+                        <div style="background: linear-gradient(135deg, #2EA3F2 0%, #5CBDF9 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.8rem; font-weight: bold;">4</div>
+                        <h5 class="card-title" style="color: #333333; font-weight: 600;">{% trans "Activa y configura" %}</h5>
+                        <p class="card-text" style="color: #747D88;">{% trans "Personaliza auto, geo-cercas y alertas." %}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body text-center p-4">
+                        <div style="background: linear-gradient(135deg, #2EA3F2 0%, #5CBDF9 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.8rem; font-weight: bold;">5</div>
+                        <h5 class="card-title" style="color: #333333; font-weight: 600;">{% trans "Agrega tu familia" %}</h5>
+                        <p class="card-text" style="color: #747D88;">{% trans "Manténganse seguros y siempre alertas." %}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body text-center p-4">
+                        <div style="background: linear-gradient(135deg, #2EA3F2 0%, #5CBDF9 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.8rem; font-weight: bold;">6</div>
+                        <h5 class="card-title" style="color: #333333; font-weight: 600;">{% trans "Central de Emergencias" %}</h5>
+                        <p class="card-text" style="color: #747D88;">{% trans "Respuesta inmediata a alertas 24/7." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- App Preview Section -->
+<div class="py-5 mb-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-5" style="color: #333333; font-size: 2.5rem; font-weight: 700;">
+            {% trans "Cómo luce tu app" %}
+        </h2>
+        <p class="text-center mb-5" style="color: #747D88; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            {% trans "Configura de forma sencilla e intuitiva el auto de cada integrante de tu familia." %}
+        </p>
+        
+        <div class="d-flex justify-content-center gap-3 flex-wrap" style="overflow-x: auto; padding: 20px 0; align-items: center;">
+            <img src="{% static 'img/01-mobile-app_B-b-c.png' %}" alt="{% trans 'App Screenshot' %}" class="img-fluid" style="height: 350px; width: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <img src="{% static 'img/02-mobile-app_B-C.png' %}" alt="{% trans 'App Screenshot' %}" class="img-fluid" style="height: 350px; width: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <img src="{% static 'img/03-mobile-app_B-D-c.png' %}" alt="{% trans 'App Screenshot' %}" class="img-fluid" style="height: 350px; width: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <img src="{% static 'img/04-mobile-app_B-E-c.png' %}" alt="{% trans 'App Screenshot' %}" class="img-fluid" style="height: 350px; width: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <img src="{% static 'img/05-mobile-app_B-F-c.png' %}" alt="{% trans 'App Screenshot' %}" class="img-fluid" style="height: 350px; width: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); flex-shrink: 0;">
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="py-5 mb-5" style="background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);">
+    <div class="container">
+        <h2 class="text-center mb-5" style="color: #333333; font-size: 2.5rem; font-weight: 700;">
+            {% trans "Lo que dicen nuestros usuarios" %}
+        </h2>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body p-4">
+                        <div style="color: #FFB800; font-size: 1.2rem; margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="card-text mb-3" style="color: #333333; font-size: 1.05rem; font-weight: 500; font-style: italic;">
+                            "{% trans 'La mejor forma de mantenerse seguro cuando salen de casa en su auto' %}"
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body p-4">
+                        <div style="color: #FFB800; font-size: 1.2rem; margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="card-text mb-3" style="color: #333333; font-size: 1.05rem; font-weight: 500; font-style: italic;">
+                            "{% trans 'No sabía que mi tranquilidad podía ser una app tan sencilla para mi familia' %}"
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body p-4">
+                        <div style="color: #FFB800; font-size: 1.2rem; margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="card-text mb-3" style="color: #333333; font-size: 1.05rem; font-weight: 500; font-style: italic;">
+                            "{% trans 'La app que me ha dado la seguridad que necesitamos mi esposo y yo' %}"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pricing Preview -->
+<div class="py-5 mb-5 bg-white">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-5 fw-bold" style="color: #333333;">{% trans "Planes de rastreo GPS flexibles" %}</h2>
+                <p class="lead text-muted">{% trans "Comienza gratis, actualiza cuando necesites más vehículos" %}</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="{% url 'accounts:pricing' %}" class="btn btn-primary btn-lg fw-600">
+                {% trans "Ver todos los planes de GPS" %} →
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Final CTA Section -->
+<div class="py-5" style="background: linear-gradient(135deg, #2EA3F2 0%, #5CBDF9 100%); color: white;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="display-4 fw-bold mb-3">{% trans "¡Protege tu vehículo y familia hoy!" %}</h2>
+            <p class="lead mb-5" style="font-size: 1.2rem;">
+                {% trans "Únete a miles de usuarios que confían en GPSControl4U para la seguridad de su familia" %}
+            </p>
+            
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                {% if not user.is_authenticated %}
+                <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg fw-600" style="color: #2EA3F2;">
+                    {% trans "Comenzar Prueba Gratuita" %}
+                </a>
+                {% else %}
+                <a href="{% url 'accounts:dashboard' %}" class="btn btn-light btn-lg fw-600" style="color: #2EA3F2;">
+                    {% trans "Ir a Mi Dashboard" %}
+                </a>
+                {% endif %}
+                <a href="https://www.facebook.com/GPScontrol4U" target="_blank" class="btn btn-outline-light btn-lg fw-600">
+                    <i class="fab fa-facebook me-2"></i>{% trans "Síguenos" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

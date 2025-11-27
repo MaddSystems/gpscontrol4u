@@ -1,0 +1,125 @@
+
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Política de Privacidad | GPSControl4U" %}{% endblock %}
+
+{% block content %}
+<div class="bg-white py-5 mb-5 rounded-3 border">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">{% trans "Política de Privacidad de GPSControl4U" %}</h1>
+        <p class="lead text-muted">{% trans "Última actualización:" %} 25 de julio de 2025</p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-10 col-md-12 mb-4">
+        <div class="card shadow-sm p-4">
+            <p><strong>MADD SYSTEMS, S.A. DE C.V.</strong> ("nosotros", "nuestro", "la empresa") se compromete a proteger su privacidad. Esta Política de Privacidad describe cómo recopilamos, usamos, almacenamos y protegemos los datos personales de los usuarios ("usted", "usuario") que utilizan nuestra plataforma <strong>GPSControl4U</strong>, compuesta por: página web, aplicación web y aplicación móvil.</p>
+            <p>Nuestra política de privacidad se aplica a todos los usuarios que accedan a nuestra plataforma <strong>GPSControl4U</strong> en cualquiera de sus modalidades. A efectos de lo que contemple la "LFPDPPP" somos responsables del tratamiento de su información.</p>
+            <p><strong>LEA ATENTAMENTE LA SIGUIENTE POLÍTICA DE PRIVACIDAD PARA OBTENER INFORMACIÓN SOBRE LAS FORMAS EN QUE SE PUEDE PROCESAR SU INFORMACIÓN PERSONAL. CUANDO UTILIZA LA APLICACIÓN, RECONOCE QUE HA LEÍDO, ENTENDIDO Y ACEPTA ESTAR SUJETO A ESTOS TÉRMINOS.</strong></p>
+            <hr>
+            <h2>1. Responsable del tratamiento de datos personales</h2>
+            <p><strong>MADD SYSTEMS, S.A. DE C.V.</strong><br>
+            Domicilio: Av. Gustavo Baz Prada 176, 3A y 4A, San Jerónimo Tepetlacalco, 54090 Tlalnepantla de Baz, México.<br>
+            Correo de contacto: <a href="mailto:gpscontrol4u@madd.com.mx">gpscontrol4u@madd.com.mx</a></p>
+            <hr>
+            <h2>2. Información que recopilamos</h2>
+            <p>Procesamos la siguiente información personal sobre usted cuando utiliza la plataforma <strong>GPSControl4U</strong>. Esta información es necesaria para la correcta ejecución de la plataforma. Sin dicha información, es imposible proporcionar una funcionalidad completa de la página web, aplicación web y aplicación móvil.</p>
+            <ul>
+                <li><strong>Al registrarse en la página web:</strong>
+                    <ul>
+                        <li>Nombre y apellidos</li>
+                        <li>Correo electrónico</li>
+                        <li>Contraseña (almacenada de forma cifrada)</li>
+                        <li>Idioma preferido</li>
+                        <li>RFC o TIN</li>
+                    </ul>
+                </li>
+                <li><strong>Al iniciar sesión en la app móvil:</strong>
+                    <ul>
+                        <li>Número de celular</li>
+                        <li>Token de Firebase (para notificaciones)</li>
+                    </ul>
+                </li>
+                <li><strong>Al utilizar la app móvil:</strong>
+                    <ul>
+                        <li>Datos capturados mediante formularios (texto, imágenes, ubicación, archivos, firmas, etc.)</li>
+                        <li>Información de ubicación (para tareas asignadas y posicionamiento constante)</li>
+                    </ul>
+                </li>
+                <li><strong>Métodos de pago:</strong>
+                    <ul>
+                        <li>No recopilamos información de pago directamente. Todos los pagos se realizan a través de terceros (Mercado Pago o Stripe). Solo almacenamos el número de verificación de la transacción para control interno.</li>
+                    </ul>
+                </li>
+            </ul>
+            <hr>
+            <h2>3. Finalidades del tratamiento</h2>
+            <p>Nuestra misión es mejorar constantemente nuestra plataforma <strong>GPSControl4U</strong> y brindarle una gran experiencia de funcionamiento. Como parte de esta misión, utilizamos sus datos personales para las siguientes finalidades:</p>
+            <ul>
+                <li>Proveer acceso a la plataforma web y móvil.</li>
+                <li>Activar y gestionar licencias de uso.</li>
+                <li>Permitir la creación, envío y administración de formularios.</li>
+                <li>Mostrar formularios prediseñados y plantillas de ejemplo.</li>
+                <li>Enviar notificaciones y tareas a través de la app móvil.</li>
+                <li>Generar archivos PDF a partir de datos recopilados.</li>
+                <li>Proporcionar soporte y atención al cliente.</li>
+            </ul>
+            <p>En caso de que surjan nuevas finalidades para el tratamiento de sus datos personales, le informaremos de que comenzamos a tratar información sobre esa otra finalidad introduciendo los cambios correspondientes en esta.</p>
+            <hr>
+            <h2>4. Transferencia de datos</h2>
+            <p><strong>No compartimos sus datos personales con terceros</strong>, salvo en los siguientes casos:</p>
+            <ul>
+                <li><strong>Correo electrónico de verificación:</strong> Se utiliza un servidor SMTP externo para enviar correos de verificación. No somos responsables del uso que dicho proveedor pueda hacer de esta información.</li>
+                <li><strong>Inicio de sesión por WhatsApp:</strong> El mensaje con el código de acceso es enviado por un proveedor externo. Tampoco somos responsables del uso que este proveedor haga de los datos.</li>
+                <li><strong>Firebase:</strong> Utilizamos Firebase para la entrega de notificaciones push. Consulte la política de privacidad de Google para más detalles.</li>
+            </ul>
+            <hr>
+            <h2>5. Conservación de los datos</h2>
+            <p>Los datos recopilados <strong>no serán eliminados automáticamente</strong>, incluso si la cuenta del usuario ha sido desactivada o no cuenta con una licencia activa, siempre y cuando el servicio de <strong>GPSControl4U</strong> siga operativo.</p>
+            <hr>
+            <h2>6. Derechos del titular de los datos (ARCO)</h2>
+            <p>Usted tiene derecho a acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales, así como a revocar el consentimiento otorgado.</p>
+            <p>Puede ejercer estos derechos enviando un correo a: [correo de privacidad] con el asunto "Solicitud ARCO" acompañado de la siguiente información:</p>
+            <ol>
+                <li>Nombre completo del titular y, en su caso, de su representante.</li>
+                <li>Dirección electrónica (e-mail) alterna para recibir notificaciones.</li>
+                <li>Anexar copia de algún documento con el que se acredite la identidad del titular de los datos personales.</li>
+                <li>La descripción clara y precisa de los datos personales materia de la solicitud de derechos ARCO.</li>
+            </ol>
+            <p><strong>Información específica:</strong> Además de los requisitos antes señalados, deberá incluir en la solicitud la siguiente información, según el caso:</p>
+            <ul>
+                <li><strong>Derecho de ACCESO:</strong> Modalidad en la que prefiere que se brinde el acceso.</li>
+                <li><strong>Derecho de RECTIFICACIÓN:</strong> Modificaciones que se solicita realizar y, en su caso, los documentos y/o pruebas necesarias para avalarlas.</li>
+                <li><strong>Derecho de CANCELACIÓN:</strong> Causas que motivan a solicitar la supresión de los datos personales.</li>
+                <li><strong>Derecho de OPOSICIÓN:</strong> Situación que lleva a solicitar que se concluya con el tratamiento de los datos personales, así como, el daño que causaría que se continuara con el mismo o indicar las finalidades específicas respecto de las cuales solicita que concluya el tratamiento.</li>
+            </ul>
+            <p>El ejercicio de los derechos ARCO no es procedente cuando:</p>
+            <ul>
+                <li>El titular de los datos personales o su representante no hayan acreditado su identidad.</li>
+                <li>Exista un ordenamiento legal que impida su ejercicio.</li>
+                <li>Lesione o afecte los derechos de otro usuario.</li>
+                <li>Pudiera obstaculizar procesos judiciales o funciones de una autoridad que los haya requerido.</li>
+                <li>Exista una resolución de autoridad competente que impida el acceso a los datos personales o no permita la rectificación, cancelación u oposición de los mismos.</li>
+                <li>La cancelación u oposición de datos personales haya sido previamente realizada.</li>
+                <li>Los datos personales sean necesarios para dar cumplimiento a obligaciones legalmente adquiridas por el titular.</li>
+            </ul>
+            <p>Su solicitud será atendida en un plazo máximo de 20 días hábiles.</p>
+            <h2>7. Seguridad de la información</h2>
+            <p>La seguridad de su información personal es muy importante para nosotros. Seguimos los estándares para proteger la información personal que se nos envía, tanto durante la transmisión como una vez que la recibimos.</p>
+            <p>Tomamos medidas razonables y apropiadas para proteger la información personal contra la pérdida, el uso indebido y el acceso no autorizado, la divulgación, la alteración y la destrucción, teniendo en cuenta los riesgos involucrados en el procesamiento y la naturaleza de la información personal.</p>
+            <p>Implementamos medidas técnicas y administrativas para proteger sus datos personales contra pérdida, uso indebido, acceso no autorizado o alteración. La contraseña se guarda de forma cifrada, y las comunicaciones entre la app y los servidores están protegidas mediante HTTPS.</p>
+            <p>Si tiene alguna pregunta sobre la seguridad de nuestra aplicación, puede ponerse en contacto con nosotros a través del correo electrónico: <a href="mailto:gpscontrol4u@madd.com.mx">gpscontrol4u@madd.com.mx</a></p>
+            <hr>
+            <h2>8. Uso de información recopilada por los usuarios</h2>
+            <p><strong>IMPORTANTE:<br>MADD SYSTEMS, S.A. DE C.V., NO se hace responsable</strong> del uso que los usuarios o clientes den a la información recopilada mediante la plataforma <strong>GPSControl4U</strong>. Nuestra responsabilidad se limita a proveer los medios para recolectar, almacenar y administrar dicha información. El tratamiento, divulgación o mal uso de los datos recopilados por nuestros clientes es responsabilidad exclusiva del cliente o usuario administrador de la cuenta.</p>
+            <h2>9. Cambios en la política de privacidad</h2>
+            <p>Esta política de privacidad se actualiza periódicamente.</p>
+            <p>Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Cualquier cambio será notificado en la página web oficial. El uso continuo de la plataforma después de los cambios implica su aceptación.</p>
+            <h2>10. Cómo Ponerse En Contacto Con Nosotros</h2>
+            <p>Si tiene alguna pregunta sobre esta Política de Privacidad, no dude en ponerse en contacto con nosotros a través del correo electrónico y el número de teléfono indicado.</p>
+            <p>Derechos de autor gpscontrol4u 2025 by <strong>MADD SYSTEMS, S.A. DE C.V.</strong></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

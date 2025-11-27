@@ -1,0 +1,32 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+  <h1>Marketplace Admin Dashboard</h1>
+  <div style="margin-bottom:2em;">
+    <strong>Total Users:</strong> {{ total_users }}<br>
+    <strong>Total Buyers:</strong> {{ total_buyers }}<br>
+    <strong>Buyers and Purchased Products:</strong>
+    <table class="table table-bordered table-striped" style="margin-top:1em;">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Products Purchased</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for email, products in buyers_products.items %}
+          <tr>
+            <td>{{ email }}</td>
+            <td>
+              {% for product in products %}
+                <div>{{ product }}</div>
+              {% endfor %}
+            </td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="2">No buyers found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <a href="{% url 'marketplace_admin:accounts_user_changelist' %}">Go to User List</a>
+{% endblock %}

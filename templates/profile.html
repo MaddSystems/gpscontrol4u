@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile" %} - Marketplace{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="h2 mb-4">
+            <i class="fas fa-user-circle text-primary"></i> {% trans "Profile Settings" %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Profile Information -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-edit text-primary"></i> {% trans "Personal Information" %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="first_name" class="form-label">{% trans "First Name" %}</label>
+                            <input type="text" class="form-control" name="first_name" 
+                                   value="{{ user.first_name }}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="last_name" class="form-label">{% trans "Last Name" %}</label>
+                            <input type="text" class="form-control" name="last_name" 
+                                   value="{{ user.last_name }}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">{% trans "Email Address" %}</label>
+                            <input type="email" class="form-control" value="{{ user.email }}" disabled>
+                            <small class="form-text text-muted">{% trans "Email cannot be changed." %}</small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="language" class="form-label">{% trans "Preferred Language" %}</label>
+                            <select class="form-control" name="language">
+                                <option value="en" {% if user.language == 'en' %}selected{% endif %}>English</option>
+                                <option value="es" {% if user.language == 'es' %}selected{% endif %}>Español</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="phone_number" class="form-label">{% trans "Phone Number" %}</label>
+                            <input type="tel" class="form-control" name="phone_number" 
+                                   value="{{ user.phone_number|default:'' }}" disabled>
+                            <small class="form-text text-muted">{% trans "Phone number verified through setup process" %}</small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="rfc_tin" class="form-label">{% trans "RFC/TIN" %}</label>
+                            <input type="text" class="form-control" name="rfc_tin" 
+                                   value="{{ user.rfc_tin|default:'' }}" disabled>
+                            <small class="form-text text-muted">{% trans "RFC/TIN provided during setup" %}</small>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="marketing_emails" 
+                                   id="marketing_emails">
+                            <label class="form-check-label" for="marketing_emails">
+                                {% trans "Receive marketing emails and product updates" %}
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> {% trans "Save Changes" %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Account Information -->
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle" style="color: #917996;"></i> {% trans "Account Information" %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <strong>{% trans "Account Type:" %}</strong>
+                    {% if user.role == 'premium' %}
+                    <span class="badge bg-warning text-dark">{% trans "Premium" %}</span>
+                    {% elif user.role == 'paid' %}
+                    <span class="badge bg-info text-white">{% trans "Paid Plan" %}</span>
+                    {% else %}
+                    <span class="badge bg-secondary">{% trans "Free" %}</span>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-3">
+                    <strong>{% trans "Member Since:" %}</strong><br>
+                    {{ user.date_joined|date:"d/m/Y" }}
+                </div>
+                
+                <div class="mb-3">
+                    <strong>{% trans "Email Verified:" %}</strong><br>
+                    {% if user.email_verified %}
+                    <span class="text-success"><i class="fas fa-check-circle"></i> {% trans "Yes" %}</span>
+                    {% else %}
+                    <span class="text-danger"><i class="fas fa-times-circle"></i> {% trans "No" %}</span>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-3">
+                    <strong>{% trans "Phone Verified:" %}</strong><br>
+                    {% if user.phone_number %}
+                    <span class="text-success"><i class="fas fa-check-circle"></i> {% trans "Yes" %}</span><br>
+                    <small class="text-muted">{{ user.phone_number }}</small>
+                    {% else %}
+                    <span class="text-danger"><i class="fas fa-times-circle"></i> {% trans "No" %}</span>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-3">
+                    <strong>{% trans "Language:" %}</strong><br>
+                    {% if user.language == 'es' %}Español{% else %}English{% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-bolt text-warning"></i> {% trans "Quick Actions" %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{% url 'accounts:dashboard' %}" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-tachometer-alt"></i> {% trans "Go to Dashboard" %}
+                    </a>
+                    <a href="https://apps.apple.com/mx/app/gpscontrol4u/id1524505384" target="_blank" class="btn btn-outline-success btn-sm">
+                        <i class="fab fa-apple"></i> {% trans "Download iOS App" %}
+                    </a>
+                    <a href="#" class="btn btn-outline-success btn-sm" onclick="return false;" title="{% trans 'Coming soon' %}">
+                        <i class="fab fa-google-play"></i> {% trans "Download Android App" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function exportData() {
+    alert('{% trans "Data export feature coming soon!" %}');
+}
+</script>
+{% endblock %}
