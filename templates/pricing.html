@@ -85,7 +85,7 @@
                             {% endif %}
                             {% endif %}
                     {% else %}
-                    <a href="{% url 'accounts:register' %}" class="btn btn-outline-primary btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;">{% trans "Get Started" %}</a>
+                    <a href="{% url 'accounts:register' %}" class="btn btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;">{% trans "Get Started" %}</a>
                     {% endif %}
                     </div>
                 </div>
@@ -128,14 +128,14 @@
                         </a>
                     {% endif %}
                 {% else %}
-                <a href="{% url 'accounts:register' %}" class="btn btn-outline-primary btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;">{% trans "Get Started" %}</a>
+                <a href="{% url 'accounts:register' %}" class="btn btn-lg w-100" style="background-color: #fff; border-color: #2EA3F2; color: #2EA3F2;">{% trans "Get Started" %}</a>
                 {% endif %}
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Premium Plan -->
+    <!-- Paid Plan -->
     <div class="col-lg-5 col-md-6 mb-4">
         <div class="card h-100 shadow-lg border-primary d-flex flex-column">
             <div class="card-header bg-primary text-white text-center">
@@ -296,10 +296,10 @@
                     {% if not user.is_authenticated %}
                     <a href="{% url 'accounts:register' %}" class="btn btn-lg" style="background-color: #2EA3F2; border-color: #2EA3F2; color: #fff;">{% trans "Start Free Trial" %}</a>
                     {% endif %}
-                    <a href="https://apps.apple.com/mx/app/gpscontrol4ue/id6744655250" target="_blank" class="btn btn-lg" style="background-color: #747D88; border-color: #747D88; color: #fff;">
+                    <a href="https://apps.apple.com/mx/app/id6755745665" target="_blank" class="btn btn-lg" style="background-color: #747D88; border-color: #747D88; color: #fff;">
                         <i class="fab fa-apple"></i> {% trans "Download App" %}
                     </a>
-                    <a href="https://play.google.com/store/apps/details?id=mx.com.madd.gpscontrol4uego" target="_blank" class="btn btn-lg" style="background-color: #747D88; border-color: #747D88; color: #fff;">
+                    <a href="https://play.google.com/store/apps/details?id=mx.com.madd.gpscontrol4uapp" target="_blank" class="btn btn-lg" style="background-color: #747D88; border-color: #747D88; color: #fff;">
                         <i class="fab fa-google-play"></i> {% trans "Google Play" %}
                     </a>
                 </div>
