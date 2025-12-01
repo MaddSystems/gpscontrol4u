@@ -300,7 +300,7 @@ LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
 
 # External API Configuration
-EXTERNAL_API_BASE_URL = config('EXTERNAL_API_BASE_URL', default='https://api2ego.elisasoftware.com')
+EXTERNAL_API_BASE_URL = config('EXTERNAL_API_BASE_URL', default='https://api2ego.elisasoftware.com.mx')
 EXTERNAL_API_USERNAME = config('EXTERNAL_API_USERNAME', default='AdmGPScontrol4u')
 EXTERNAL_API_PASSWORD = config('EXTERNAL_API_PASSWORD', default='GPSc0ntr0l4u*')
 EXTERNAL_API_STORE = config('EXTERNAL_API_STORE', default='GPScontrol4U')

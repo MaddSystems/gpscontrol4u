@@ -10,7 +10,7 @@ import urllib.parse
 from datetime import datetime
 
 # Configuration
-BASE_URL = "https://api2ego.elisasoftware.com"
+BASE_URL = "https://api2ego.elisasoftware.com.mx"
 APPLICATION = "GPScontrol4U"
 KEYCODE = "25360C4R105"
 TOKEN = "No token"  # As per the example

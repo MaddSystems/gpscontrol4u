@@ -10,7 +10,7 @@ import sys
 from datetime import datetime
 
 # Configuration
-BASE_URL = "https://api2ego.elisasoftware.com"
+BASE_URL = "https://api2ego.elisasoftware.com.mx"
 USERNAME = "AdmGPScontrol4u"
 PASSWORD = "GPSc0ntr0l4u*"
 STORE = "GPScontrol4U"

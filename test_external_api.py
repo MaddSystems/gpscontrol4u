@@ -26,7 +26,7 @@ api_service = ExternalAPIService()
 
 print("\n[1] Testing Authentication...")
 print("-" * 80)
-auth_url = "https://api2ego.elisasoftware.com/login"
+auth_url = "https://api2ego.elisasoftware.com.mx/login"
 auth_data = {
     "username": api_service.username,
     "password": api_service.password
@@ -48,7 +48,7 @@ try:
             
             print("\n[2] Testing Get Plans Endpoint...")
             print("-" * 80)
-            plans_url = "https://api2ego.elisasoftware.com/store/plans"
+            plans_url = "https://api2ego.elisasoftware.com.mx/store/plans"
             plans_params = {"store": api_service.store}
             plans_headers = {
                 "Authorization": token,

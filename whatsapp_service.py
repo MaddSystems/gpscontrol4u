@@ -17,7 +17,7 @@ class WhatsAppPhoneVerificationService:
     """Service to handle WhatsApp phone verification"""
     
     def __init__(self):
-        self.base_url = getattr(settings, 'EXTERNAL_API_BASE_URL', 'https://api2ego.elisasoftware.com')
+        self.base_url = getattr(settings, 'EXTERNAL_API_BASE_URL', 'https://api2ego.elisasoftware.com.mx')
         self.application = getattr(settings, 'EXTERNAL_API_STORE', 'GPScontrol4U')
         self.keycode = getattr(settings, 'WHATSAPP_KEYCODE', '25360C4R105')
         self.token = getattr(settings, 'WHATSAPP_TOKEN', 'No token')

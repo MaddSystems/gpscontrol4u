@@ -14,7 +14,7 @@ class ExternalAPIService:
     """Service class for interacting with the external DataCollect API"""
     
     def __init__(self):
-        self.base_url = getattr(settings, 'EXTERNAL_API_BASE_URL', 'https://api2ego.elisasoftware.com')
+        self.base_url = getattr(settings, 'EXTERNAL_API_BASE_URL', 'https://api2ego.elisasoftware.com.mx')
         self.username = getattr(settings, 'EXTERNAL_API_USERNAME', 'AdmGPScontrol4u')
         self.password = getattr(settings, 'EXTERNAL_API_PASSWORD', 'GPSc0ntr0l4u*')
         self.store = getattr(settings, 'EXTERNAL_API_STORE', 'GPScontrol4U')
